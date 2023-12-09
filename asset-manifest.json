@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/fe-aug23-team3/product_catalog/static/js/main.ca25911f.js",
-    "index.html": "/fe-aug23-team3/product_catalog/index.html",
-    "main.ca25911f.js.map": "/fe-aug23-team3/product_catalog/static/js/main.ca25911f.js.map"
+    "main.js": "/product_catalog/static/js/main.ca25911f.js",
+    "index.html": "/product_catalog/index.html",
+    "main.ca25911f.js.map": "/product_catalog/static/js/main.ca25911f.js.map"
   },
   "entrypoints": [
     "static/js/main.ca25911f.js"
