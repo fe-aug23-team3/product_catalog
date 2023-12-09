@@ -8,6 +8,7 @@
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
     "axios": "^1.6.2",
+    "classnames": "^2.3.2",
     "eslint-plugin-prettier": "^5.0.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",
@@ -25,8 +26,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --cache .",
-    "format": "prettier --write ."
+    "lint": "eslint . --ignore-path .gitignore --fix",
+    "format": "prettier . --ignore-path .gitignore --write",
+    "fix-style": "npm run format & npm run lint",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,11 +39,14 @@
     "not IE 11"
   ],
   "devDependencies": {
+    "@mate-academy/eslint-config-react-typescript": "^1.0.13",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@types/react-redux": "^7.1.32",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.0",
     "typescript": "^5.3.3"
   },
   "homepage": ".",
