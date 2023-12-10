@@ -77,13 +77,17 @@ npm run format
 
 ## 🧪 format + test
 
+This command will be automatically run before each commit
+
 ```
 npm run fix-style
 ```
 
 <br />
 
+​## ⚡️⚡️ WARNING
 ​
+Please, do not run any scripts other than the ones mentioned above.
 
 # ⚡️ Project structure (in process) <br />
 
