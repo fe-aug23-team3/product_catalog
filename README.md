@@ -1,116 +1,158 @@
-<h1 align="center">Nice Gadgets 👌</h1>
-​
+<h1 align="center">New gadgets⚡️⚡️⚡️</h1>
+
 <br />
-​
-To get started, you need to clone the repository locally and run the next command:
-​
-```
-npm install
-```
-​
-We constantly work in this repository, you don't need to clone it every time, you only need to clone it for the first time
-​
-Group work on the project is carried out in separate branches, which should be called the name of your task
-​
-Before you start working on your task, you <b>must pull the current version</b> of the repository and MUST create your own branch IMMEDIATELY:
-​
-```
-git pull
-git checkout -b "<name of the branch according to your task>"
-```
-​
-After you finish working on the task, you should add all the changed files, commit them, push them to YOUR CREATED BRANCH, and make Pull Requests
-​
-```
-git add
-git commit -m "<name of the commit>"
-git push origin "<name of your branch>"
-```
-​
-Please make commits for each fully completed part of the task and name them properly
-​
+
+# 🚀 How to work with this project:
+
+1. Clone this project to your computer:
+   ```
+   git clone url
+   ```
+2. Install all scripts:
+
+   ```
+   npm i
+   ```
+
+   if you have <b>already cloned</b> this project, you just do this command:
+
+   ```
+   git pull
+   ```
+
+3. Create a branch for your task:
+   ```
+   `git checkout -b “Name of your task”`
+   ```
+4. Start project locally:
+   ```
+   npm start
+   ```
+5. When you did your task:
+   ```
+   git add .
+   ```
+6. Commit it:
+   ```
+   git commit -m “what have u done”
+   ```
+7. Push it in remote repo:
+   ```
+   git push -u origin name_of_your_branch
+   ```
+8. Create <b>Pull Request</b> on GitHub
+
 <br />
-​
-# �� Available Scripts
-​
+
 In the project directory, you can run:
-​
+
 <br />
-​
+
 ## ⚡️ start
-​
+
 ```
 npm start
 ```
-​
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-​
+
 <br />
-​
-## �� lint
-​
+
+## 🧶 lint
+
 ```
 npm run lint
 ```
-​
+
 <br />
-​
-## �� format
-​
+
+## 🎯 format
+
 ```
 npm run format
 ```
-​
+
 <br />
-​
-## �� format + test
-​
+
+## 🧪 format + test
+
 ```
 npm run fix-style
 ```
-​
-This command will be automatically run before each commit
-​
+
 <br />
+
 ​
-## �� WARNING
+
+# ⚡️ Project structure (in process) <br />
+
 ​
-Please, do not run any scripts other than the ones mentioned above.
-​
-<br />
-​
-# �� Project structure (in process)
-​
+
 This is the structure of the files in the project:
-​
+
 ```sh
     │
     ├── public                  # public files (favicon, .htaccess, manifest, ...)
     ├── src                     # source files
-    │   ├── api
-    │   ├── fonts
-    │   ├── modules             # Pages, shared components constants and other resources
-    │   │   ├── Pages
-    │   │   └── shared
-    │   ├── store               # Redux store
-    │   │   └── globalContext        # store's context
+    │   ├── modules
+    │   │   ├── pages           # pages
+    │   ├── store               # Context store
     │   ├── scssStyles
     │   ├── types               # data interfaces
-    │   ├── utils               # utilities functions
-    │   ├── App.scss
+    │   ├── utils               # utilities functions and custom components
     │   ├── App.tsx
     │   ├── index.tsx
     │   ├── react-app-env.d.ts
-    │   └── Root.tsx            # React component with all the routes
-    ├── .editorconfig
+    │   ├── Root.tsx           # React component with all the routes
     ├── .eslintrc.js
     ├── .gitignore
     ├── .prettierrc
-    ├── package-lock.json
     ├── package.json
     ├── README.md
     └── tsconfig.json
 ```
-​
+
 <p align="center">The description will be supplemented</p>
+
+# 🧬 Project structure
+
+This is the structure of the files in the project:
+
+```sh
+    │
+    ├── public                  # public files (favicon, .htaccess, manifest, ...)
+    ├── src                     # source files
+    │   ├── components
+    │   ├── pages
+    │   ├── resources           # images, constants and other static resources
+    │   ├── store               # Redux store
+    │   │   ├── actions         # store's actions
+    │   │   └── reducers        # store's reducers
+    │   ├── styles
+    │   ├── tests               # all test files
+    │   ├── types               # data interfaces
+    │   ├── utility             # utilities functions and custom components
+    │   ├── App.tsx
+    │   ├── index.tsx
+    │   ├── react-app-env.d.ts
+    │   ├── RootComponent.tsx   # React component with all the routes
+    │   ├── serviceWorker.ts
+    │   └── setupTests.ts
+    ├── .eslintrc.js
+    ├── .gitignore
+    ├── .prettierrc
+    ├── package.json
+    ├── README.md
+    └── tsconfig.json
+```
+
+# 📖 Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+#
+
+<p align="center">Bootstrapped with Create React App.</p>
