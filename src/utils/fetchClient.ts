@@ -7,5 +7,4 @@ const requests = {
   get: (pathname: string) => axious.get(`${BASE_URL}${pathname}`),
 };
 
-export const getNewestPhones = () => requests.get('/HERE_will_be_url');
-// here will be 5 or 6 get requests func.
+export const gePhones = () => requests.get('/HERE_will_be_url');

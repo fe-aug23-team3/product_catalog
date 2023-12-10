@@ -1,140 +1,116 @@
-<h1 align="center">New React App</h1>
-
+<h1 align="center">Nice Gadgets 👌</h1>
+​
 <br />
-
-This is a blank README file that you can customize at your needs.\
-Describe your project, how it works and how to contribute to it.
-
+​
+To get started, you need to clone the repository locally and run the next command:
+​
+```
+npm install
+```
+​
+We constantly work in this repository, you don't need to clone it every time, you only need to clone it for the first time
+​
+Group work on the project is carried out in separate branches, which should be called the name of your task
+​
+Before you start working on your task, you <b>must pull the current version</b> of the repository and MUST create your own branch IMMEDIATELY:
+​
+```
+git pull
+git checkout -b "<name of the branch according to your task>"
+```
+​
+After you finish working on the task, you should add all the changed files, commit them, push them to YOUR CREATED BRANCH, and make Pull Requests
+​
+```
+git add
+git commit -m "<name of the commit>"
+git push origin "<name of your branch>"
+```
+​
+Please make commits for each fully completed part of the task and name them properly
+​
 <br />
-
-# 🚀 Available Scripts
-
+​
+# �� Available Scripts
+​
 In the project directory, you can run:
-
+​
 <br />
-
+​
 ## ⚡️ start
-
+​
 ```
 npm start
 ```
-
-or
-
-```
-yarn start
-```
-
+​
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
+​
 <br />
-
-## 🧪 test
-
+​
+## �� lint
+​
 ```
-npm test
+npm run lint
 ```
-
-or
-
-```
-yarn test
-```
-
-Launches the test runner in the interactive watch mode.
-
+​
 <br />
-
-## 🦾 build
-
+​
+## �� format
+​
 ```
-npm build
+npm run format
 ```
-
-or
-
-```
-yarn build
-```
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
-
+​
 <br />
-
-## 🧶 lint
-
+​
+## �� format + test
+​
 ```
-npm lint
+npm run fix-style
 ```
-
-or
-
-```
-yarn lint
-```
-
-Creates a `.eslintcache` file in which ESLint cache is stored. Running this command can dramatically improve ESLint's running time by ensuring that only changed files are linted.
-
+​
+This command will be automatically run before each commit
+​
 <br />
-
-## 🎯 format
-
-```
-npm format
-```
-
-or
-
-```
-yarn format
-```
-
-Checks if your files are formatted. This command will output a human-friendly message and a list of unformatted files, if any.
-
+​
+## �� WARNING
+​
+Please, do not run any scripts other than the ones mentioned above.
+​
 <br />
-
-# 🧬 Project structure
-
+​
+# �� Project structure (in process)
+​
 This is the structure of the files in the project:
-
+​
 ```sh
     │
     ├── public                  # public files (favicon, .htaccess, manifest, ...)
     ├── src                     # source files
-    │   ├── components
-    │   ├── pages
-    │   ├── resources           # images, constants and other static resources
+    │   ├── api
+    │   ├── fonts
+    │   ├── modules             # Pages, shared components constants and other resources
+    │   │   ├── Pages
+    │   │   └── shared
     │   ├── store               # Redux store
-    │   │   ├── actions         # store's actions
-    │   │   └── reducers        # store's reducers
-    │   ├── styles
-    │   ├── tests               # all test files
+    │   │   └── globalContext        # store's context
+    │   ├── scssStyles
     │   ├── types               # data interfaces
-    │   ├── utility             # utilities functions and custom components
+    │   ├── utils               # utilities functions
+    │   ├── App.scss
     │   ├── App.tsx
     │   ├── index.tsx
     │   ├── react-app-env.d.ts
-    │   ├── RootComponent.tsx   # React component with all the routes
-    │   ├── serviceWorker.ts
-    │   └── setupTests.ts
+    │   └── Root.tsx            # React component with all the routes
+    ├── .editorconfig
     ├── .eslintrc.js
     ├── .gitignore
     ├── .prettierrc
+    ├── package-lock.json
     ├── package.json
     ├── README.md
     └── tsconfig.json
 ```
-
-# 📖 Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-#
-
-<p align="center">Bootstrapped with Create React App.</p>
+​
+<p align="center">The description will be supplemented</p>

@@ -1,5 +1,6 @@
 import React from 'react';
+import './CartPage.module.scss';
 
-export const CardPage: React.FC = () => {
-  return <h1>Hello CardPage</h1>;
+export const CartPage: React.FC = () => {
+  return <h1>Hello it is CardPage</h1>;
 };
