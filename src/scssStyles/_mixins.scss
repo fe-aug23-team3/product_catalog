@@ -1,11 +1,16 @@
-@mixin onTablet {
-  @media (min-width: 640px) {
-    @content;
-  }
-}
+$columns--tablet: 12;
+$columns--desktop: 24;
+$column--gap: 16px;
+$column--size: 1fr;
 
 @mixin onDesktop {
-  @media (min-width: 1200px) {
-    @content;
-  }
+  display: grid;
+  grid-template-columns: repeat($columns--desktop, $column--size);
+  gap: $column--gap;
+}
+
+@mixin onTablet {
+  display: grid;
+  grid-template-columns: repeat($columns--tablet, $column--size);
+  gap: $column--gap;
 }
