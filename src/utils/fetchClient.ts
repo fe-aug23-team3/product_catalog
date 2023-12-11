@@ -7,4 +7,4 @@ const requests = {
   get: (pathname: string) => axious.get(`${BASE_URL}${pathname}`),
 };
 
-export const gePhones = () => requests.get('/HERE_will_be_url');
+export const getPhones = () => requests.get('/HERE_will_be_url');

@@ -1,6 +1,6 @@
 import React from 'react';
-import './Header_module.scss';
+import header from './Header.module.scss';
 
 export const Header: React.FC = () => {
-  return <h1>Hello i am header</h1>;
+  return <h1 className={header.hello__item}>Hello i am header</h1>;
 };
