@@ -1,4 +1,4 @@
-@use '../../../scssStyles/colors';
+@use "../../../scssStyles/colors";
 
 @mixin onTablet {
   @media (min-width: 640px) {
@@ -43,31 +43,32 @@
     height: 40px;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     align-items: center;
     border-radius: 8px;
     margin-bottom: 4px;
+    border: 1px solid colors.$icons-color;
     padding: 0 12px;
-    border: 1px solid colors.$primary-color;
     transition: border-color 0.3s;
 
     &__item {
       width: 100%;
-
+      box-sizing: border-box;
       padding: 4px 0;
-
-      border: 1px solid colors.$primary-color;
-      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
-
       background-color: colors.$white-color;
+      border-radius: 8px;
 
       &--hidden {
         display: none;
+      }
+      &:hover {
+        border: 1px solid colors.$secondary-color;
       }
     }
 
     @include onDesktop {
       &:hover {
-        border-color: colors.$primary-color;
+        border-color: colors.$secondary-color;
       }
     }
 
@@ -79,7 +80,9 @@
   &__list {
     position: absolute;
     width: 100%;
-    top: 100%;
+    top: 103%;
+    outline: 1px solid colors.$icons-color;
+    border-radius: 8px;
     &--active {
       visibility: hidden;
     }
@@ -92,18 +95,16 @@
 
     font-size: 12px;
     text-align: left;
+    border-radius: 8px;
 
-    color: colors.$elements-color;
+    color: colors.$secondary-color;
 
     @include onTablet {
       font-size: 14px;
     }
 
-    &:hover,
-    &:active,
-    &--active {
+    &:hover {
       color: colors.$primary-color;
-      background-color: colors.$primary-color;
     }
 
     &--active {

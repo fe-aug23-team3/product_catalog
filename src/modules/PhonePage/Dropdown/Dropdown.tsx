@@ -7,14 +7,13 @@ import styles from './Dropdown.module.scss';
 
 type Props = {
   title: string;
+  list: string[];
 };
 
-export const Dropdown: React.FC<Props> = ({ title }) => {
+export const Dropdown: React.FC<Props> = ({ title, list }) => {
   // eslint-disable-next-line object-curly-newline
   const { isOpened, setIsOpened, current, setCurrent } =
     useContext(PhonesContext);
-
-  const list = ['Newest', 'Oldest', 'Cheapest'];
 
   const handlerForButton = () => {
     setIsOpened((prev: boolean) => !prev);
