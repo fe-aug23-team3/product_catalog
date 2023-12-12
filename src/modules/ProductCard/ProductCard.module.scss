@@ -10,7 +10,7 @@
   border: 1px solid $elements-color;
   border-radius: 8px;
   color: $primary-color;
-  
+
   min-width: 212px;
   max-width: 287px;
   @include onTablet {
@@ -22,9 +22,8 @@
   }
 
   &:hover {
-    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.10);
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
   }
-
 
   &__preview {
     display: block;
@@ -41,7 +40,7 @@
   &__price {
     display: flex;
     gap: 8px;
-    
+
     font-weight: 800;
     font-size: 32px;
     line-height: 41px;
@@ -64,11 +63,10 @@
     padding: 8px 0;
     display: grid;
     gap: 8px;
-    
+
     line-height: normal;
   }
 
-  
   &__characteristic {
     display: flex;
     justify-content: space-between;

@@ -1,6 +1,6 @@
-@import "../../scssStyles/typography";
-@import "../../scssStyles/colors";
-@import "../../scssStyles/reset";
+@import '../../scssStyles/typography';
+@import '../../scssStyles/colors';
+@import '../../scssStyles/reset';
 
 .Button {
   display: flex;
@@ -23,7 +23,7 @@
   transition-duration: 0.5s;
 
   &:hover {
-    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.40);
+    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
     transition-duration: 0.5s;
   }
 
