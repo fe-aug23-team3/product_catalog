@@ -7,9 +7,9 @@ import './App.module.scss';
 export const App: React.FC = () => {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

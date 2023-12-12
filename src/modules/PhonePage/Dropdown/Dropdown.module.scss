@@ -1,0 +1,114 @@
+@use "../../../scssStyles/colors";
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+.dropdown {
+  position: relative;
+  width: 136px;
+
+  @include onTablet {
+    width: 187px;
+  }
+
+  &__title {
+    color: colors.$secondary-color;
+    size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+  }
+
+  &__current {
+    color: colors.$primary-color;
+    size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    &--active {
+      border-color: colors.$primary-color;
+    }
+  }
+
+  &__selected {
+    width: 100%;
+    position: relative;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    border: 1px solid colors.$icons-color;
+    padding: 0 12px;
+    transition: border-color 0.3s;
+
+    &__item {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 4px 0;
+      background-color: colors.$white-color;
+      border-radius: 8px;
+
+      &--hidden {
+        display: none;
+      }
+      &:hover {
+        border: 1px solid colors.$secondary-color;
+      }
+    }
+
+    @include onDesktop {
+      &:hover {
+        border-color: colors.$secondary-color;
+      }
+    }
+
+    &--active {
+      border-color: colors.$secondary-color;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    width: 100%;
+    top: 103%;
+    outline: 1px solid colors.$icons-color;
+    border-radius: 8px;
+    &--active {
+      visibility: hidden;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    padding: 6px 12px;
+
+    font-size: 12px;
+    text-align: left;
+    border-radius: 8px;
+
+    color: colors.$secondary-color;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: colors.$primary-color;
+    }
+
+    &--active {
+      pointer-events: none;
+    }
+  }
+}

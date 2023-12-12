@@ -1,11 +1,17 @@
-import React from 'react';
-import styles from './HomePage.module.scss';
-import { BrandNewModels } from './BrandNewModels';
+import React, { useEffect, useState } from 'react';
+import { getPhones } from '../../utils/fetchClient';
 
 export const HomePage: React.FC = () => {
+  const [data, setData] = useState<any>([]);
+
+  useEffect(() => {
+    getPhones().then((res) => setData(res.data));
+  }, []);
+
   return (
-    <div className={styles.home__page}>
-      <BrandNewModels />
-    </div>
+    <>
+      <h1>hi there</h1>
+      {/* {data.length > 0 && <img src={`${data[0].image}`} alt="" />} */}
+    </>
   );
 };

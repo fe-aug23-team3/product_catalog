@@ -7,13 +7,16 @@ export const initialValue: any = {
 export const PhonesContext = React.createContext(initialValue);
 
 export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
-  const [s, setS] = useState([]);
+  const [isOpened, setIsOpened] = useState(false);
+  const [current, setCurrent] = useState('Newest');
 
   return (
     <PhonesContext.Provider
       value={{
-        s,
-        setS,
+        isOpened,
+        setIsOpened,
+        current,
+        setCurrent,
       }}
     >
       {children}
