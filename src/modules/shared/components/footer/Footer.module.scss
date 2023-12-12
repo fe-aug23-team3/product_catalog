@@ -1,0 +1,101 @@
+@import '../../../../scssStyles/colors';
+@import '../../../../scssStyles/mixins';
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  padding: 32px 16px;
+  justify-content: space-between;
+  gap: 32px;
+
+  @include onTablet{
+    display: flex;
+    flex-direction: row;
+    padding: 32px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include onDesktop{
+    display: flex;
+    flex-direction: row;
+    padding: 32px 152px;
+  };
+
+  &_links{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 200px;
+    }
+
+    @include onDesktop{
+      width: 380px;
+    }
+  }
+
+  &_toTop{
+     display: flex;
+     justify-content: center;
+  }
+
+  &_link{
+    display: flex;
+    text-decoration: none;
+    text-transform: uppercase;
+    color:$secondary-color;
+    font-family: Mont;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+  }
+
+  &_upLink{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    text-decoration: none;
+    color:$secondary-color;
+
+    font-family: Mont;
+    font-weight: 700;
+  }
+}
+
+.logo {
+  width: 89px;
+  height: 32px;
+}
+
+.button {
+  display: inline-block;
+  margin-left: 16px;
+  border-radius: 50%;
+  border: 1px $icons-color solid ;
+  width: 32px;
+  height: 32px;
+
+  &:hover{
+    border: 1px $primary-color solid ;
+  }
+}
+
+.iconUp {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  left: 8px;
+  top:8px;
+  
+  path {
+    fill: $primary-color;
+  }
+
+}
