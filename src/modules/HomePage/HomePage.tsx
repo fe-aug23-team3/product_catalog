@@ -1,6 +1,11 @@
 import React from 'react';
-import './HomePage.module.scss';
+import styles from './HomePage.module.scss';
+import { BrandNewModels } from './BrandNewModels';
 
 export const HomePage: React.FC = () => {
-  return <h1>Hello it is a HomePage!</h1>;
+  return (
+    <div className={styles.home__page}>
+      <BrandNewModels />
+    </div>
+  );
 };
