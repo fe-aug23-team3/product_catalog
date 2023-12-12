@@ -1,4 +1,3 @@
-@import '../../../scssStyles/mixins';
 @import '../../../scssStyles/colors';
 
 $font-family-main: 'Mont';
@@ -9,6 +8,20 @@ $grid-columns-tablet-desktop: repeat(3, 1fr);
 $photo-height-mobile: 288px;
 $photo-height-tablet: 187px;
 $photo-height-desktop: 368px;
+$tablet-min-width: 576px;
+$desktop-min-width: 1200px;
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
 
 a {
   text-decoration: none;

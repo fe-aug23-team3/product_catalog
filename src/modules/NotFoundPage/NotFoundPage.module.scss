@@ -1,0 +1,113 @@
+@import '../../scssStyles/colors';
+
+$font-family-main: 'Mont';
+$font-weight-semibold: 600;
+$max-width-large: 512px;
+$max-width-xl: 1280px;
+$primary-button-width: 30%;
+$primary-button-height: 40px;
+$border-radius: 8px;
+$font-size-large: 50px;
+$font-size-xl: 60px;
+$media-breakpoint-md: 768px;
+$media-breakpoint-sm: 640px;
+$button-padding: 8px 16px;
+$margin-top-button: 20px;
+$transition-duration: 0.15s;
+$transition-style: ease-in-out;
+$button-hover-bg-color: #4c51bf;
+$button-active-bg-color: #434190;
+$secondary-color: #718096;
+$primary-text-color: #2d3748;
+$button-border-color: #e2e8f0;
+$button-text-color: #fff;
+
+.text {
+  font-family: $font-family-main;
+}
+
+.max-w-screen-xl {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 80vh;
+
+  @media (min-width: $media-breakpoint-md) {
+    padding: 32px;
+  }
+}
+
+.max-w-lg {
+  max-width: $max-width-large;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@keyframes blink {
+  0%,
+  80% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.text-indigo-600 {
+  color: $accent-color;
+  font-size: $font-size-large;
+  animation: blink 2s linear infinite;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.text-gray-800 {
+  color: $primary-text-color;
+}
+
+.text-4xl {
+  font-size: $font-size-large;
+
+  @media (min-width: $media-breakpoint-sm) {
+    font-size: $font-size-xl;
+  }
+}
+
+.text-gray-600 {
+  color: $secondary-color;
+}
+
+.button {
+  display: inline-block;
+  margin-top: $margin-top-button;
+  font-weight: $font-weight-semibold;
+  font-family: $font-family-main;
+  border-radius: $border-radius;
+  transition:
+    background-color $transition-duration $transition-style,
+    border-color $transition-duration $transition-style;
+  cursor: pointer;
+
+  &--primary {
+    color: $button-text-color;
+    height: $primary-button-height;
+    width: $primary-button-width;
+    border: 1px solid $button-border-color;
+    background-color: $accent-color;
+    &:hover {
+      background-color: $button-hover-bg-color;
+    }
+    &:active {
+      background-color: $button-active-bg-color;
+    }
+  }
+}
+
+.rounded-lg {
+  border-radius: $border-radius;
+}

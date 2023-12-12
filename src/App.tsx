@@ -8,8 +8,8 @@ export const App: React.FC = () => {
   return (
     <>
       <Header />
-      {/* <Outlet />
-      <Footer /> */}
+      <Outlet />
+      <Footer />
     </>
   );
 };
