@@ -1,11 +1,41 @@
-@mixin onTablet {
-  @media (min-width: 640px) {
+$columns--mobile: 4;
+$columns--tablet: 12;
+$columns--desktop: 24;
+$column--gap: 16px;
+$column--size: 1fr;
+
+@mixin onDesktopGrid {
+  display: grid;
+  grid-template-columns: repeat($columns--desktop, $column--size);
+  gap: $column--gap;
+}
+
+@mixin onTabletGrid {
+  display: grid;
+  grid-template-columns: repeat($columns--tablet, $column--size);
+  gap: $column--gap;
+}
+
+@mixin onMobileGrid {
+  display: grid;
+  grid-template-columns: repeat($columns--mobile, $column--size);
+  gap: $column--gap;
+}
+
+@mixin onDesktop {
+  @media (max-width: 1199px) {
     @content;
   }
 }
 
-@mixin onDesktop {
-  @media (min-width: 1200px) {
+@mixin onTablet {
+  @media (max-width: 639px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: 319px) {
     @content;
   }
 }
