@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import cn from 'classnames';
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
 import logo from '../../icons/logo.svg';
 
@@ -16,7 +17,7 @@ export const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <img className={styles.logo} src={logo} alt="logo" />
-      <nav className={`${styles.navbar}`}>
+      <nav className={styles.navbar}>
         <ul
           className={cn({
             [styles.navlist]: !isMenuActive,
@@ -24,29 +25,29 @@ export const Header: React.FC = () => {
           })}
         >
           <li className={styles.navlist__item}>
-            <a className={styles.link} href="/home">
+            <NavLink className={styles.link} to="/home">
               Home
-            </a>
+            </NavLink>
           </li>
           <li className={styles.navlist__item}>
-            <a className={styles.link} href="/phones">
+            <NavLink className={styles.link} to="/phones">
               Phones
-            </a>
+            </NavLink>
           </li>
           <li className={styles.navlist__item}>
-            <a className={styles.link} href="/tablets">
+            <NavLink className={styles.link} to="/tablets">
               Tablets
-            </a>
+            </NavLink>
           </li>
           <li className={styles.navlist__item}>
-            <a className={styles.link} href="/accessories">
+            <NavLink className={styles.link} to="/accessories">
               Accessories
-            </a>
+            </NavLink>
           </li>
           {isMenuActive && (
             <div className={styles.buttons}>
-              <a href="/favorites" className={styles.buttons__favorites} />
-              <a href="/cart" className={styles.buttons__cart} />
+              <NavLink to="/favorites" className={styles.buttons__favorites} />
+              <NavLink to="/cart" className={styles.buttons__cart} />
             </div>
           )}
         </ul>
@@ -54,18 +55,18 @@ export const Header: React.FC = () => {
       <div className={styles.control}>
         {/* CHANGE THE THEME BUTTON
         <button className=${styles.control__theme}></button> */}
-        <a href="/favorites" className={styles.control__favorites} />
-        <a href="/cart" className={styles.control__cart} />
+        <NavLink to="/favorites" className={styles.control__favorites} />
+        <NavLink to="/cart" className={styles.control__cart} />
         {!isMenuActive && (
-          <a
-            href="/"
+          <NavLink
+            to="/"
             className={styles.control__menu}
             onClick={handleMenuOpen}
           />
         )}
         {isMenuActive && (
-          <a
-            href="/"
+          <NavLink
+            to="/"
             className={styles.control__cross}
             onClick={handleMenuOpen}
           />
