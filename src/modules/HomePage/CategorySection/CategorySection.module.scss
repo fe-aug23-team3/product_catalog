@@ -1,0 +1,95 @@
+@import '../../../scssStyles/mixins';
+@import '../../../scssStyles/colors';
+
+$font-family-main: 'Mont';
+$font-weight-bold: 800;
+$font-size-tablet-desktop: 32px;
+$grid-columns-mobile: repeat(1, 1fr);
+$grid-columns-tablet-desktop: repeat(3, 1fr);
+$photo-height-mobile: 288px;
+$photo-height-tablet: 187px;
+$photo-height-desktop: 368px;
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.category {
+  &__container {
+    max-width: 288px;
+    margin: 0 auto;
+    margin-bottom: 4px;
+
+    @include onTablet {
+      max-width: 592px;
+      margin-bottom: 12px;
+    }
+
+    @include onDesktop {
+      max-width: 1136px;
+      margin-bottom: 29px;
+    }
+  }
+
+  &__title {
+    font-family: $font-family-main;
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+    text-align: start;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      font-size: $font-size-tablet-desktop;
+    }
+    @include onDesktop {
+      font-size: $font-size-tablet-desktop;
+    }
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: $grid-columns-mobile;
+    justify-items: center;
+    align-items: start;
+
+    @include onTablet {
+      grid-template-columns: $grid-columns-tablet-desktop;
+    }
+
+    @include onDesktop {
+      grid-template-columns: $grid-columns-tablet-desktop;
+    }
+  }
+
+  .product {
+    &__photo {
+      border-radius: 8px;
+      margin-bottom: 24px;
+      width: 100%;
+      height: $photo-height-mobile;
+      transition: transform 0.4s ease;
+
+      @include onTablet {
+        height: $photo-height-tablet;
+      }
+
+      @include onDesktop {
+        height: $photo-height-desktop;
+      }
+
+      &:hover {
+        transform: scale(1.04);
+      }
+    }
+
+    &__category {
+      margin-bottom: 31px;
+      font-family: 'Mont';
+      font-size: 14px;
+      color: $secondary-color;
+      line-height: 21px;
+      text-align: left;
+    }
+  }
+}
