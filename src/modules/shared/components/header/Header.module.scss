@@ -1,4 +1,5 @@
 @import '../../../../scssStyles/colors';
+@import '../../../../scssStyles/_sizes';
 @import '../../../../scssStyles/mixins';
 
 .header {
@@ -24,8 +25,8 @@
   &__cross {
     display: none;
     @media (max-width: 639px) {
-      width: 16px;
-      height: 16px;
+      width: $icon--width;
+      height: $icon--height;
       position: absolute;
       top: 0;
       right: 0;
@@ -96,8 +97,8 @@
     background-position: center;
     background-repeat: no-repeat;
     padding: 24px;
-    width: 16px;
-    height: 16px;
+    width: $icon--width;
+    height: $icon--height;
 
     &::before {
       position: absolute;
@@ -112,7 +113,7 @@
 }
 
 .navbar {
-  @include onDesktop;
+  @include onDesktopGrid;
 
   @media (max-width: 1199px) {
     grid-template-columns: repeat(3, 1fr);
