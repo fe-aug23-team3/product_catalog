@@ -1,7 +1,6 @@
 @import '../../../../scssStyles/colors';
 @import '../../../../scssStyles/mixins';
 
-
 .footer {
   display: flex;
   flex-direction: column;
@@ -10,7 +9,7 @@
   justify-content: space-between;
   gap: 32px;
 
-  @include onTablet{
+  @include onTablet {
     display: flex;
     flex-direction: row;
     padding: 32px;
@@ -18,51 +17,51 @@
     justify-content: space-between;
   }
 
-  @include onDesktop{
+  @include onDesktop {
     display: flex;
     flex-direction: row;
     padding: 32px 152px;
-  };
+  }
 
-  &_links{
+  &_links {
     display: flex;
     flex-direction: column;
     gap: 16px;
 
-    @include onTablet{
+    @include onTablet {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       width: 200px;
     }
 
-    @include onDesktop{
+    @include onDesktop {
       width: 380px;
     }
   }
 
-  &_toTop{
-     display: flex;
-     justify-content: center;
+  &_toTop {
+    display: flex;
+    justify-content: center;
   }
 
-  &_link{
+  &_link {
     display: flex;
     text-decoration: none;
     text-transform: uppercase;
-    color:$secondary-color;
+    color: $secondary-color;
     font-family: Mont;
     font-size: 12px;
     font-style: normal;
     font-weight: 800;
   }
 
-  &_upLink{
+  &_upLink {
     display: flex;
     align-items: center;
     font-size: 12px;
     text-decoration: none;
-    color:$secondary-color;
+    color: $secondary-color;
 
     font-family: Mont;
     font-weight: 700;
@@ -78,12 +77,12 @@
   display: inline-block;
   margin-left: 16px;
   border-radius: 50%;
-  border: 1px $icons-color solid ;
+  border: 1px $icons-color solid;
   width: 32px;
   height: 32px;
 
-  &:hover{
-    border: 1px $primary-color solid ;
+  &:hover {
+    border: 1px $primary-color solid;
   }
 }
 
@@ -92,10 +91,9 @@
   width: 16px;
   height: 16px;
   left: 8px;
-  top:8px;
-  
+  top: 8px;
+
   path {
     fill: $primary-color;
   }
-
 }
