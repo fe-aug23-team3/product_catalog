@@ -1,113 +1,113 @@
-@use "../../../scssStyles/colors";
+@use '../../../scssStyles/colors';
 
 @mixin onTablet {
-    @media (min-width: 640px) {
-        @content;
-    }
+  @media (min-width: 640px) {
+    @content;
+  }
 }
 
 @mixin onDesktop {
-    @media (min-width: 1200px) {
-        @content;
-    }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
 
 .dropdown {
+  position: relative;
+  width: 136px;
+
+  @include onTablet {
+    width: 187px;
+  }
+
+  &__title {
+    color: colors.$secondary-color;
+    size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+  }
+
+  &__current {
+    color: colors.$primary-color;
+    size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    &--active {
+      border-color: colors.$primary-color;
+    }
+  }
+
+  &__selected {
+    width: 100%;
     position: relative;
-    width: 136px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    padding: 0 12px;
+    border: 1px solid colors.$primary-color;
+    transition: border-color 0.3s;
+
+    &__item {
+      width: 100%;
+
+      padding: 4px 0;
+
+      border: 1px solid colors.$primary-color;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+
+      background-color: colors.$white-color;
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    @include onDesktop {
+      &:hover {
+        border-color: colors.$primary-color;
+      }
+    }
+
+    &--active {
+      border-color: colors.$secondary-color;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    &--active {
+      visibility: hidden;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    padding: 6px 12px;
+
+    font-size: 12px;
+    text-align: left;
+
+    color: colors.$elements-color;
 
     @include onTablet {
-        width: 187px;
+      font-size: 14px;
     }
 
-    &__title {
-        color: colors.$secondary-color;
-        size: 12px;
-        font-weight: 700;
-        line-height: 16px;
+    &:hover,
+    &:active,
+    &--active {
+      color: colors.$primary-color;
+      background-color: colors.$primary-color;
     }
 
-    &__current {
-        color: colors.$primary-color;
-        size: 14px;
-        font-weight: 700;
-        line-height: 21px;
-        &--active {
-            border-color: colors.$primary-color;
-        }
+    &--active {
+      pointer-events: none;
     }
-
-    &__selected {
-        width: 100%;
-        position: relative;
-        height: 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 8px;
-        margin-bottom: 4px;
-        padding: 0 12px;
-        border: 1px solid colors.$primary-color;
-        transition: border-color 0.3s;
-
-        &__item {
-            width: 100%;
-
-            padding: 4px 0;
-
-            border: 1px solid colors.$primary-color;
-            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
-
-            background-color: colors.$white-color;
-
-            &--hidden {
-                display: none;
-            }
-        }
-
-        @include onDesktop {
-            &:hover {
-                border-color: colors.$primary-color;
-            }
-        }
-
-        &--active {
-            border-color: colors.$secondary-color;
-        }
-    }
-
-    &__list {
-        position: absolute;
-        width: 100%;
-        top: 100%;
-        &--active {
-            visibility: hidden;
-        }
-    }
-
-    &__btn {
-        width: 100%;
-
-        padding: 6px 12px;
-
-        font-size: 12px;
-        text-align: left;
-
-        color: colors.$elements-color;
-
-        @include onTablet {
-            font-size: 14px;
-        }
-
-        &:hover,
-        &:active,
-        &--active {
-            color: colors.$primary-color;
-            background-color: colors.$primary-color;
-        }
-
-        &--active {
-            pointer-events: none;
-        }
-    }
+  }
 }

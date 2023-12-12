@@ -1,30 +1,30 @@
-@use "../../../scssStyles/colors";
+@use '../../../scssStyles/colors';
 
 .pagination {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .list {
-    display: flex;
-    &__item {
-        color: red;
-    }
+  display: flex;
+  &__item {
+    color: red;
+  }
 }
 
 .button {
-    display: block;
-    width: 32px;
-    height: 32px;
-    background-color: colors.$white-color;
-    border: 1px solid colors.$icons-color;
-    border-radius: 50%;
-    img {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-    }
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: colors.$white-color;
+  border: 1px solid colors.$icons-color;
+  border-radius: 50%;
+  img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
 }
