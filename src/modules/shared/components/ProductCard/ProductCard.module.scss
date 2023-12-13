@@ -1,0 +1,78 @@
+@import '../../../../scssStyles/typography';
+@import '../../../../scssStyles/mixins';
+@import '../../../../scssStyles/colors';
+
+.card {
+  display: grid;
+  gap: 8px;
+  padding: 32px;
+  box-sizing: border-box;
+  border: 1px solid $elements-color;
+  border-radius: 8px;
+  color: $primary-color;
+
+  min-width: 212px;
+  max-width: 287px;
+  @include onTablet {
+    min-width: 229px;
+    max-width: 288px;
+  }
+  @include onDesktop {
+    width: 272px;
+  }
+
+  &:hover {
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &__preview {
+    display: block;
+    min-width: 148px;
+    min-height: 129px;
+    width: 100%;
+  }
+
+  &__title {
+    margin-top: 16px;
+    font-weight: 600;
+  }
+
+  &__price {
+    display: flex;
+    gap: 8px;
+
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+  }
+
+  &__oldPrice {
+    color: $secondary-color;
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+
+  &__separator::after {
+    display: block;
+    content: '';
+    height: 1px;
+    background: $elements-color;
+  }
+
+  &__description {
+    padding: 8px 0;
+    display: grid;
+    gap: 8px;
+
+    line-height: normal;
+  }
+
+  &__characteristic {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__characteristic > :first-child {
+    color: $secondary-color;
+  }
+}
