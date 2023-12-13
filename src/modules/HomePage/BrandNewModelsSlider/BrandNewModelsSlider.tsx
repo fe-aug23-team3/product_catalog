@@ -1,13 +1,33 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './BrandNewModelsSlider.scss';
 import { ProductCard } from '../../ProductCard';
+import { getTheNewestPhones } from '../../../utils/fetchClient';
+
+interface Phone {
+  name: string;
+  fullPrice: string;
+  price: string;
+  screen: string;
+  capacity: string;
+  ram: string;
+  image: string;
+  color: string;
+  category: string;
+  discount: string;
+}
 
 export const BrandNewModelsSlider: React.FC = () => {
+  const [newModels, setNewModels] = useState([]);
+
+  useEffect(() => {
+    getTheNewestPhones().then(res => setNewModels(res.data));
+  }, []);
+
   const settings = {
     infinite: false,
     speed: 500,
@@ -39,19 +59,12 @@ export const BrandNewModelsSlider: React.FC = () => {
     capacity: '64 GB',
     ram: '5 GB',
   };
-
+  console.log(newModels)
   return (
     <div>
       <h2 className="slider__header">Brand new models</h2>
       <Slider {...settings}>
-        <ProductCard product={testProduct} />
-        <ProductCard product={testProduct} />
-        <ProductCard product={testProduct} />
-        <ProductCard product={testProduct} />
-        <ProductCard product={testProduct} />
-        <ProductCard product={testProduct} />
-        <ProductCard product={testProduct} />
-        <ProductCard product={testProduct} />
+        {newModels.map(model => <ProductCard key={model.id} product={model} />)}
       </Slider>
     </div>
   );

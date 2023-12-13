@@ -1,10 +1,11 @@
 export interface ProductCardProps {
   product: {
-    title: string;
+    name: string;
     fullPrice: string;
-    currentPrice: string;
+    price: string;
     screen: string;
     capacity: string;
     ram: string;
+    image: string;
   };
 }
