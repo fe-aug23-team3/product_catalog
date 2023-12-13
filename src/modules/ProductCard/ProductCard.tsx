@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import phoneImg from '../../img/category-phones.png';
+import phoneImg from '../../img/category-phones.png';
 import style from './ProductCard.module.scss';
 
 import { ProductCardProps } from './ProductCardProps';
@@ -8,25 +8,19 @@ import { Button } from '../Button/Button';
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const {
-    name,
-    fullPrice,
-    price,
-    screen,
-    capacity,
-    ram,
-    image,
+    title, fullPrice, currentPrice, screen, capacity, ram,
   } = product;
 
   return (
     <article className={style.card}>
-      <img className={style.card__preview} src={image} alt={name} />
+      <img className={style.card__preview} src={phoneImg} alt={title} />
 
-      <p className={style.card__title}>{name}</p>
+      <p className={style.card__title}>{title}</p>
 
       <h2 className={style.card__price}>
-        {price < fullPrice ? (
+        {currentPrice < fullPrice ? (
           <>
-            <h2>{price}</h2>
+            <h2>{currentPrice}</h2>
 
             <h2 className={style.card__oldPrice}>{fullPrice}</h2>
           </>
