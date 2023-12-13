@@ -1,0 +1,6 @@
+@import '../../scssStyles/blocks/_container';
+
+.home__page {
+  @include homePageContainer;
+  position: relative;
+}
