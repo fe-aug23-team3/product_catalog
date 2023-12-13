@@ -6,14 +6,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './BrandNewModelsSlider.scss';
-import { ProductCard } from '../../ProductCard';
+import { ProductCard } from '../../shared/components/ProductCard';
 import { getTheNewestPhones } from '../../../utils/fetchClient';
 import { Phone } from '../../../types/Phone';
 
-export const BrandNewModelsSlider = () => true;
-
-// export const BrandNewModelsSlider: React.FC<boolean> = () => {
-//   const [newModels, setNewModels] = useState([]);
+export const BrandNewModelsSlider: React.FC = () => {
+  const [newModels, setNewModels] = useState<Phone[]>([]);
 
   useEffect(() => {
     getTheNewestPhones().then((res) => setNewModels(res.data));
