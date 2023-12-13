@@ -1,5 +1,5 @@
-@import "../../../../scssStyles/colors";
-@import "../../../../scssStyles/mixins";
+@import '../../../../scssStyles/colors';
+@import '../../../../scssStyles/mixins';
 
 @mixin onDesktop {
   @media (min-width: 1199x) {

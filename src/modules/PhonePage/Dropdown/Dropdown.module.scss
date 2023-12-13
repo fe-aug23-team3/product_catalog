@@ -1,4 +1,4 @@
-@use '../../../scssStyles/colors';
+@use "../../../scssStyles/colors";
 
 @mixin onTablet {
   @media (min-width: 640px) {
@@ -40,6 +40,7 @@
   &__selected {
     width: 100%;
     position: relative;
+    margin-top: 4px;
     height: 40px;
     display: flex;
     justify-content: space-between;
@@ -50,19 +51,20 @@
     border: 1px solid colors.$icons-color;
     padding: 0 12px;
     transition: border-color 0.3s;
-
+    &:nth-last-child {
+      border-radius: 8px;
+    }
+    &:focus {
+      border: 1px solid colors.$primary-color;
+    }
     &__item {
       width: 100%;
       box-sizing: border-box;
       padding: 4px 0;
       background-color: colors.$white-color;
-      border-radius: 8px;
 
       &--hidden {
         display: none;
-      }
-      &:hover {
-        border: 1px solid colors.$secondary-color;
       }
     }
 

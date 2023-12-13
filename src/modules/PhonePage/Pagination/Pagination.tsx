@@ -7,7 +7,6 @@ import arrowRight from '../../shared/icons/Vector (Stroke).svg';
 import styles from './Pagination.module.scss';
 
 export const Pagination: React.FC = () => {
-  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [allPhonesLength, setAllPhonesLength] = useState(0);
   const phonesPerPage = 16;
