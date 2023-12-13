@@ -1,6 +1,6 @@
-@import "../../../../scssStyles/colors";
-@import "../../../../scssStyles/_sizes";
-@import "../../../../scssStyles/mixins";
+@import '../../../../scssStyles/colors';
+@import '../../../../scssStyles/_sizes';
+@import '../../../../scssStyles/mixins';
 
 .header {
   position: fixed;
@@ -33,7 +33,7 @@
       top: 0;
       right: 0;
       display: block;
-      background-image: url("../../icons/Union.svg");
+      background-image: url('../../icons/Union.svg');
     }
   }
 
@@ -42,7 +42,7 @@
     display: block;
     position: relative;
     color: $primary-color;
-    background-image: url("../../icons/favorites.svg");
+    background-image: url('../../icons/favorites.svg');
     background-position: center;
     background-repeat: no-repeat;
     padding: 24px;
@@ -51,7 +51,7 @@
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       left: 0;
       height: 100%;
@@ -61,9 +61,9 @@
 
     &::after {
       position: absolute;
-      content: "12";
+      content: '12';
       font-size: 14px;
-      font-family: "Mont";
+      font-family: 'Mont';
       font-weight: 600;
       line-height: 21px;
       letter-spacing: 0;
@@ -87,11 +87,11 @@
   }
 
   &__cart {
-    background-image: url("../../icons/cart.svg");
+    background-image: url('../../icons/cart.svg');
   }
 
   &__cross {
-    background-image: url("../../icons/Close.svg");
+    background-image: url('../../icons/Close.svg');
   }
 
   &__menu,
@@ -104,7 +104,7 @@
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       left: 0;
       height: 100%;
@@ -174,17 +174,19 @@
   font-size: 12px;
   line-height: 11px;
   letter-spacing: 0.04em;
-  font-family: "Mont";
+  font-family: 'Mont';
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   padding: 24px 0;
   color: $secondary-color;
   //TODO - REPLACE WITH TRANSITION TIME VAR;
-  transition: color 0.4s ease, left 0.4s ease;
+  transition:
+    color 0.4s ease,
+    left 0.4s ease;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: -1000%;
@@ -223,7 +225,7 @@
     display: block;
     position: relative;
     color: $primary-color;
-    background-image: url("../../icons/favorites.svg");
+    background-image: url('../../icons/favorites.svg');
     background-position: center;
     background-repeat: no-repeat;
     height: 65px;
@@ -231,9 +233,9 @@
 
     &::after {
       position: absolute;
-      content: "12";
+      content: '12';
       font-size: 14px;
-      font-family: "Mont";
+      font-family: 'Mont';
       font-weight: 600;
       line-height: 21px;
       letter-spacing: 0;
@@ -252,7 +254,7 @@
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       height: 2px;
       background-color: $primary-color;
@@ -270,6 +272,6 @@
   }
 
   &__cart {
-    background-image: url("../../icons/cart.svg");
+    background-image: url('../../icons/cart.svg');
   }
 }
