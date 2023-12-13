@@ -1,6 +1,6 @@
-@import "../../../../scssStyles/colors";
-@import "../../../../scssStyles/_sizes";
-@import "../../../../scssStyles/mixins";
+@import '../../../../scssStyles/colors';
+@import '../../../../scssStyles/_sizes';
+@import '../../../../scssStyles/mixins';
 
 .header {
   position: fixed;
@@ -31,7 +31,7 @@
       top: 0;
       right: 0;
       display: block;
-      background-image: url('../../icons/Union.svg');
+      background-image: url("../../icons/union.svg");
     }
   }
 
@@ -89,7 +89,7 @@
   }
 
   &__cross {
-    background-image: url('../../icons/Close.svg');
+    background-image: url("../../icons/close.svg");
   }
 
   &__menu,
