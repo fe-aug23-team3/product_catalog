@@ -13,10 +13,10 @@ export type ItemsNum = '4' | '8' | '16' | 'All';
 export const getPhones = (
   sortBy = 'newest',
   page: number,
-  amountPhones: ItemsNum,
+  itemsPerPage: ItemsNum,
 ) => {
   return requests.get(
-    `/phones?sortBy=${sortBy}&page=${page}&amountPhones=${amountPhones}`,
+    `/phones?sortBy=${sortBy}&page=${page}&itemsPerPage=${itemsPerPage}`,
   );
 };
 

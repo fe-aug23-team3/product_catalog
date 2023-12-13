@@ -1,6 +1,6 @@
-@import "../../../../scssStyles/typography";
-@import "../../../../scssStyles/mixins";
-@import "../../../../scssStyles/colors";
+@import '../../../../scssStyles/typography';
+@import '../../../../scssStyles/mixins';
+@import '../../../../scssStyles/colors';
 
 .card {
   display: grid;
@@ -54,7 +54,7 @@
 
   &__separator::after {
     display: block;
-    content: "";
+    content: '';
     height: 1px;
     background: $elements-color;
   }
