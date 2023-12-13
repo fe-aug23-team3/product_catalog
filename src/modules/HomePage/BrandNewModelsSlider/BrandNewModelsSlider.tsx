@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
@@ -9,8 +10,10 @@ import { ProductCard } from '../../ProductCard';
 import { getTheNewestPhones } from '../../../utils/fetchClient';
 import { Phone } from '../../../types/Phone';
 
-export const BrandNewModelsSlider: React.FC = () => {
-  const [newModels, setNewModels] = useState([]);
+export const BrandNewModelsSlider = () => true;
+
+// export const BrandNewModelsSlider: React.FC<boolean> = () => {
+//   const [newModels, setNewModels] = useState([]);
 
   useEffect(() => {
     getTheNewestPhones().then((res) => setNewModels(res.data));
