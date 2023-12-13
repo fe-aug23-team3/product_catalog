@@ -1,13 +1,8 @@
-import React from 'react';
-// import { CategorySection } from './CategorySection/CategorySection';
-import styles from './HomePage.module.scss';
-// import { BrandNewModels } from './BrandNewModels';
+import React, { useEffect, useState } from 'react';
+import { getPhones } from '../../utils/fetchClient';
+import { Header } from '../shared/components/Header';
+import { CategorySection } from './CategorySection';
 
 export const HomePage: React.FC = () => {
-  return (
-    <div className={styles.home__page}>
-      {/* <CategorySection /> */}
-      {/* <BrandNewModels /> */}
-    </div>
-  );
+  return <CategorySection />;
 };
