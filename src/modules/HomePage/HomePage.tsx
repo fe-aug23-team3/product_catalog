@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getPhones } from '../../utils/fetchClient';
+import { BrandNewModelsSlider } from './BrandNewModelsSlider';
+import style from './HomePage.module.scss';
 
 export const HomePage: React.FC = () => {
   const [data, setData] = useState<any>([]);
@@ -9,9 +11,8 @@ export const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <h1>hi there</h1>
-      {/* {data.length > 0 && <img src={`${data[0].image}`} alt="" />} */}
-    </>
+    <div className={style.home__page}>
+      <BrandNewModelsSlider />
+    </div>
   );
 };

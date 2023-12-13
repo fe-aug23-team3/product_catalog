@@ -7,25 +7,13 @@ import 'slick-carousel/slick/slick-theme.css';
 import './BrandNewModelsSlider.scss';
 import { ProductCard } from '../../ProductCard';
 import { getTheNewestPhones } from '../../../utils/fetchClient';
-
-interface Phone {
-  name: string;
-  fullPrice: string;
-  price: string;
-  screen: string;
-  capacity: string;
-  ram: string;
-  image: string;
-  color: string;
-  category: string;
-  discount: string;
-}
+import { Phone } from '../../../types/Phone';
 
 export const BrandNewModelsSlider: React.FC = () => {
   const [newModels, setNewModels] = useState([]);
 
   useEffect(() => {
-    getTheNewestPhones().then(res => setNewModels(res.data));
+    getTheNewestPhones().then((res) => setNewModels(res.data));
   }, []);
 
   const settings = {
@@ -33,13 +21,14 @@ export const BrandNewModelsSlider: React.FC = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: 1,
     responsive: [
       {
         breakpoint: 1199,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
@@ -47,24 +36,19 @@ export const BrandNewModelsSlider: React.FC = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
     ],
   };
-  const testProduct = {
-    title: 'Test title',
-    fullPrice: '999',
-    currentPrice: '800',
-    screen: '6.2 IPS',
-    capacity: '64 GB',
-    ram: '5 GB',
-  };
-  console.log(newModels)
+
   return (
     <div>
       <h2 className="slider__header">Brand new models</h2>
       <Slider {...settings}>
-        {newModels.map(model => <ProductCard key={model.id} product={model} />)}
+        {newModels.map((phone: Phone) => {
+          return <ProductCard key={phone.id} model={phone} />;
+        })}
       </Slider>
     </div>
   );
