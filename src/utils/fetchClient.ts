@@ -8,7 +8,13 @@ const requests = {
   get: (pathname: string) => axious.get(`${BASE_URL}${pathname}`),
 };
 
-export const getPhones = (page = 1, amountPhones = 16, sortBy = 'newest') => {
+export type ItemsNum = '4' | '8' | '16' | 'All';
+// eslint-disable-next-line max-len
+export const getPhones = (
+  sortBy = 'newest',
+  page: number,
+  amountPhones: ItemsNum,
+) => {
   return requests.get(
     `/phones?sortBy=${sortBy}&page=${page}&amountPhones=${amountPhones}`,
   );

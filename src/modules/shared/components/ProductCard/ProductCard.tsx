@@ -4,14 +4,25 @@ import phoneImg from '../../img/category-phones.png';
 import style from './ProductCard.module.scss';
 
 import { ProductCardProps } from './ProductCardProps';
-import { Button } from '../Button/Button';
+import { Button } from '../../../Button/Button';
 
+<<<<<<< HEAD:src/modules/ProductCard/ProductCard.tsx
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { title, fullPrice, currentPrice, screen, capacity, ram } = product;
+=======
+type Props = {
+  product: ProductCardProps;
+};
+
+export const ProductCard: React.FC<Props> = ({ product }) => {
+  // eslint-disable-next-line object-curly-newline, operator-linebreak
+  const { title, fullPrice, currentPrice, screen, capacity, ram, image } =
+    product;
+>>>>>>> master:src/modules/shared/components/ProductCard/ProductCard.tsx
 
   return (
     <article className={style.card}>
-      <img className={style.card__preview} src={phoneImg} alt={title} />
+      <img className={style.card__preview} src={image} alt={title} />
 
       <p className={style.card__title}>{title}</p>
 

@@ -1,26 +1,39 @@
 /* eslint-disable operator-linebreak */
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
+import { SetURLSearchParams } from 'react-router-dom';
 import { PhonesContext } from '../../../store/GlobalProvider';
 import arrowRight from '../../shared/icons/Vector (Stroke).svg';
 import styles from './Dropdown.module.scss';
 
+export type SortBy = 'Alphabetically' | 'Cheapest' | 'Newest';
+export type ItemsNum = '4' | '8' | '16' | 'All';
+
 type Props = {
   title: string;
-  list: string[];
+  list: SortBy[] | ItemsNum[];
+  customClass: string;
+  checker: (val: any) => void;
+  setParams: SetURLSearchParams;
 };
 
-export const Dropdown: React.FC<Props> = ({ title, list }) => {
+export const Dropdown: React.FC<Props> = ({
+  title,
+  list,
+  customClass,
+  checker,
+  setParams,
+}) => {
   // eslint-disable-next-line object-curly-newline
-  const { isOpened, setIsOpened, current, setCurrent } =
-    useContext(PhonesContext);
+  const [isOpened, setIsOpened] = useState(false);
+  const [current, setCurrent] = useState<number | string>(list[2]);
 
   const handlerForButton = () => {
     setIsOpened((prev: boolean) => !prev);
   };
 
   return (
-    <div className={styles.dropdown}>
+    <div className={`${styles.dropdown} ${customClass}`}>
       <p className={styles.dropdown__title}>{title}</p>
       <button
         type="button"
@@ -43,7 +56,7 @@ export const Dropdown: React.FC<Props> = ({ title, list }) => {
           [styles['dropdown__list--active']]: !isOpened,
         })}
       >
-        {list.map((listItem) => (
+        {list.map((listItem: SortBy | ItemsNum) => (
           <li
             key={listItem}
             className={cn(styles.dropdown__selected__item, {
@@ -55,6 +68,7 @@ export const Dropdown: React.FC<Props> = ({ title, list }) => {
               onClick={() => {
                 setCurrent(listItem);
                 setIsOpened(false);
+                checker(listItem);
               }}
               className={cn(styles.dropdown__btn, {
                 [styles['dropdown__btn--active']]: current === listItem,

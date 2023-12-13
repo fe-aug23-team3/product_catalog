@@ -1,16 +1,28 @@
 @import '../../../../scssStyles/colors';
 @import '../../../../scssStyles/mixins';
 
+@mixin onDesktop {
+  @media (min-width: 1199x) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 639px) {
+    @content;
+  }
+}
+
 .footer {
   display: flex;
-  flex-direction: column;
-
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 32px 16px;
   justify-content: space-between;
   gap: 32px;
 
   @include onTablet {
-    display: flex;
     flex-direction: row;
     padding: 32px;
     align-items: center;
@@ -19,7 +31,7 @@
 
   @include onDesktop {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 32px 152px;
   }
 

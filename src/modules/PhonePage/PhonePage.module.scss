@@ -1,0 +1,62 @@
+@mixin pageGrid {
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 40px;
+
+  display: grid;
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(16, 1fr);
+  }
+}
+
+.main {
+  margin: 150px auto;
+  max-width: 1200px;
+
+  padding: 16px;
+
+  &__header {
+    font-size: 32px;
+  }
+
+  &__models {
+    margin-top: 8px;
+  }
+
+  &__dropdown {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  @media (min-width: 640px) {
+    padding: 24px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 32px;
+  }
+}
+
+.list {
+  @include pageGrid();
+  margin: 24px auto;
+
+  &__products {
+    margin: 0 auto;
+
+    grid-column: 1 / -1;
+
+    @media (min-width: 640px) {
+      grid-column: span 2;
+    }
+
+    @media (min-width: 1200px) {
+      grid-column: span 4;
+    }
+  }
+}
