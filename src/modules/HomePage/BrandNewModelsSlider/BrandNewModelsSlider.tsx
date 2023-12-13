@@ -1,43 +1,33 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './cardExampleStyle/styles/index.scss';
 import './BrandNewModelsSlider.scss';
-import cardExampleImage from './cardExampleStyle/styles/imac.jpeg';
+import { ProductCard } from '../../ProductCard';
+import { getTheNewestPhones } from '../../../utils/fetchClient';
 
-const CardExample: React.FC = () => {
-  return (
-    <div className="card" data-qa="card">
-      <img
-        src={cardExampleImage}
-        className="card__image"
-        alt="APPLE A1419 iMac 27 Retina 5K Monoblock (MNED2UA/A)"
-      />
-
-      <h2 className="card__title">
-        APPLE A1419 iMac 27 Retina 5K Monoblock (MNED2UA/A)
-      </h2>
-      <p className="card__code">Product code: 195434</p>
-      <div className="card__rate">
-        <p className="card__reviews">Reviews: 5</p>
-      </div>
-
-      <div className="card__price">
-        <p className="text">Price:</p>
-        <p className="value">$2,199</p>
-      </div>
-
-      <a href="/" className="card__link" data-qa="hover">
-        Buy
-      </a>
-    </div>
-  );
-};
+interface Phone {
+  name: string;
+  fullPrice: string;
+  price: string;
+  screen: string;
+  capacity: string;
+  ram: string;
+  image: string;
+  color: string;
+  category: string;
+  discount: string;
+}
 
 export const BrandNewModelsSlider: React.FC = () => {
+  const [newModels, setNewModels] = useState([]);
+
+  useEffect(() => {
+    getTheNewestPhones().then(res => setNewModels(res.data));
+  }, []);
+
   const settings = {
     infinite: false,
     speed: 500,
@@ -46,23 +36,14 @@ export const BrandNewModelsSlider: React.FC = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
+        breakpoint: 1199,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 639,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -70,19 +51,20 @@ export const BrandNewModelsSlider: React.FC = () => {
       },
     ],
   };
-
+  const testProduct = {
+    title: 'Test title',
+    fullPrice: '999',
+    currentPrice: '800',
+    screen: '6.2 IPS',
+    capacity: '64 GB',
+    ram: '5 GB',
+  };
+  console.log(newModels)
   return (
     <div>
       <h2 className="slider__header">Brand new models</h2>
       <Slider {...settings}>
-        <CardExample />
-        <CardExample />
-        <CardExample />
-        <CardExample />
-        <CardExample />
-        <CardExample />
-        <CardExample />
-        <CardExample />
+        {newModels.map(model => <ProductCard key={model.id} product={model} />)}
       </Slider>
     </div>
   );

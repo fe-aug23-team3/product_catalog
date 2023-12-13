@@ -5,19 +5,16 @@ $column--gap: 16px;
 $column--size: 1fr;
 
 @mixin onDesktopGrid {
-  display: grid;
   grid-template-columns: repeat($columns--desktop, $column--size);
   gap: $column--gap;
 }
 
 @mixin onTabletGrid {
-  display: grid;
   grid-template-columns: repeat($columns--tablet, $column--size);
   gap: $column--gap;
 }
 
 @mixin onMobileGrid {
-  display: grid;
   grid-template-columns: repeat($columns--mobile, $column--size);
   gap: $column--gap;
 }

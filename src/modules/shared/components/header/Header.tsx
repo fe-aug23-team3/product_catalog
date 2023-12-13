@@ -7,11 +7,11 @@ import styles from './Header.module.scss';
 import logo from '../../icons/logo.svg';
 
 export const Header: React.FC = () => {
-  const [isMenuActive, setisMenuActive] = useState(false);
+  const [isMenuActive, setIsMenuActive] = useState(false);
   const handleMenuOpen = (e: React.MouseEvent) => {
     e.preventDefault();
 
-    setisMenuActive(!isMenuActive);
+    setIsMenuActive(!isMenuActive);
   };
 
   return (
