@@ -16,7 +16,6 @@ export const CheckoutModal: React.FC = () => {
               />
             </div>
             <div className={styles.loader__hand}>
-
               <img
                 className={styles.hand}
                 // eslint-disable-next-line max-len
@@ -27,7 +26,6 @@ export const CheckoutModal: React.FC = () => {
           </div>
         </div>
         <section className={styles.text}>
-
           <h2
             // eslint-disable-next-line max-len
             className={styles.thanksText}
@@ -40,9 +38,7 @@ export const CheckoutModal: React.FC = () => {
               go back home
             </a>
           </button>
-
         </section>
-
       </div>
     </div>
   );

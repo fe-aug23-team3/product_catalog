@@ -3,7 +3,6 @@ import style from './ProductCard.module.scss';
 import { Phone } from '../../../../types/Phone';
 import { Button } from '../../../Button/Button';
 
-
 type Props = {
   model: Phone;
 };
@@ -11,7 +10,6 @@ type Props = {
 export const ProductCard: React.FC<Props> = ({ model }) => {
   // eslint-disable-next-line object-curly-newline, operator-linebreak
   const { name, fullPrice, price, screen, capacity, ram, image } = model;
-
 
   return (
     <article className={style.card}>

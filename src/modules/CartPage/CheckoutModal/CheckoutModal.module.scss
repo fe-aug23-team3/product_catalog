@@ -1,34 +1,30 @@
-
-
-
-
 .modal {
- display: flex;
- justify-content: center;
- align-items: center; 
- position: fixed; /* Stay in place */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.content{
+.content {
   display: flex;
   justify-self: center;
   align-items: center;
   flex-direction: column;
-  background-color: #fafafa; ; ;
+  background-color: #fafafa;
   padding: 20px;
   border: 1px solid #888;
-  height:50%;
-  width:50%;
+  height: 50%;
+  width: 50%;
   border-radius: 50px;
-  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes flip {
@@ -54,62 +50,55 @@
   &__coin {
     animation: flip 0.7s ease-in-out infinite alternate-reverse both;
   }
-  
-  &__hand{
 
-    size:100px;
-
+  &__hand {
+    size: 100px;
   }
-
 }
 
-.text{
+.text {
   margin-bottom: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.order{
+.order {
   margin-top: 10px;
   text-align: center;
-  color:#B4BDC3
+  color: #b4bdc3;
 }
 
-.coin{
- 
-  width:30px;
+.coin {
+  width: 30px;
 }
 
-.hand{
-  width:70px;
+.hand {
+  width: 70px;
 }
 
-.home{
+.home {
   text-align: center;
   margin-top: 20px;
-  width:200px;
-  height:50px;
+  width: 200px;
+  height: 50px;
   text-decoration: none;
   border: 1.5px solid #222;
   border-radius: 50px;
   transition: 500ms;
   box-sizing: border-box;
   cursor: pointer;
-  
 }
 
-
-
-.link{
+.link {
   text-decoration: none;
-  color:black
+  color: black;
 }
 
-.home:hover{
-  background-color: #89939A;
+.home:hover {
+  background-color: #89939a;
 }
 
 .home:hover .link {
-  color:white;
+  color: white;
 }
