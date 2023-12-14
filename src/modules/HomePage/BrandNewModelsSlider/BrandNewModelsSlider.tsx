@@ -25,6 +25,7 @@ interface Phone {
 export const BrandNewModelsSlider = () => true;
 
 // export const BrandNewModelsSlider: React.FC<boolean> = () => {
+
 //   const [newModels, setNewModels] = useState([]);
 
 //   useEffect(() => {

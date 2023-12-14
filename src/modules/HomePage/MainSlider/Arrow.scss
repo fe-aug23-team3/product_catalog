@@ -1,0 +1,77 @@
+@import './Slider_mixins.scss';
+
+.slick-arrow {
+  @include onMobile {
+    display: none;
+  }
+
+  @include onTablet {
+    width: 32px;
+    height: 189px;
+  }
+
+  @include onDesktop {
+    width: 32px;
+    height: 400px;
+  }
+
+  background-color: white;
+  border-radius: 48px;
+  border: 1px solid var(--gray-icons-placeholders, #b4bdc3);
+
+  &::before {
+    display: none;
+  }
+}
+
+.slick-prev {
+  background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: -16px;
+  transition: 200ms;
+
+  @include onMobile {
+    display: none;
+  }
+}
+
+.slick-next {
+  @include onMobile {
+    display: none;
+  }
+
+  background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: -16px;
+  transition: 200ms;
+}
+
+.slick-prev:hover {
+  color: red;
+  background-color: #b4bdc3;
+  background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slick-prev:focus {
+  background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slick-next:hover {
+  color: red;
+  background-color: #b4bdc3;
+  background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slick-next:focus {
+  background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
