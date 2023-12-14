@@ -62,7 +62,7 @@ export const PhonePage: React.FC = () => {
       <div className={styles.list}>
         {phones.map((phone: any) => (
           <div className={styles.list__products} key={phone.id}>
-            <ProductCard product={phone} />
+            <ProductCard model={phone} />
           </div>
         ))}
       </div>
