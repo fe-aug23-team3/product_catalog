@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { getPhones } from '../../utils/fetchClient';
-import { Header } from '../shared/components/Header';
-import { CategorySection } from './CategorySection';
+import { BrandNewModelsSlider } from './BrandNewModelsSlider';
+import style from './HomePage.module.scss';
 
 export const HomePage: React.FC = () => {
-  return <CategorySection />;
+  const [data, setData] = useState<any>([]);
+
+  useEffect(() => {
+    getPhones().then((res) => setData(res.data));
+  }, []);
+
+  return (
+    <div className={style.home__page}>
+      <BrandNewModelsSlider />
+    </div>
+  );
 };
