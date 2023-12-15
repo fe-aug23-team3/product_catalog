@@ -1,4 +1,4 @@
-@import '../../../scssStyles/colors';
+@import "../../../scssStyles/colors";
 
 @mixin onTablet {
   @media (min-width: 640px) {
@@ -22,7 +22,7 @@
   min-width: 200px;
   background-color: $white-color;
 
-  @include onTablet { 
+  @include onTablet {
     flex-direction: row;
     padding: 24px;
     gap: 24px;
@@ -35,77 +35,77 @@
     align-items: center;
     gap: 16px;
 
-     @include onTablet {  
+    @include onTablet {
       gap: 24px;
     }
   }
 
-  &__delete{
-   background-color: transparent;
-   padding: 0;
-   border : none;
+  &__delete {
+    background-color: transparent;
+    padding: 0;
+    border: none;
   }
 
-  &__closeIcon{
+  &__closeIcon {
     flex-shrink: 0;
     cursor: pointer;
     path {
       fill: $icons-color;
     }
 
-    &:hover{
+    &:hover {
+      path {
+        transition-duration: 0.3s;
+        fill: $primary-color;
+      }
+    }
+  }
+
+  &__plusIcon {
     path {
-      transition-duration: 0.3s;
       fill: $primary-color;
     }
+  }
+  &__minusIcon {
+    path {
+      fill: $primary-color;
     }
   }
 
-  &__plusIcon{
-    path {
-    fill: $primary-color;
-    }
-  }
-  &__minusIcon{
-    path {
-    fill: $primary-color;
-    }
-  }
-
-  &__title{
+  &__title {
     display: flex;
     font-family: Mont;
     font-size: 14px;
     font-style: normal;
     color: $primary-color;
     font-weight: 600;
-    line-height: 21px;  
+    line-height: 21px;
   }
 
-  &__image{
+  &__image {
     width: 66px;
     height: 66px;
     padding: 7px;
   }
-  
-  &__quantity{
+
+  &__quantity {
     display: flex;
     flex-direction: row;
     gap: 16px;
     justify-content: space-between;
-    @include onTablet {  
+    @include onTablet {
       gap: 24px;
     }
   }
 
-  &__counter{
+  &__counter {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
   }
 
-  &__quantityBtn{
+  &__quantityBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,12 +116,12 @@
     height: 32px;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       border-color: $primary-color;
     }
   }
 
-  &__quantityValue{
+  &__quantityValue {
     display: inline-block;
     text-align: center;
     min-width: 21px;
@@ -129,10 +129,10 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 21px
+    line-height: 21px;
   }
 
-  &__price{
+  &__price {
     display: flex;
     flex-shrink: 0;
     font-weight: 800;
@@ -140,10 +140,9 @@
     width: 80px;
     justify-content: end;
   }
-
 }
 
-.disabled{
+.disabled {
   border-color: $elements-color;
 }
 
@@ -152,4 +151,3 @@
     fill: $icons-color;
   }
 }
-
