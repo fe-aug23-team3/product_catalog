@@ -1,0 +1,155 @@
+@import '../../../scssStyles/colors';
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  border: 1px $elements-color solid;
+  border-radius: 16px;
+  min-width: 200px;
+  background-color: $white-color;
+
+  @include onTablet { 
+    flex-direction: row;
+    padding: 24px;
+    gap: 24px;
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+
+     @include onTablet {  
+      gap: 24px;
+    }
+  }
+
+  &__delete{
+   background-color: transparent;
+   padding: 0;
+   border : none;
+  }
+
+  &__closeIcon{
+    flex-shrink: 0;
+    cursor: pointer;
+    path {
+      fill: $icons-color;
+    }
+
+    &:hover{
+    path {
+      transition-duration: 0.3s;
+      fill: $primary-color;
+    }
+    }
+  }
+
+  &__plusIcon{
+    path {
+    fill: $primary-color;
+    }
+  }
+  &__minusIcon{
+    path {
+    fill: $primary-color;
+    }
+  }
+
+  &__title{
+    display: flex;
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    color: $primary-color;
+    font-weight: 600;
+    line-height: 21px;  
+  }
+
+  &__image{
+    width: 66px;
+    height: 66px;
+    padding: 7px;
+  }
+  
+  &__quantity{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: space-between;
+    @include onTablet {  
+      gap: 24px;
+    }
+  }
+
+  &__counter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__quantityBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px $icons-color solid;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    &:hover{
+      border-color: $primary-color;
+    }
+  }
+
+  &__quantityValue{
+    display: inline-block;
+    text-align: center;
+    min-width: 21px;
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px
+  }
+
+  &__price{
+    display: flex;
+    flex-shrink: 0;
+    font-weight: 800;
+    align-items: center;
+    width: 80px;
+    justify-content: end;
+  }
+
+}
+
+.disabled{
+  border-color: $elements-color;
+}
+
+.cartItem__minusIcon.disabledIcon {
+  path {
+    fill: $icons-color;
+  }
+}
+

@@ -1,5 +1,16 @@
 @import '../../../../scssStyles/colors';
-@import '../../../../scssStyles/mixins';
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
 
 .footer {
   display: flex;
