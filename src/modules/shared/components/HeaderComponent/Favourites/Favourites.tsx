@@ -1,33 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import cn from 'classnames';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './Favourites.module.scss';
 import { getTheNewestPhones } from '../../../../../utils/fetchClient';
 import { Phone } from '../../../../../types/Phone';
 import { ProductCard } from '../../ProductCard';
-import iconleft from '../../../icons/Chevron-black (Arrow Left).svg';
-import iconright from '../../../icons/Chevron-black (Arrow Right).svg';
+import { PhonesContext } from '../../../../../store/GlobalProvider';
+import { Pagination } from '../../Pagination';
 
 // const { favorites} = useContext(PhonesContext); - забираю из контекста айди моделей - ["9","7","21","5","4"];
 
 export const Favourites: React.FC = () => {
+  const { favorites } = useContext(PhonesContext);
+  const { page } = useContext(PhonesContext);
   const [phones, setPhones] = useState<Phone[]>([]);
-  const [page, setPage] = useState(0);
   const ITEMS = 4;
 
   useEffect(() => {
-    getTheNewestPhones().then(res => setPhones([...res.data]));
-  }, []);
+    // console.log(typeof favorites[0]);
+    getTheNewestPhones().then(res => setPhones([...res.data.filter((tempPhone: Phone) => favorites.includes(tempPhone.id))]));// eslint-disable-line
 
-  function pagination() {
-    const pages = [];
-    const amount = Math.ceil(phones.length / ITEMS);
-
-    for (let i = 1; i <= amount; i += 1) {
-      pages.push(i);
-    }
-
-    return pages;
-  }
+  }, [favorites]);
 
   const split = () => {
     const start = page * ITEMS;
@@ -37,8 +28,8 @@ export const Favourites: React.FC = () => {
     return phonesToDIsplay;
   };
 
-  const checkedNext = page === pagination()[pagination().length - 2];
-  const checkedPrev = page + 1 === pagination()[0];
+  // const checkedNext = page === pagination()[pagination().length - 2];
+  // const checkedPrev = page + 1 === pagination()[0];
 
   return (
     <>
@@ -59,50 +50,52 @@ export const Favourites: React.FC = () => {
       </div>
 
       {phones.length > ITEMS && (
-        <div className={styles.pagination}>
-          <div className={styles.left_wrapper}>
-            <button
-              className={styles.left}
-              type="button"
-              onClick={() => {
-                setPage((prevPage) => prevPage - 1);
-              }}
-              disabled={checkedPrev}
-            >
-              <img src={iconleft} alt="card" />
-            </button>
-          </div>
-          <div className={styles.buttonWrapper}>
-            {pagination().map((button, i) => (
+        <Pagination phones={phones} ITEMS={ITEMS} />
 
-              <button
-                className={cn(`${styles.pagination_button}`, {
-                  [styles.pagination_button_isActive]: page === i,
-                })}
-                type="button"
-                key={button}
-                onClick={() => setPage(i)}
-              >
-                {i + 1}
-              </button>
+      // <div className={styles.pagination}>
+      //   <div className={styles.left_wrapper}>
+      //     <button
+      //       className={styles.left}
+      //       type="button"
+      //       onClick={() => {
+      //         setPage((prevPage:number) => prevPage - 1);
+      //       }}
+      //       disabled={checkedPrev}
+      //     >
+      //       <img src={iconleft} alt="card" />
+      //     </button>
+      //   </div>
+      //   <div className={styles.buttonWrapper}>
+      //     {pagination().map((button, i) => (
 
-            ))}
-          </div>
-          <div className={styles.right_wrapper}>
-            <button
-              className={styles.right}
-              type="button"
-              onClick={() => {
-                setPage((nextPage) => nextPage + 1);
-              }}
-              disabled={checkedNext}
-            >
+      //       <button
+      //         className={cn(`${styles.pagination_button}`, {
+      //           [styles.pagination_button_isActive]: page === i,
+      //         })}
+      //         type="button"
+      //         key={button}
+      //         onClick={() => setPage(i)}
+      //       >
+      //         {i + 1}
+      //       </button>
 
-              <img src={iconright} alt="card" />
+      //     ))}
+      //   </div>
+      //   <div className={styles.right_wrapper}>
+      //     <button
+      //       className={styles.right}
+      //       type="button"
+      //       onClick={() => {
+      //         setPage((nextPage:number) => nextPage + 1);
+      //       }}
+      //       disabled={checkedNext}
+      //     >
 
-            </button>
-          </div>
-        </div>
+      //       <img src={iconright} alt="card" />
+
+      //     </button>
+      //   </div>
+      // </div>
       )}
 
     </>
