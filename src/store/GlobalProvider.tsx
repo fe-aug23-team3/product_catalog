@@ -7,7 +7,10 @@ export const initialValue: any = {
 
 // #region Favorites
 // eslint-disable-next-line max-len, @typescript-eslint/no-unnecessary-type-constraint
-export const useLocalState = <T extends unknown>(key: string, startValue: T): [T, (v: T) => void] => {
+export const useLocalState = <T extends unknown>(
+  key: string,
+  startValue: T,
+): [T, (v: T) => void] => {
   const [value, setValue] = useState(() => {
     const localValue = localStorage.getItem(key);
 

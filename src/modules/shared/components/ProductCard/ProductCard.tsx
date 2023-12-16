@@ -27,7 +27,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
   // #endregion
 
   // #region cart
-  const isInCart = cart.some(((el: Good) => el.id === id));
+  const isInCart = cart.some((el: Good) => el.id === id);
   const addToCart = () => {
     if (isInCart) {
       setCart(cart.filter((el: Good) => el.id !== id));
@@ -80,11 +80,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
       </div>
 
       <div className={style.card__buttons}>
-        <Button
-          text="Add to cart"
-          callback={addToCart}
-          isActive={isInCart}
-        />
+        <Button text="Add to cart" callback={addToCart} isActive={isInCart} />
 
         <ButtonHeartLike isActive={isInFavorites} callback={addToFavorites} />
       </div>

@@ -15,7 +15,7 @@ export const Favourites: React.FC = () => {
   const ITEMS = 4;
 
   useEffect(() => {
-    getTheNewestPhones().then(res => setPhones([...res.data]));
+    getTheNewestPhones().then((res) => setPhones([...res.data]));
   }, []);
 
   function pagination() {
@@ -50,8 +50,7 @@ export const Favourites: React.FC = () => {
       </div>
 
       <div className={styles.favourite_Content}>
-        {split().map(phone => (
-
+        {split().map((phone) => (
           <div className={styles.favourite_Content_mobile} key={phone.id}>
             <ProductCard model={phone} />
           </div>
@@ -74,7 +73,6 @@ export const Favourites: React.FC = () => {
           </div>
           <div className={styles.buttonWrapper}>
             {pagination().map((button, i) => (
-
               <button
                 className={cn(`${styles.pagination_button}`, {
                   [styles.pagination_button_isActive]: page === i,
@@ -85,7 +83,6 @@ export const Favourites: React.FC = () => {
               >
                 {i + 1}
               </button>
-
             ))}
           </div>
           <div className={styles.right_wrapper}>
@@ -97,14 +94,11 @@ export const Favourites: React.FC = () => {
               }}
               disabled={checkedNext}
             >
-
               <img src={iconright} alt="card" />
-
             </button>
           </div>
         </div>
       )}
-
     </>
   );
 };
