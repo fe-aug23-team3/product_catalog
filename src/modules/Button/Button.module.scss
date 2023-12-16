@@ -1,0 +1,38 @@
+@import '../../scssStyles/typography';
+@import '../../scssStyles/colors';
+@import '../../scssStyles/reset';
+
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  flex-shrink: 0;
+
+  min-width: 100px;
+  min-height: 40px;
+  width: 100%;
+
+  border: 0;
+  border-radius: 48px;
+  background: $accent-color;
+
+  font-weight: 700;
+  font-style: normal;
+  color: $white-color;
+  transition-duration: 0.5s;
+
+  &:hover {
+    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
+    transition-duration: 0.5s;
+    cursor: pointer;
+  }
+
+  &:active,
+  &__active{
+    border: 1px solid $elements-color;
+    background-color: transparent;
+    color: $accent-color;
+    transition-duration: 0.5s;
+  }
+}

@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import Logo from '../../icons/Logo.svg';
+import logo from '../../icons/Logo.svg';
 import { ReactComponent as ChevronUp } from '../../icons/ChevronUp.svg';
 
 export const Footer: React.FC = () => {
   return (
     <footer>
       <div className={styles.footer}>
-        <img className={styles.logo} src={Logo} alt="nice gadgets logo" />
+        <img className={styles.logo} src={logo} alt="nice gadgets logo" />
 
         <div className={styles.footer_links}>
           <a

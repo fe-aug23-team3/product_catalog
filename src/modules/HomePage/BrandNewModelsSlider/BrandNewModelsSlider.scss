@@ -1,0 +1,62 @@
+@import '../../../scssStyles/sizes';
+@import '../../../scssStyles/colors';
+
+.slick-arrow {
+  position: relative;
+  width: $arrow--width;
+  height: $arrow--height;
+  background-color: $white-color;
+  border-radius: 50%;
+  border: 1px solid $icons-color;
+  &::before {
+    display: none;
+  }
+}
+
+.slick-next,
+.slick-prev {
+  background-image: url('../../../modules/shared/icons/chevronArrowRight.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -26px;
+  right: 0;
+
+  &:active,
+  &:hover,
+  &:focus {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    background-image: url('../../../modules/shared/icons/chevronArrowRightActive.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.slick-prev {
+  background-image: url('../../../modules/shared/icons/chevronArrowLeft.svg');
+  left: unset;
+  right: 46px;
+
+  &:active,
+  &:hover,
+  &:focus {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    background-image: url('../../../modules/shared/icons/chevronArrowLeftActive.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.slick-disabled {
+  border: 1px solid $icons-color;
+}
+
+.slider__header {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 31px;
+  letter-spacing: 0;
+  margin-bottom: 24px;
+}

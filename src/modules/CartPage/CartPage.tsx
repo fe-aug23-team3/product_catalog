@@ -5,6 +5,7 @@ import { CartTotal } from './cartTotal';
 import { ReactComponent as ChevronLeft } from '../shared/icons/ChevronLeft.svg';
 import { CartItemType } from './CartTypes/cartItemType';
 import { calculateCartSummary } from './cartUtils';
+import { EmptyCart } from './emptyCart/EmptyCart';
 
 // this is temporal fake data
 const fakeCartData = [
@@ -82,21 +83,26 @@ export const CartPage: React.FC = () => {
         <span className={styles.Cart__backBtn}> Back</span>
       </a>
       <h1 className={styles.Cart__title}>Cart</h1>
-      <div className={styles.Cart__container}>
-        <div className={styles.Cart__items}>
-          {cartData.map((item) => (
-            <CartItem
-              key={item.id}
-              dataItem={item}
-              deleteItem={deleteItem}
-              changeQuantity={changeQuantity}
-            />
-          ))}
+
+      {cartSummary.quantity ? (
+        <div className={styles.Cart__container}>
+          <div className={styles.Cart__items}>
+            {cartData.map((item) => (
+              <CartItem
+                key={item.id}
+                dataItem={item}
+                deleteItem={deleteItem}
+                changeQuantity={changeQuantity}
+              />
+            ))}
+          </div>
+          <div className={styles.Cart__total}>
+            <CartTotal cartSummary={cartSummary} />
+          </div>
         </div>
-        <div className={styles.Cart__total}>
-          <CartTotal cartSummary={cartSummary} />
-        </div>
-      </div>
+      ) : (
+        <EmptyCart />
+      )}
     </div>
   );
 };
