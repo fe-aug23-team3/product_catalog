@@ -13,6 +13,7 @@ import { PhoneDetailsPage } from './modules/PhoneDetailsPage/PhoneDetailsPage';
 import { CartPage } from './modules/CartPage/CartPage';
 import { FavouritesPage } from './modules/FavouritesPage/FavouritesPage';
 import { PhonesProvider } from './store/GlobalProvider';
+import { OfStock } from './modules/OfStock/OfStock';
 
 export const Root = () => (
   <PhonesProvider>
@@ -25,6 +26,7 @@ export const Root = () => (
             <Route index element={<PhonePage />} />
             <Route path=":phoneId?" element={<PhoneDetailsPage />} />
           </Route>
+          <Route path="tablets" element={<OfStock />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="favourites" element={<FavouritesPage />} />
 

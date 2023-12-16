@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Good } from '../types/Phone';
+import { Good } from '../types/Good';
 
 export const initialValue: any = {
   todos: [],
 };
 
-// #region Favorites
+// #region LocalState
 // eslint-disable-next-line max-len, @typescript-eslint/no-unnecessary-type-constraint
-export const useLocalState = <T extends unknown>(key: string, startValue: T): [T, (v: T) => void] => {
+const useLocalState = <T extends unknown>(key: string, startValue: T): [T, (v: T) => void] => {
   const [value, setValue] = useState(() => {
     const localValue = localStorage.getItem(key);
 
