@@ -34,15 +34,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
   const isInCart = cart.some(((el: Good) => el.id === id));
   const addToCart = () => {
     if (!isInCart) {
-      const newGood = {
-        id,
-        name,
-        color,
-        price,
-        fullPrice,
-        quantity: 1,
-        image,
-      };
+      const newGood = { ...model, quantity: 1 };
 
       setCart([...cart, newGood]);
     }

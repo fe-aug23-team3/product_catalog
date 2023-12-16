@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Good } from '../types/Good';
+import { Good } from '../types/Phone';
 
 export const initialValue: any = {
   todos: [],

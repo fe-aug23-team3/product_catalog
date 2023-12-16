@@ -14,3 +14,7 @@ export interface Phone {
   phoneId: string;
   year: number;
 }
+
+export interface Good extends Phone {
+  quantity: number;
+}
