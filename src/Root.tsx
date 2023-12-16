@@ -11,9 +11,10 @@ import { NotFoundPage } from './modules/NotFoundPage/NotFoundPage';
 import { PhonePage } from './modules/PhonePage/PhonePage';
 import { PhoneDetailsPage } from './modules/PhoneDetailsPage/PhoneDetailsPage';
 import { CartPage } from './modules/CartPage/CartPage';
-import { FavouritesPage } from './modules/FavouritesPage/FavouritesPage';
+
 import { PhonesProvider } from './store/GlobalProvider';
 import { OfStock } from './modules/OfStock/OfStock';
+import { Favourites } from './modules/FavouritesPage';
 
 export const Root = () => (
   <PhonesProvider>
@@ -28,7 +29,7 @@ export const Root = () => (
           </Route>
           <Route path="tablets" element={<OfStock />} />
           <Route path="cart" element={<CartPage />} />
-          <Route path="favourites" element={<FavouritesPage />} />
+          <Route path="favourites" element={<Favourites />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>
