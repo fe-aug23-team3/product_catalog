@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import logo from '../../icons/Logo.svg';
+import logo from '../../icons/logo.svg';
 import { ReactComponent as ChevronUp } from '../../icons/ChevronUp.svg';
 
 export const Footer: React.FC = () => {

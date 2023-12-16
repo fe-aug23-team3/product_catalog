@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { getPhones } from '../../utils/fetchClient';
+import React from 'react';
 import { CategorySection } from './CategorySection';
-import { BrandNewModelsSlider } from './BrandNewModelsSlider';
+import { BrandNewModels } from './BrandNewModels';
+import { MainSlider } from './MainSlider';
+import { HotPrices } from './HotPrices';
 import style from './HomePage.module.scss';
 
 export const HomePage: React.FC = () => {
-  const [data, setData] = useState<any>([]);
-
   return (
     <div className={style.home__page}>
-      <BrandNewModelsSlider />
+      <MainSlider />
+      <BrandNewModels />
+      <CategorySection />
+      <HotPrices />
     </div>
   );
 };
