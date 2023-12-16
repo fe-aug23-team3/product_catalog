@@ -9,8 +9,8 @@ import { Phone } from '../../../../types/Phone';
 import { PhonesContext } from '../../../../store/GlobalProvider';
 
 interface Props {
-  phones: Phone[],
-  ITEMS: number
+  phones: Phone[];
+  ITEMS: number;
 }
 
 export const Pagination: React.FC<Props> = ({ phones, ITEMS }) => {
@@ -46,7 +46,6 @@ export const Pagination: React.FC<Props> = ({ phones, ITEMS }) => {
       </div>
       <div className={styles.buttonWrapper}>
         {pagination().map((button, i) => (
-
           <button
             className={classNames(`${styles.pagination_button}`, {
               [styles.pagination_button_isActive]: page === i,
@@ -57,7 +56,6 @@ export const Pagination: React.FC<Props> = ({ phones, ITEMS }) => {
           >
             {i + 1}
           </button>
-
         ))}
       </div>
       <div className={styles.right_wrapper}>
@@ -69,9 +67,7 @@ export const Pagination: React.FC<Props> = ({ phones, ITEMS }) => {
           }}
           disabled={checkedNext}
         >
-
           <img src={iconright} alt="card" />
-
         </button>
       </div>
     </div>

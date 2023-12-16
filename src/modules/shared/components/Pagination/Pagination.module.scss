@@ -1,7 +1,5 @@
-@import"../../../HomePage/MainSlider/Slider_mixins.scss";
+@import '../../../HomePage/MainSlider/Slider_mixins.scss';
 .pagination {
-
-
   @include onMobile {
     margin: auto;
     width: 288px;
@@ -10,7 +8,6 @@
     justify-content: center;
     margin-bottom: 47px;
   }
-
 
   @include onTablet {
     margin: auto;
@@ -29,9 +26,6 @@
     justify-content: center;
     margin-bottom: 47px;
   }
-
-
-
 }
 
 .left_wrapper {
@@ -51,19 +45,18 @@
   width: 32px;
   height: 32px;
   border-radius: 48px;
-  border: 1px solid #E2E6E9;
+  border: 1px solid #e2e6e9;
   cursor: pointer;
   transition: 300ms;
 }
 
 .pagination_button:hover {
-  border: 1px solid #0F0F11;
+  border: 1px solid #0f0f11;
 }
 
-
 .pagination_button_isActive {
-  background-color: #0F0F11;
-  color: #FFFFFF
+  background-color: #0f0f11;
+  color: #ffffff;
 }
 
 .left,
@@ -74,18 +67,18 @@
   width: 32px;
   height: 32px;
   border-radius: 48px;
-  border: 1px solid #B4BDC3;
+  border: 1px solid #b4bdc3;
   object-fit: contain;
   transition: 300ms;
 }
 
 .left:hover,
 .right:hover {
-  border: 1px solid #0F0F11;
+  border: 1px solid #0f0f11;
 }
 
 .left:disabled,
 .right:disabled {
-  border: 1px solid #E2E6E9;
+  border: 1px solid #e2e6e9;
   opacity: 0.5;
 }

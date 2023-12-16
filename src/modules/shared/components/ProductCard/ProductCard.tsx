@@ -15,7 +15,8 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = ({ model }) => {
   // eslint-disable-next-line
-  const { id, name, fullPrice, price, screen, capacity, ram, image, color } = model;
+  const { id, name, fullPrice, price, screen, capacity, ram, image, color } =
+    model;
   // eslint-disable-next-line
   const { favorites, setFavorites, cart, setCart } = useContext(PhonesContext);
 
@@ -31,7 +32,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
   // #endregion
 
   // #region Cart
-  const isInCart = cart.some(((el: Good) => el.id === id));
+  const isInCart = cart.some((el: Good) => el.id === id);
   const addToCart = () => {
     if (!isInCart) {
       const newGood = { ...model, quantity: 1 };
@@ -85,11 +86,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
       </div>
 
       <div className={style.card__buttons}>
-        <Button
-          text="Add to cart"
-          callback={addToCart}
-          isActive={isInCart}
-        />
+        <Button text="Add to cart" callback={addToCart} isActive={isInCart} />
 
         <ButtonHeartLike isActive={isInFavorites} callback={addToFavorites} />
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './Favourites.module.scss';
 import { getTheNewestPhones } from '../../utils/fetchClient';
@@ -13,8 +14,12 @@ export const Favourites: React.FC = () => {
   const ITEMS = 4;
 
   useEffect(() => {
-   getTheNewestPhones().then(res => setPhones([...res.data.filter((tempPhone: Phone) => favorites.includes(tempPhone.id))]));// eslint-disable-line
-
+    getTheNewestPhones().then((res) =>
+      setPhones([
+        ...res.data.filter((tempPhone: Phone) =>
+          favorites.includes(tempPhone.id)),
+      ]),
+    ); // eslint-disable-line
   }, [favorites]);
 
   const split = () => {
@@ -35,18 +40,14 @@ export const Favourites: React.FC = () => {
       </div>
 
       <div className={styles.favourite_Content}>
-        {split().map(phone => (
-
+        {split().map((phone) => (
           <div className={styles.favourite_Content_mobile} key={phone.id}>
             <ProductCard model={phone} />
           </div>
         ))}
       </div>
 
-      {phones.length > ITEMS && (
-        <Pagination phones={phones} ITEMS={ITEMS} />
-      )}
-
+      {phones.length > ITEMS && <Pagination phones={phones} ITEMS={ITEMS} />}
     </>
   );
 };

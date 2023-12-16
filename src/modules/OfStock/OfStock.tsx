@@ -7,12 +7,11 @@ export const OfStock: React.FC = () => {
     <main>
       <div className={style.OfStock}>
         <div className={style.OfStock__text}>
-          <h2>
-            {'We\'re sorry'}
-          </h2>
+          <h2>We are sorry</h2>
 
           <p>
-            {// eslint-disable-next-line max-len
+            {
+              // eslint-disable-next-line max-len
               'but tablets is temporarily out of stock. Please check back soon for availability. Thank you for your understanding.'
             }
           </p>

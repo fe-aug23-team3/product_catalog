@@ -7,11 +7,7 @@ interface Props {
   isActive?: boolean;
 }
 
-export const Button: React.FC<Props> = ({
-  text,
-  callback,
-  isActive,
-}) => {
+export const Button: React.FC<Props> = ({ text, callback, isActive }) => {
   return (
     <button
       type="button"
