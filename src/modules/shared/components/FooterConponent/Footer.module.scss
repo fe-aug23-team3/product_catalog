@@ -24,6 +24,18 @@
   }
 }
 
+@mixin onDesktop {
+  @media (min-width: 1199x) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 639px) {
+    @content;
+  }
+}
+
 .footer {
   display: flex;
   flex-direction: row;
