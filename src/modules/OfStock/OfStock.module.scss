@@ -1,0 +1,28 @@
+@import '../../scssStyles/colors';
+@import '../../scssStyles/reset';
+@import '../../scssStyles/typography';
+@import '../../scssStyles/mixins';
+
+.OfStock {
+  // height: calc(100vh - 96px - 32px);
+  width: 100%;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 32px 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__text {
+    max-width: 512px;
+    margin: 33vh auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__desert {
+  }
+}
