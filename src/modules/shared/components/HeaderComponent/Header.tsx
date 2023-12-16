@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
       <div className={styles.control}>
         {/* CHANGE THE THEME BUTTON
         <button className=${styles.control__theme}></button> */}
-        <NavLink to="/favorites" className={styles.control__favorites} />
+        <NavLink to="/favourites" className={styles.control__favorites} />
         <NavLink to="/cart" className={styles.control__cart} />
         {!isMenuActive && (
           <NavLink

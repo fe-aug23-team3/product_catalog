@@ -1,0 +1,91 @@
+@import"../../../HomePage/MainSlider/Slider_mixins.scss";
+.pagination {
+
+
+  @include onMobile {
+    margin: auto;
+    width: 288px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 47px;
+  }
+
+
+  @include onTablet {
+    margin: auto;
+    width: 592;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 47px;
+  }
+
+  @include onDesktop {
+    margin: auto;
+    width: 1136px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 47px;
+  }
+
+
+
+}
+
+.left_wrapper {
+  margin-right: 16px;
+}
+
+.right_wrapper {
+  margin-left: 16px;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination_button {
+  width: 32px;
+  height: 32px;
+  border-radius: 48px;
+  border: 1px solid #E2E6E9;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.pagination_button:hover {
+  border: 1px solid #0F0F11;
+}
+
+
+.pagination_button_isActive {
+  background-color: #0F0F11;
+  color: #FFFFFF
+}
+
+.left,
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 48px;
+  border: 1px solid #B4BDC3;
+  object-fit: contain;
+  transition: 300ms;
+}
+
+.left:hover,
+.right:hover {
+  border: 1px solid #0F0F11;
+}
+
+.left:disabled,
+.right:disabled {
+  border: 1px solid #E2E6E9;
+  opacity: 0.5;
+}

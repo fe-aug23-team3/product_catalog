@@ -1,5 +1,5 @@
-@import "../../../../../scssStyles/mixins";
-@import"../../../../HomePage/MainSlider/Slider_mixins.scss";
+
+@import"../HomePage/MainSlider/Slider_mixins.scss";
 
 .favourite_Header {
 
@@ -242,8 +242,4 @@
 .right:disabled {
   border: 1px solid #E2E6E9;
   opacity: 0.5;
-}
-
-.favourite_Content_mobile {
-  // grid-column: 1 / span 6;
 }

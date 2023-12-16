@@ -40,6 +40,8 @@ export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
   const [favorites, setFavorites] = useLocalState<number[]>('Fav', []);
   const [cart, setCart] = useLocalState<Good[]>('Cart', []);
 
+  const [page, setPage] = useState(0);
+
   return (
     <PhonesContext.Provider
       value={{
@@ -51,6 +53,8 @@ export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
         setFavorites,
         cart,
         setCart,
+        page,
+        setPage,
       }}
     >
       {children}
