@@ -4,7 +4,7 @@ import cn from 'classnames';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
-import logo from '../../icons/logo.svg';
+import logo from '../../icons/Logo.svg';
 
 export const Header: React.FC = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
