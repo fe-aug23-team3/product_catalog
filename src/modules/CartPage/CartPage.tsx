@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './CartPage.module.scss';
 import { CartItem } from './cartItem';
 import { CartTotal } from './cartTotal';
@@ -64,6 +65,7 @@ const fakeCartData: CartItemType[] = [
 export const CartPage: React.FC = () => {
   const [cartData, setCartData] = useState<CartItemType[]>(fakeCartData);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const deleteItem = (id: number) => {
     setCartData(cartData.filter((item) => +item.id !== id));
@@ -87,12 +89,16 @@ export const CartPage: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={styles.Cart}>
-      <a className={styles.Cart__linkBack} href="/#">
+      <button type="button" className={styles.Cart__linkBack} onClick={goBack}>
         <ChevronLeft className={styles.ChevronLeft} />
         <span className={styles.Cart__backBtn}> Back</span>
-      </a>
+      </button>
       <h1 className={styles.Cart__title}>Cart</h1>
 
       {cartSummary.quantity ? (
@@ -117,7 +123,7 @@ export const CartPage: React.FC = () => {
       ) : (
         <EmptyCart />
       )}
-      {isModalOpen && <CheckoutModal />}
+      {isModalOpen && <CheckoutModal handleCloseModal={handleCloseModal} />}
     </div>
   );
 };

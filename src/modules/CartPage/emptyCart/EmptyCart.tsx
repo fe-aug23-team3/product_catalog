@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './EmptyCart.module.scss';
 import { ReactComponent as CartIcon } from '../../shared/icons/empty_cart.svg';
 
 export const EmptyCart: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.emptyCart}>
       <CartIcon className={styles.icon} />
@@ -10,14 +13,13 @@ export const EmptyCart: React.FC = () => {
       <p className={styles.emptyCart__describe}>
         But you can change that! Explore our product catalog now.
       </p>
-      {/* <button className={styles.emptyCart__button} type="button">
-        <a href="/" className={styles.linkInsideButton}>
-          Explore Catalog
-        </a>
-      </button> */}
-      <a className={styles.emptyCart__button} href="/">
+      <button
+        className={styles.emptyCart__button}
+        type="button"
+        onClick={() => navigate('/')}
+      >
         Explore Catalog
-      </a>
+      </button>
     </div>
   );
 };
