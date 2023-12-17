@@ -1,4 +1,5 @@
-/* eslint-disable max-len */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
@@ -7,10 +8,7 @@ import styles from './PhonePage.module.scss';
 import { Dropdown } from './Dropdown';
 import { ProductCard } from '../shared/components/ProductCard';
 import { Phone } from '../../types/Phone';
-
-export type SortBy = 'Alphabetically' | 'Cheapest' | 'Newest';
-
-export type ItemsNum = '4' | '8' | '16' | 'All';
+import { ItemsNum, SortBy } from '../../helpers/helper';
 
 export const PhonePage: React.FC = () => {
   const [phonesLength, setPhonesLength] = useState(0);
@@ -23,7 +21,7 @@ export const PhonePage: React.FC = () => {
   const page = searchParams.get('page') || '';
   const [phones, setPhones] = useState([]);
   const sortByDropdown: SortBy[] = ['Alphabetically', 'Cheapest', 'Newest'];
-  const amountPerPage: ItemsNum[] = ['4', '8', '16', 'All'];
+  const amountPerPage: ItemsNum[] = ['4', '8', '16', 'all'];
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -39,7 +37,9 @@ export const PhonePage: React.FC = () => {
 
     getLength().then((res) => setPhonesLength(res.data));
     updateSearchParams();
-    getPhones(sortBy, +page || 1, itemsPerPage).then((res) => setPhones(res.data));
+    getPhones(sortBy, +page || 1, itemsPerPage).then((res) =>
+      setPhones(res.data),
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemsPerPage, page, sortBy, navigate]);
 
