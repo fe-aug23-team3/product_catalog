@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './EmptyCart.module.scss';
-import { ReactComponent as CartIcon } from '../../shared/icons/Cart.svg';
+import { ReactComponent as CartIcon } from '../../shared/icons/empty_cart.svg';
 
 export const EmptyCart: React.FC = () => {
   return (
@@ -10,12 +10,14 @@ export const EmptyCart: React.FC = () => {
       <p className={styles.emptyCart__describe}>
         But you can change that! Explore our product catalog now.
       </p>
-      <button
-        className={styles.emptyCart__button}
-        type="button"
-      >
+      {/* <button className={styles.emptyCart__button} type="button">
+        <a href="/" className={styles.linkInsideButton}>
+          Explore Catalog
+        </a>
+      </button> */}
+      <a className={styles.emptyCart__button} href="/">
         Explore Catalog
-      </button>
+      </a>
     </div>
   );
 };

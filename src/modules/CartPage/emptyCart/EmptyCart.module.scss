@@ -5,8 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 52px 0;
-
+margin: auto;
   @include onTablet {
     padding: 16px 0;
   }
@@ -16,7 +15,6 @@
     font-size: 32px;
     font-style: normal;
     font-weight: 800;
-    // line-height: 41px;
     letter-spacing: -0.32px;
     margin-bottom: 32px;
     color: $secondary-color;
@@ -32,7 +30,7 @@
     font-family: Mont;
     font-size: 16px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 800;
     line-height: 20px;
     letter-spacing: -0.32px;
     margin-bottom: 32px;
@@ -45,9 +43,9 @@
     }
   }
 
-  &__button {
+  &__button{
     font-family: Mont;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 21px;
@@ -59,10 +57,16 @@
     border-radius: 48px;
     height: 48px;
     max-width: 600px;
+    text-align: center;
+    line-height: 48px;
+    text-decoration: none;
+  
     cursor: pointer;
     @include onTablet {
       font-size: 12px;
     }
+
+
 
     &:hover {
       box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);

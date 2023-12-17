@@ -6,9 +6,10 @@ import { ReactComponent as ChevronLeft } from '../shared/icons/ChevronLeft.svg';
 import { CartItemType } from './CartTypes/cartItemType';
 import { calculateCartSummary } from './cartUtils';
 import { EmptyCart } from './emptyCart/EmptyCart';
+import { CheckoutModal } from './CheckoutModal/CheckoutModal';
 
 // this is temporal fake data
-const fakeCartData = [
+const fakeCartData: CartItemType[] = [
   {
     id: '1',
     category: 'phones',
@@ -62,6 +63,7 @@ const fakeCartData = [
 
 export const CartPage: React.FC = () => {
   const [cartData, setCartData] = useState<CartItemType[]>(fakeCartData);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const deleteItem = (id: number) => {
     setCartData(cartData.filter((item) => +item.id !== id));
@@ -75,6 +77,15 @@ export const CartPage: React.FC = () => {
   };
 
   const cartSummary = calculateCartSummary(cartData);
+
+  const handleCheckout = () => {
+    setIsModalOpen(true);
+    setCartData([]); // Удаление всех элементов из корзины
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className={styles.Cart}>
@@ -97,12 +108,16 @@ export const CartPage: React.FC = () => {
             ))}
           </div>
           <div className={styles.Cart__total}>
-            <CartTotal cartSummary={cartSummary} />
+            <CartTotal
+              cartSummary={cartSummary}
+              handleCheckout={handleCheckout}
+            />
           </div>
         </div>
       ) : (
         <EmptyCart />
       )}
+      {isModalOpen && <CheckoutModal />}
     </div>
   );
 };
