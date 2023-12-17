@@ -1,3 +1,4 @@
+/* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './Favourites.module.scss';
@@ -17,7 +18,8 @@ export const Favourites: React.FC = () => {
     getTheNewestPhones().then((res) =>
       setPhones([
         ...res.data.filter((tempPhone: Phone) =>
-          favorites.includes(tempPhone.id)),
+          favorites.includes(tempPhone.id),
+        ),
       ]),
     ); // eslint-disable-line
   }, [favorites]);

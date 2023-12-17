@@ -3,7 +3,8 @@ import style from './ProductCard.module.scss';
 
 import { PhonesContext } from '../../../../store/GlobalProvider';
 
-import { Good, Phone } from '../../../../types/Phone';
+import { Phone } from '../../../../types/Phone';
+// import { Good } from '../../../../types/Good';
 
 import { Button } from '../../../Button/Button';
 import { ButtonHeartLike } from '../../../ButtonHeartLike';
@@ -31,7 +32,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
   // #endregion
 
   // #region Cart
-  const isInCart = cart.some((el: Good) => el.id === id);
+  const isInCart = cart.some((el: any) => el.id === id);
   const addToCart = () => {
     if (!isInCart) {
       const newGood = { ...model, quantity: 1 };
