@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './CheckoutModal.module.scss';
-import { ReactComponent as Close } from '../../shared/icons/Close.svg';
+import { ReactComponent as Close } from '../../shared/icons/close-img.svg';
 
 interface CartItemProps {
-  handleCloseModal: () =>void
+  handleCloseModal: () => void;
 }
 
 export const CheckoutModal: React.FC<CartItemProps> = ({

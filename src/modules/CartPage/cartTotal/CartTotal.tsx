@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './CartITotal.module.scss';
 import { CartSummaryType } from '../CartTypes/cartSummaryType';
 // import { CheckoutModal } from '../CheckoutModal/CheckoutModal';
@@ -9,12 +9,10 @@ interface CartTotalProps {
   handleCheckout: () => void;
 }
 
-export const CartTotal: React.FC<CartTotalProps> = (
-  {
-    cartSummary,
-    handleCheckout,
-  },
-) => {
+export const CartTotal: React.FC<CartTotalProps> = ({
+  cartSummary,
+  handleCheckout,
+}) => {
   // const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const handleCheckout = () => {

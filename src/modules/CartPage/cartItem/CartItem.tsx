@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CartItem.module.scss';
-import { ReactComponent as Close } from '../../shared/icons/Close.svg';
+import { ReactComponent as Close } from '../../shared/icons/close-img.svg';
 import { ReactComponent as Minus } from '../../shared/icons/Minus.svg';
 import { ReactComponent as Plus } from '../../shared/icons/Plus.svg';
 import { CartItemType } from '../CartTypes/cartItemType';

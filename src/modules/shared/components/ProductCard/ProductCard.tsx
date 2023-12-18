@@ -32,7 +32,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
   // #endregion
 
   // #region Cart
-  const isInCart = cart.some((el: any) => el.id === id);
+  const isInCart = cart.some((el: Phone) => el.id === id);
   const addToCart = () => {
     if (!isInCart) {
       const newGood = { ...model, quantity: 1 };
