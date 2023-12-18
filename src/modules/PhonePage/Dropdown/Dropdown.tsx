@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable operator-linebreak */
 import React, { useState } from 'react';
 import cn from 'classnames';
