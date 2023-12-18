@@ -1,6 +1,16 @@
-@import '../../scssStyles/blocks/_container';
-
 .home__page {
-  // @include homePageContainer;
-  position: relative;
+  box-sizing: border-box;
+  max-width: 290px;
+  margin: 0 auto;
+  padding-top: 95px;
+
+  @media (min-width: 576px) {
+    max-width: 592px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }

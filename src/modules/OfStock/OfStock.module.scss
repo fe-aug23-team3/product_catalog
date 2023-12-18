@@ -1,0 +1,33 @@
+@import '../../scssStyles/colors';
+@import '../../scssStyles/reset';
+@import '../../scssStyles/typography';
+@import '../../scssStyles/mixins';
+
+$primary-text-color: #2d3748;
+
+.OfStock {
+  // height: calc(100vh - 96px - 32px);
+  width: 100%;
+  height: auto;;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+
+  &__text {
+    color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    // max-width: 512px;
+    // margin: 33vh auto;
+    // gap: 12px;
+
+    & :first-child{
+      color:  $primary-text-color;
+      font-size: 60px;
+      font-weight: 600;
+    }
+  }
+}
