@@ -1,31 +1,31 @@
 @import '../../HomePage/MainSlider/Slider_mixins.scss';
 
+@mixin font{
+  font-family: Mont;
+}
 
 
 .specs {
   &_container {
     
     @include onMobile {
-      margin: 0 auto;
+      margin: 80px auto 0 auto;
       width: 288px;
-      margin-top: 80px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       column-gap: 16px;
     }
   
     @include onTablet {
-      margin: 0 auto;
+      margin: 80px auto 0 auto;
       width: 592px;
-      margin-top: 80px;
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       column-gap: 16px;
     }
   
     @include onDesktop {
-      margin-top: 80px;
-      margin: 0 auto;
+      margin: 80px auto 0 auto;
       width: 1136px;
       margin-top: 80px;
       display: grid;
@@ -67,6 +67,7 @@
     }
 
     &_value {
+      @include font;
       color: #89939A;
       font-size: 14px;
       font-style: normal;
@@ -99,7 +100,7 @@
     
     
     &_name {
-      font-family: Mont;
+      @include font;
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
@@ -108,7 +109,7 @@
     }
 
     &_value {
-      font-family: Mont;
+      @include font;
       font-size: 14px;
       font-style: normal;
       font-weight: 600;
