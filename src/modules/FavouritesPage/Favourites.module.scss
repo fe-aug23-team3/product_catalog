@@ -1,0 +1,213 @@
+@import '../HomePage/MainSlider/Slider_mixins.scss';
+
+.favourite_Header {
+  @include onMobile {
+    margin: 0 auto;
+    width: 288px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+  }
+
+  @include onTablet {
+    margin: 0 auto;
+    width: 592px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 16px;
+  }
+
+  @include onDesktop {
+    margin: 0 auto;
+    width: 1136px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    column-gap: 16px;
+  }
+}
+
+.favourite_Header_content {
+  @include onMobile {
+    grid-column: 1 / 4;
+    font-family: Mont;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 41px;
+    /* 116.667% */
+    letter-spacing: -0.32px;
+  }
+
+  @include onTablet {
+    grid-column: 1 / 6;
+    font-family: Mont;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 56px;
+    /* 116.667% */
+    letter-spacing: -0.48px;
+  }
+
+  @include onDesktop {
+    grid-column: 1 / 6;
+    font-family: Mont;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 56px;
+    /* 116.667% */
+    letter-spacing: -0.48px;
+  }
+}
+
+.favourite_Header_content_sub {
+  @include onMobile {
+    grid-column: 1 / 1;
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    color: #89939a;
+  }
+
+  @include onTablet {
+    grid-column: 1 / 3;
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    color: #89939a;
+  }
+
+  @include onDesktop {
+    grid-column: 1 / 3;
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    color: #89939a;
+  }
+}
+
+.favourite_Content {
+  @include onMobile {
+    width: 288px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 16px;
+    row-gap: 40px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  @include onTablet {
+    width: 592px;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    column-gap: 16px;
+    row-gap: 40px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  @include onDesktop {
+    width: 1136px;
+    display: grid;
+    grid-template-columns: repeat(4, 4fr);
+    column-gap: 16px;
+    row-gap: 40px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+}
+
+.pagination {
+  @include onMobile {
+    margin: auto;
+    width: 288px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 47px;
+  }
+
+  @include onTablet {
+    margin: auto;
+    width: 592;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 47px;
+  }
+
+  @include onDesktop {
+    margin: auto;
+    width: 1136px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 47px;
+  }
+}
+
+.left_wrapper {
+  margin-right: 16px;
+}
+
+.right_wrapper {
+  margin-left: 16px;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination_button {
+  width: 32px;
+  height: 32px;
+  border-radius: 48px;
+  border: 1px solid #e2e6e9;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.pagination_button:hover {
+  border: 1px solid #0f0f11;
+}
+
+.pagination_button_isActive {
+  background-color: #0f0f11;
+  color: #ffffff;
+}
+
+.left,
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 48px;
+  border: 1px solid #b4bdc3;
+  object-fit: contain;
+  transition: 300ms;
+}
+
+.left:hover,
+.right:hover {
+  border: 1px solid #0f0f11;
+}
+
+.left:disabled,
+.right:disabled {
+  border: 1px solid #e2e6e9;
+  opacity: 0.5;
+}

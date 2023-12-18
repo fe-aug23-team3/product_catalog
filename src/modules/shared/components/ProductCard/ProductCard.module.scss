@@ -3,7 +3,8 @@
 @import '../../../../scssStyles/colors';
 
 .card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   padding: 32px;
   box-sizing: border-box;
@@ -11,14 +12,18 @@
   border-radius: 8px;
   color: $primary-color;
 
-  min-width: 212px;
-  max-width: 287px;
+  width: 272px;
+  height: 506px;
+
   @include onTablet {
     min-width: 229px;
     max-width: 288px;
   }
-  @include onDesktop {
-    width: 272px;
+
+  @include onMobile {
+    min-width: 212px;
+    max-width: 287px;
+    height: 440px;
   }
 
   &:hover {
@@ -26,10 +31,9 @@
   }
 
   &__preview {
-    display: block;
+    object-fit: contain;
     min-width: 148px;
     min-height: 129px;
-    width: 100%;
   }
 
   &__title {
@@ -74,5 +78,13 @@
 
   &__characteristic > :first-child {
     color: $secondary-color;
+  }
+
+  &__buttons {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
   }
 }

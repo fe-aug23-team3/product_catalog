@@ -4,7 +4,7 @@ import cn from 'classnames';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
-import logo from '../../icons/Logo.svg';
+import logo from '../../icons/main-logo.svg';
 
 export const Header: React.FC = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
       <div className={styles.control}>
         {/* CHANGE THE THEME BUTTON
         <button className=${styles.control__theme}></button> */}
-        <NavLink to="/favorites" className={styles.control__favorites} />
+        <NavLink to="/favourites" className={styles.control__favorites} />
         <NavLink to="/cart" className={styles.control__cart} />
         {!isMenuActive && (
           <NavLink

@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import style from './ProductCard.module.scss';
+
+import { PhonesContext } from '../../../../store/GlobalProvider';
+
 import { Phone } from '../../../../types/Phone';
+// import { Good } from '../../../../types/Good';
+
 import { Button } from '../../../Button/Button';
+import { ButtonHeartLike } from '../../../ButtonHeartLike';
 
 type Props = {
   model: Phone;
 };
 
 export const ProductCard: React.FC<Props> = ({ model }) => {
-  // eslint-disable-next-line object-curly-newline, operator-linebreak
-  const { name, fullPrice, price, screen, capacity, ram, image } = model;
+  // eslint-disable-next-line
+  const { id, name, fullPrice, price, screen, capacity, ram, image, color } =
+    model;
+  // eslint-disable-next-line
+  const { favorites, setFavorites, cart, setCart } = useContext(PhonesContext);
+
+  // #region Favorites
+  const isInFavorites = favorites.includes(id);
+  const addToFavorites = () => {
+    if (isInFavorites) {
+      setFavorites(favorites.filter((el: string) => el !== id));
+    } else {
+      setFavorites([...favorites, id]);
+    }
+  };
+  // #endregion
+
+  // #region Cart
+  const isInCart = cart.some((el: any) => el.id === id);
+  const addToCart = () => {
+    if (!isInCart) {
+      const newGood = { ...model, quantity: 1 };
+
+      setCart([...cart, newGood]);
+    }
+    // else {
+    //   setCart(cart.filter((el: Good) => el.id !== id));
+    // }
+  };
+  // #endregion
 
   return (
     <article className={style.card}>
@@ -51,20 +85,10 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
         </div>
       </div>
 
-      <div className="card__buttons">
-        <Button text="Add to cart" callback={() => {}} />
+      <div className={style.card__buttons}>
+        <Button text="Add to cart" callback={addToCart} isActive={isInCart} />
 
-        <button
-          type="button"
-          className="button__addToFavorites"
-          onClick={() => {}}
-        >
-          <img
-            className="button__icon-heart"
-            src="../shared/icons/Favorites (Heart Like).svg"
-            alt="Heart icon"
-          />
-        </button>
+        <ButtonHeartLike isActive={isInFavorites} callback={addToFavorites} />
       </div>
     </article>
   );

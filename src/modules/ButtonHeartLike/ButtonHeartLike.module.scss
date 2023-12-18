@@ -1,0 +1,24 @@
+@import '../../scssStyles/typography';
+@import '../../scssStyles/colors';
+@import '../../scssStyles/reset';
+
+.ButtonHeartLike {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid $icons-color;
+  border-radius: 48px;
+  background: transparent;
+
+  transition-duration: 0.5s;
+  &:hover {
+    border: 1px solid $primary-color;
+    transition-duration: 0.5s;
+    cursor: pointer;
+  }
+}
