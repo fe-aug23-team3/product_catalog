@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './CartItem.module.scss';
-import tablets from '../../../img/category-tablets.png';
 import { ReactComponent as Close } from '../../shared/icons/Close.svg';
 import { ReactComponent as Minus } from '../../shared/icons/Minus.svg';
 import { ReactComponent as Plus } from '../../shared/icons/Plus.svg';
@@ -42,7 +41,7 @@ export const CartItem: React.FC<CartItemProps> = ({
         </button>
         <img
           className={styles.cartItem__image}
-          src={tablets} // fit data url
+          src={dataItem.image}
           alt={dataItem.name}
         />
         <p className={styles.cartItem__title}>{dataItem.name}</p>

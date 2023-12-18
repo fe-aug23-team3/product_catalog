@@ -89,6 +89,7 @@
     width: 66px;
     height: 66px;
     padding: 7px;
+    flex-shrink: 0;
   }
 
   &__quantity {
