@@ -19,29 +19,40 @@ export const PhonePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const { page, setPage } = useContext(PhonesContext);
-
-  const sort = searchParams.get('sortBy') || '';
-  // const page = searchParams.get('page') || '';
   const [phones, setPhones] = useState<Phone[]>([]);
   const sortByDropdown: SortBy[] = ['Alphabetically', 'Cheapest', 'Newest'];
   const amountPerPage: ItemsNum[] = ['4', '8', '16', 'all'];
 
   useEffect(() => {
     const params = new URLSearchParams();
-    const updateSearchParams = () => {
-      params.set('sortBy', sortBy);
+    let currentSort = '';
+
+    if (sortBy !== 'Newest') {
+      switch (sortBy) {
+        case 'Alphabetically':
+          currentSort = 'name';
+          break;
+        case 'Cheapest':
+          currentSort = 'price';
+          break;
+      }
+      params.set('sortBy', currentSort);
+    }
+
+    if (page !== 0) {
+      params.set('page', page + 1);
+    }
+
+    if (itemsPerPage !== '16') {
       params.set('itemsPerPage', itemsPerPage);
-      params.set('page', page);
+    }
 
-      navigate(`/phones?${params}`);
-    };
+    navigate(`/phones?${params}`);
 
-    updateSearchParams();
-    getPhones(sortBy, +page || 0, itemsPerPage).then((res) => {
+    getPhones(currentSort, +page + 1, itemsPerPage).then((res) => {
       setPhones(res.data.rows);
       setPhonesLength(res.data.count);
-    }
-    );
+    });
   }, [itemsPerPage, page, sortBy, navigate]);
 
   return (
@@ -72,7 +83,7 @@ export const PhonePage: React.FC = () => {
           </div>
         ))}
       </div>
-      {itemsPerPage !== 'all' && <Pagination phones={phonesLength} ITEMS={+itemsPerPage - 1} />}
+      {itemsPerPage !== 'all' && <Pagination phones={phonesLength} ITEMS={+itemsPerPage} />}
     </section>
   );
 };
