@@ -1,3 +1,5 @@
+ @import "../../../scssStyles/colors";
+
 .modal {
   display: flex;
   justify-content: center;
@@ -14,6 +16,7 @@
 }
 
 .content {
+  position: relative;
   display: flex;
   justify-self: center;
   align-items: center;
@@ -96,9 +99,33 @@
 }
 
 .home:hover {
-  background-color: #89939a;
+  background-color: $accent-color;
 }
 
 .home:hover .link {
   color: white;
 }
+//
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+  }
+
+  .closeIcon {
+    flex-shrink: 0;
+    cursor: pointer;
+    path {
+      fill: $icons-color;
+    }
+
+    &:hover {
+      path {
+        transition-duration: 0.3s;
+        fill: $primary-color;
+      }
+    }
+  }

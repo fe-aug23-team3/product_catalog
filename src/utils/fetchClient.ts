@@ -28,8 +28,6 @@ export const getPhonesWithMaxDiscount = () => requests.get('/phones/discount');
 
 export const getTheNewestPhones = () => requests.get('/phones/newest');
 
-export const getAllProducts = () => requests.get('/phones/allProducts');
-
 export const getRecomendationPhones = (phoneId: string) => {
   return requests.get(`/phones/:${phoneId}/recomendation`);
 };

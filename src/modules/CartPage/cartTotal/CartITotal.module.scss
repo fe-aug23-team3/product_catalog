@@ -1,0 +1,83 @@
+@import "../../../scssStyles/colors";
+
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@include onDesktop {
+}
+
+.totalCard {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px $elements-color solid;
+  border-radius: 16px;
+  align-items: center;
+  min-width: 200px;
+  background-color: $white-color;
+  &:hover {
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &__sum {
+    font-family: Mont;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 41px;
+    letter-spacing: -0.32p;
+  }
+  &__discribe {
+    color: $secondary-color;
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 16px;
+    @include onDesktop {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__lane {
+    width: 100%;
+    border: 1px solid transparent;
+    border-top: 1px solid $elements-color;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+  &__checkoutBtn {
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+
+    width: 100%;
+    color: $white-color;
+    background-color: $accent-color;
+    border: none;
+    border-radius: 48px;
+    height: 48px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
+      transition-duration: 0.3s;
+    }
+
+    &:active {
+      border: 1px solid $elements-color;
+      background-color: $white-color;
+      color: $accent-color;
+      transition-duration: 0.3s;
+    }
+  }
+}
