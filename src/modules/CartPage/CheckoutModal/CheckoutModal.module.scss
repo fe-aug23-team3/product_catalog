@@ -24,7 +24,7 @@
   height: 50%;
   width: 50%;
   border-radius: 8px;
-  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 1, 0.8);
 }
 
 .loader {
@@ -47,7 +47,7 @@
   border: 4px double ;
   box-sizing: border-box;
   box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, .1);
-  animation: coin-flip 4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  animation: coin-flip 10s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 @keyframes coin-flip {
   0%, 100% {
@@ -101,9 +101,12 @@
 }
 
 .home:hover {
-  background-color: #89939a;
+  box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
+  transition-duration: 0.5s;
+  background-color: #222;
+  cursor: pointer;
 }
 
 .home:hover .link {
-  color: white;
+  color: aliceblue;
 }
