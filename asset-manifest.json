@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.8a3bf1eb.css",
-    "main.js": "/product_catalog/static/js/main.222836b4.js",
+    "main.css": "/product_catalog/static/css/main.13954a29.css",
+    "main.js": "/product_catalog/static/js/main.244b0222.js",
     "static/media/Bannerr.png": "/product_catalog/static/media/Bannerr.277f40f5cb294b77ef9b.png",
     "static/media/banner_image_mobile_version.jpg": "/product_catalog/static/media/banner_image_mobile_version.b7890059ed2580b5808d.jpg",
     "static/media/main-logo.svg": "/product_catalog/static/media/main-logo.41f90dd2f918d31c63281c58f4204c51.svg",
@@ -25,11 +25,11 @@
     "static/media/Chevron-black (Arrow Left).svg": "/product_catalog/static/media/Chevron-black (Arrow Left).c3354adc7da219a0bdf81384ebb085de.svg",
     "static/media/Vector (Stroke).svg": "/product_catalog/static/media/Vector (Stroke).bf3a1891ec880be9db0579286762c0e2.svg",
     "static/media/ChevronUp.svg": "/product_catalog/static/media/ChevronUp.1ea6958a07717117d3d583ab6fe7dcbd.svg",
-    "main.8a3bf1eb.css.map": "/product_catalog/static/css/main.8a3bf1eb.css.map",
-    "main.222836b4.js.map": "/product_catalog/static/js/main.222836b4.js.map"
+    "main.13954a29.css.map": "/product_catalog/static/css/main.13954a29.css.map",
+    "main.244b0222.js.map": "/product_catalog/static/js/main.244b0222.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a3bf1eb.css",
-    "static/js/main.222836b4.js"
+    "static/css/main.13954a29.css",
+    "static/js/main.244b0222.js"
   ]
 }
