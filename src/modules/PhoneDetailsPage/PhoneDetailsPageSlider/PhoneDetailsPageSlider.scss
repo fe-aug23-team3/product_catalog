@@ -1,0 +1,159 @@
+@import 'src/scssStyles/mixins';
+
+$tablet-min-width: 576px;
+$tablet-max-width: 1199px;
+$desktop-min-width: 1200px;
+$mobile-max-width: 480px;
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+.slider-container {
+  height: 288px;
+  width: 288px;
+  margin: 0 auto;
+
+  @include onTablet {
+    @include onTabletGrid;
+    width: 287px;
+    height: 287px;
+  }
+
+  @include onDesktop {
+    @include onDesktopGrid;
+    width: 442px;
+    height: 442px;
+  }
+}
+
+.paging-container {
+  @include onTablet {
+    @include onTabletGrid;
+    height: 35px;
+    width: 35px;
+  }
+
+  @include onMobile {
+    @include onMobileGrid;
+    width: 50px;
+    height: 50px;
+    margin-left: -18px;
+  }
+
+  @include onDesktop {
+    @include onDesktopGrid;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.head {
+  font-size: 32px;
+  width: 1200px;
+  margin-bottom: 40px;
+  font-family: 'Mont';
+  font-weight: 800;
+  line-height: 41px;
+  margin: 0 auto 40px;
+
+  @include onTablet {
+    @include onTabletGrid;
+    width: 592px;
+  }
+
+  @include onMobile {
+    @include onMobileGrid;
+    margin-bottom: 32px;
+    width: 288px;
+    line-height: 30.8px;
+    font-size: 22px;
+  }
+
+  @include onDesktop {
+    @include onDesktopGrid;
+    font-size: 32px;
+    width: 1136px;
+    margin-bottom: 40px;
+    font-family: 'Mont';
+    font-weight: 800;
+    line-height: 41px;
+  }
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #e2e6e9;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.image:hover {
+  border: 1px solid #000000;
+  border-radius: 8px;
+  transform: scale(1.1);
+}
+
+.slick-dots {
+  top: 450px;
+}
+.slick-track {
+  display: flex;
+}
+
+.slick-thumb {
+  height: 0px;
+}
+
+.slick-dots li {
+  transform: translateY(-750%);
+  @include onMobile {
+    @include onMobileGrid;
+    margin: 18px;
+  }
+
+  @include onTablet {
+    @include onTabletGrid;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    bottom: 310px;
+    right: 60px;
+
+    transform: translateY(-800%);
+  }
+
+  @include onDesktop() {
+    @include onDesktopGrid;
+    display: flex;
+    flex-direction: column;
+    right: 100px;
+    bottom: 360px;
+    margin-top: 70px;
+
+    transform: translateY(-800%);
+  }
+}
+
+.main-image {
+  height: 100%;
+  width: 100%;
+}

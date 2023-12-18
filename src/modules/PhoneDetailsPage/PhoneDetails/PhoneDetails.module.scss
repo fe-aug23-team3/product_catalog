@@ -1,0 +1,150 @@
+// ProductDetails.module.scss
+.productDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.headColors,
+.headCapacity {
+  font-family: 'Mont';
+  font-weight: 600;
+  font-size: 12px;
+  color: #89939a;
+}
+
+.capacity,
+.colors {
+  border-bottom: 1px solid #ddd;
+}
+
+.capacityButton {
+  padding: 8px 16px;
+  margin: 9px;
+  border: 1px solid #b4bdc3;
+  font-size: 14px;
+  font-family: 'Mont';
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  &:hover {
+    background-color: #000;
+    border: 1px solid black;
+    color: #fff;
+  }
+
+  &.selectedCapacity {
+    background-color: #000;
+    border: 1px solid black;
+    color: #fff;
+  }
+}
+
+.price {
+  display: flex;
+  gap: 8px;
+
+  .salePrice {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    font-weight: 600;
+  }
+
+  .originalPrice {
+    margin-top: 8.5px;
+    margin-bottom: 8.5px;
+    font-size: 22px;
+    color: #89939a;
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+}
+
+.addToCart {
+  display: flex;
+  width: 263px;
+  height: 48px;
+}
+
+.specs {
+  font-family: 'Mont';
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0;
+}
+
+.spec {
+  display: table-row;
+}
+
+.specName,
+.specValue {
+  display: table-cell;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.specName {
+  font-size: 12px;
+  color: #89939a;
+  font-weight: 600;
+  text-align: left;
+  line-height: normal;
+}
+
+.specValue {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+  line-height: normal;
+}
+
+.visuallyHidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 9px;
+  margin-bottom: 25px;
+  background-color: #ccc;
+  box-shadow: 0 0 0 1px #ccc;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.button:hover {
+  box-shadow: 0 0 0 2px #b4bdc3;
+}
+
+.selected {
+  box-shadow: 0 0 0 1px black;
+}
+
+.selected:hover {
+  box-shadow: 0 0 0 1px black;
+}
+
+.black {
+  background-color: #4c4c4c;
+}
+.green {
+  background-color: #5f7170;
+}
+.white {
+  background-color: #f0f0f0;
+}
+.gold {
+  background-color: #fcdbc1;
+}
