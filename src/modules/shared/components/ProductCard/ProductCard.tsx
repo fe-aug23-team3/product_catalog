@@ -3,8 +3,7 @@ import style from './ProductCard.module.scss';
 
 import { PhonesContext } from '../../../../store/GlobalProvider';
 
-import { Phone } from '../../../../types/Phone';
-// import { Good } from '../../../../types/Good';
+import { Good, Phone } from '../../../../types/Phone';
 
 import { Button } from '../../../Button/Button';
 import { ButtonHeartLike } from '../../../ButtonHeartLike';
@@ -86,7 +85,11 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
       </div>
 
       <div className={style.card__buttons}>
-        <Button text="Add to cart" callback={addToCart} isActive={isInCart} />
+        <Button
+          text={isInCart ? 'Added' : 'Add to cart'}
+          callback={addToCart}
+          isActive={isInCart}
+        />
 
         <ButtonHeartLike isActive={isInFavorites} callback={addToFavorites} />
       </div>
