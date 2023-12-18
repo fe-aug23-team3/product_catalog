@@ -20,8 +20,6 @@ export const getPhones = (
   );
 };
 
-export const getAllProducts = () => requests.get('/phones/allProducts');
-
 export const getLength = () => requests.get('/phones/length');
 
 export const getOnePhone = (id: any) => requests.get(`/phones:${id}`);
