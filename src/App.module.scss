@@ -1,16 +1,16 @@
 // Utils
-@import './scssStyles/reset';
-@import './scssStyles/typography';
+@import "./scssStyles/reset";
+@import "./scssStyles/typography";
 
 // Blocks
-@import './scssStyles/blocks/container';
-@import './scssStyles/blocks/grid';
-@import './scssStyles/blocks/page';
+@import "./scssStyles/blocks/container";
+@import "./scssStyles/blocks/grid";
+@import "./scssStyles/blocks/page";
 
 // sliders
 //here will be imports for sliders
 
 :root {
-  font-family: 'Mont', sans-serif;
+  font-family: "Mont", sans-serif;
   scroll-behavior: smooth;
 }

@@ -1,11 +1,20 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
 import styles from './Footer.module.scss';
 import logo from '../../icons/main-logo.svg';
 import { ReactComponent as ChevronUp } from '../../icons/ChevronUp.svg';
 
 export const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <footer>
+    <footer className={styles.container}>
       <div className={styles.footer}>
         <img className={styles.logo} src={logo} alt="nice gadgets logo" />
 
@@ -28,12 +37,12 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className={styles.footer_toTop}>
-          <a className={styles.footer_upLink} href="/placeholder">
+          <button className={styles.footer_upLink} onClick={scrollToTop}>
             <span>Back to top</span>
             <span className={styles.button}>
               <ChevronUp className={styles.iconUp} />
             </span>
-          </a>
+          </button>
         </div>
       </div>
     </footer>
