@@ -1,42 +1,59 @@
-/* eslint-disable max-len */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { getLength, getPhones } from '../../utils/fetchClient';
 import styles from './PhonePage.module.scss';
 import { Dropdown } from './Dropdown';
 import { ProductCard } from '../shared/components/ProductCard';
-import { ProductCardProps } from '../shared/components/ProductCard/ProductCardProps';
-
-export type SortBy = 'Alphabetically' | 'Cheapest' | 'Newest';
-
-export type ItemsNum = '4' | '8' | '16' | 'All';
+import { Pagination } from '../shared/components/Pagination';
+import { Phone } from '../../types/Phone';
+import { ItemsNum, SortBy } from '../../helpers/helper';
+import { PhonesContext } from '../../store/GlobalProvider';
 
 export const PhonePage: React.FC = () => {
   const [phonesLength, setPhonesLength] = useState(0);
-  const [sortBy, setSortBy] = useState('Newest');
+  const [sortBy, setSortBy] = useState<SortBy>('Newest');
   const [itemsPerPage, setItemsPerPage] = useState<ItemsNum>('16');
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const sort = searchParams.get('sortBy') || '';
-  // const  = searchParams.get('itemsPerPage') || '';
-  const page = searchParams.get('page') || '';
-  const [phones, setPhones] = useState([]);
+  const navigate = useNavigate();
+  const { page, setPage } = useContext(PhonesContext);
+  const [phones, setPhones] = useState<Phone[]>([]);
   const sortByDropdown: SortBy[] = ['Alphabetically', 'Cheapest', 'Newest'];
-  const amountPerPage: ItemsNum[] = ['4', '8', '16', 'All'];
-
-  // eslint-disable-next-line no-console
-  console.log(sort);
-
-  const params = new URLSearchParams();
-
-  params.set('sortBy', sort);
+  const amountPerPage: ItemsNum[] = ['4', '8', '16', 'all'];
 
   useEffect(() => {
-    getLength().then((res) => setPhonesLength(res.data));
-    // eslint-disable-next-line max-len
-    getPhones(sortBy, 1, itemsPerPage).then((res) => setPhones(res.data));
-  }, [itemsPerPage, sortBy]);
+    const params = new URLSearchParams();
+    let currentSort = '';
+
+    if (sortBy !== 'Newest') {
+      switch (sortBy) {
+        case 'Alphabetically':
+          currentSort = 'name';
+          break;
+        case 'Cheapest':
+          currentSort = 'price';
+          break;
+      }
+      params.set('sortBy', currentSort);
+    }
+
+    if (page !== 0) {
+      params.set('page', page + 1);
+    }
+
+    if (itemsPerPage !== '16') {
+      params.set('itemsPerPage', itemsPerPage);
+    }
+
+    navigate(`/phones?${params}`);
+
+    getPhones(currentSort, +page + 1, itemsPerPage).then((res) => {
+      setPhones(res.data.rows);
+      setPhonesLength(res.data.count);
+    });
+  }, [itemsPerPage, page, sortBy, navigate]);
 
   return (
     <section className={styles.main}>
@@ -60,12 +77,13 @@ export const PhonePage: React.FC = () => {
       </div>
 
       <div className={styles.list}>
-        {phones.map((phone: any) => (
+        {phones.map((phone: Phone) => (
           <div className={styles.list__products} key={phone.id}>
             <ProductCard model={phone} />
           </div>
         ))}
       </div>
+      {itemsPerPage !== 'all' && <Pagination phones={phonesLength} ITEMS={+itemsPerPage} />}
     </section>
   );
 };

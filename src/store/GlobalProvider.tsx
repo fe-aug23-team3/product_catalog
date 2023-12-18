@@ -5,9 +5,12 @@ export const initialValue: any = {
   todos: [],
 };
 
-// #region Favorites
+// #region LocalState
 // eslint-disable-next-line max-len, @typescript-eslint/no-unnecessary-type-constraint
-export const useLocalState = <T extends unknown>(key: string, startValue: T): [T, (v: T) => void] => {
+const useLocalState = <T extends unknown>(
+  key: string,
+  startValue: T,
+): [T, (v: T) => void] => {
   const [value, setValue] = useState(() => {
     const localValue = localStorage.getItem(key);
 
@@ -40,6 +43,8 @@ export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
   const [favorites, setFavorites] = useLocalState<number[]>('Fav', []);
   const [cart, setCart] = useLocalState<Good[]>('Cart', []);
 
+  const [page, setPage] = useState(0);
+
   return (
     <PhonesContext.Provider
       value={{
@@ -51,6 +56,8 @@ export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
         setFavorites,
         cart,
         setCart,
+        page,
+        setPage,
       }}
     >
       {children}

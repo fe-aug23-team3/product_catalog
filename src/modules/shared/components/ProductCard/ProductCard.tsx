@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import style from './ProductCard.module.scss';
-import { Good, Phone } from '../../../../types/Phone';
+
+import { PhonesContext } from '../../../../store/GlobalProvider';
+
+import { Phone } from '../../../../types/Phone';
+// import { Good } from '../../../../types/Good';
+
 import { Button } from '../../../Button/Button';
 import { ButtonHeartLike } from '../../../ButtonHeartLike';
-import { PhonesContext } from '../../../../store/GlobalProvider';
 
 type Props = {
   model: Phone;
@@ -11,7 +15,8 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = ({ model }) => {
   // eslint-disable-next-line
-  const { id, name, fullPrice, price, screen, capacity, ram, image } = model;
+  const { id, name, fullPrice, price, screen, capacity, ram, image, color } =
+    model;
   // eslint-disable-next-line
   const { favorites, setFavorites, cart, setCart } = useContext(PhonesContext);
 
@@ -26,16 +31,17 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
   };
   // #endregion
 
-  // #region cart
-  const isInCart = cart.some(((el: Good) => el.id === id));
+  // #region Cart
+  const isInCart = cart.some((el: any) => el.id === id);
   const addToCart = () => {
-    if (isInCart) {
-      setCart(cart.filter((el: Good) => el.id !== id));
-    } else {
+    if (!isInCart) {
       const newGood = { ...model, quantity: 1 };
 
       setCart([...cart, newGood]);
     }
+    // else {
+    //   setCart(cart.filter((el: Good) => el.id !== id));
+    // }
   };
   // #endregion
 
@@ -80,11 +86,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
       </div>
 
       <div className={style.card__buttons}>
-        <Button
-          text="Add to cart"
-          callback={addToCart}
-          isActive={isInCart}
-        />
+        <Button text="Add to cart" callback={addToCart} isActive={isInCart} />
 
         <ButtonHeartLike isActive={isInFavorites} callback={addToFavorites} />
       </div>

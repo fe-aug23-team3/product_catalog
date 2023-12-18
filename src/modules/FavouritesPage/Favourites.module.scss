@@ -1,10 +1,7 @@
-@import "../../../../../scssStyles/mixins";
-@import"../../../../HomePage/MainSlider/Slider_mixins.scss";
+@import "../HomePage/MainSlider/Slider_mixins.scss";
 
 .favourite_Header {
-
   @include onMobile {
- 
     margin: 0 auto;
     width: 288px;
     margin-top: 80px;
@@ -12,9 +9,8 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 16px;
   }
-  
+
   @include onTablet {
-    
     margin: 0 auto;
     width: 592px;
     margin-top: 80px;
@@ -31,13 +27,10 @@
     grid-template-columns: repeat(24, 1fr);
     column-gap: 16px;
   }
-
-
 }
 
 .favourite_Header_content {
   @include onMobile {
- 
     grid-column: 1 / 4;
     font-family: Mont;
     font-size: 32px;
@@ -47,8 +40,7 @@
     /* 116.667% */
     letter-spacing: -0.32px;
   }
-  
-  
+
   @include onTablet {
     grid-column: 1 / 6;
     font-family: Mont;
@@ -60,7 +52,6 @@
     letter-spacing: -0.48px;
   }
 
-
   @include onDesktop {
     grid-column: 1 / 6;
     font-family: Mont;
@@ -71,27 +62,19 @@
     /* 116.667% */
     letter-spacing: -0.48px;
   }
-
-
-
 }
 
 .favourite_Header_content_sub {
-  
-
   @include onMobile {
- 
     grid-column: 1 / 1;
     font-family: Mont;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 21px;
-    color: #89939A
+    color: #89939a;
   }
 
-  
-  
   @include onTablet {
     grid-column: 1 / 3;
     font-family: Mont;
@@ -99,7 +82,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 21px;
-    color: #89939A;
+    color: #89939a;
   }
 
   @include onDesktop {
@@ -109,17 +92,13 @@
     font-style: normal;
     font-weight: 600;
     line-height: 21px;
-    color: #89939A
+    color: #89939a;
   }
-  
-  
- 
 }
 
 .favourite_Content {
-  
   @include onMobile {
-    width:288px;
+    width: 288px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     column-gap: 16px;
@@ -127,8 +106,7 @@
     margin: 0 auto;
     margin-bottom: 40px;
   }
-  
-  
+
   @include onTablet {
     width: 592px;
     display: grid;
@@ -148,44 +126,35 @@
     margin: 0 auto;
     margin-bottom: 40px;
   }
-  
-
 }
 
-
 .pagination {
-  
-
   @include onMobile {
-    margin:auto;
-    width:288px;
+    margin: auto;
+    width: 288px;
     display: flex;
     align-content: center;
     justify-content: center;
     margin-bottom: 47px;
   }
-  
-  
+
   @include onTablet {
-  margin: auto;
-  width: 592;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  margin-bottom: 47px;
+    margin: auto;
+    width: 592;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 47px;
   }
 
   @include onDesktop {
     margin: auto;
-  width: 1136px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  margin-bottom: 47px;
+    width: 1136px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 47px;
   }
-  
-  
-  
 }
 
 .left_wrapper {
@@ -205,19 +174,18 @@
   width: 32px;
   height: 32px;
   border-radius: 48px;
-  border: 1px solid #E2E6E9;
+  border: 1px solid #e2e6e9;
   cursor: pointer;
   transition: 300ms;
 }
 
 .pagination_button:hover {
-  border: 1px solid #0F0F11;
+  border: 1px solid #0f0f11;
 }
 
-
 .pagination_button_isActive {
-  background-color: #0F0F11;
-  color: #FFFFFF
+  background-color: #0f0f11;
+  color: #ffffff;
 }
 
 .left,
@@ -228,22 +196,18 @@
   width: 32px;
   height: 32px;
   border-radius: 48px;
-  border: 1px solid #B4BDC3;
+  border: 1px solid #b4bdc3;
   object-fit: contain;
   transition: 300ms;
 }
 
 .left:hover,
 .right:hover {
-  border: 1px solid #0F0F11;
+  border: 1px solid #0f0f11;
 }
 
 .left:disabled,
 .right:disabled {
-  border: 1px solid #E2E6E9;
+  border: 1px solid #e2e6e9;
   opacity: 0.5;
-}
-
-.favourite_Content_mobile {
-  // grid-column: 1 / span 6;
 }

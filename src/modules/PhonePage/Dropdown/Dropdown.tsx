@@ -2,12 +2,9 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import { SetURLSearchParams } from 'react-router-dom';
-import { PhonesContext } from '../../../store/GlobalProvider';
 import arrowRight from '../../shared/icons/Vector (Stroke).svg';
 import styles from './Dropdown.module.scss';
-
-export type SortBy = 'Alphabetically' | 'Cheapest' | 'Newest';
-export type ItemsNum = '4' | '8' | '16' | 'All';
+import { ItemsNum, SortBy } from '../../../helpers/helper';
 
 type Props = {
   title: string;

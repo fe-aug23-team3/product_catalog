@@ -1,18 +1,17 @@
-.home__page {
-  box-sizing: border-box;
-  max-width: 290px;
+.slider__wrapper {
+  width: 100%;
   margin: 0 auto;
   padding-inline: 16px;
   padding-top: 95px;
 
-  @media (min-width: 576px) {
-    max-width: 592px;
+  @media (min-width: 640px) {
+    width: 100%;
     margin: 0 auto;
     padding-inline: 24px;
   }
 
   @media (min-width: 1200px) {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding-inline: 32px;
   }

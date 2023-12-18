@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axious from 'axios';
+import { ItemsNum } from '../helpers/helper';
 
 export const BASE_URL = 'https://product-catalog-api-e4vw.onrender.com';
 // const BASE_URL = 'http://localhost:3005';
@@ -8,10 +9,9 @@ const requests = {
   get: (pathname: string) => axious.get(`${BASE_URL}${pathname}`),
 };
 
-export type ItemsNum = '4' | '8' | '16' | 'All';
 // eslint-disable-next-line max-len
 export const getPhones = (
-  sortBy = 'newest',
+  sortBy: string,
   page: number,
   itemsPerPage: ItemsNum,
 ) => {
@@ -19,6 +19,8 @@ export const getPhones = (
     `/phones?sortBy=${sortBy}&page=${page}&itemsPerPage=${itemsPerPage}`,
   );
 };
+
+export const getAllProducts = () => requests.get('/phones/allProducts');
 
 export const getLength = () => requests.get('/phones/length');
 
