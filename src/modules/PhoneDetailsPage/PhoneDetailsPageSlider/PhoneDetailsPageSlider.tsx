@@ -31,7 +31,6 @@ export function ItemPageSlider() {
 
   return (
     <>
-      <h2 className="head">Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)</h2>
       <div className="slider-container">
         <Slider {...settings}>
           <div>

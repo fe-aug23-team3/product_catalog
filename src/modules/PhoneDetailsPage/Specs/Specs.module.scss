@@ -1,28 +1,23 @@
 @import '../../HomePage/MainSlider/Slider_mixins.scss';
 
-
-
 .specs {
   &_container {
-    
     @include onMobile {
       margin: 0 auto;
       width: 288px;
-      margin-top: 80px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       column-gap: 16px;
     }
-  
+
     @include onTablet {
       margin: 0 auto;
-      width: 592px;
-      margin-top: 80px;
+      width: 750px;
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(12, 2fr);
       column-gap: 16px;
     }
-  
+
     @include onDesktop {
       margin-top: 80px;
       margin: 0 auto;
@@ -32,28 +27,28 @@
       grid-template-columns: repeat(24, 1fr);
       column-gap: 16px;
     }
-   
   }
 
   &_about {
-    
     @include onMobile {
       grid-column: 1 / 5;
       margin-top: 55px;
     }
 
     @include onTablet {
-      grid-column: 1/ 12;
+      grid-column: 1 / 6;
       margin-top: 64px;
     }
-  
+
     @include onDesktop {
       grid-column: 1 / 13;
     }
-    
+
     grid-column: 1 / 13;
 
     &_header {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 16px;
       margin-bottom: 48px;
       font-weight: 800;
     }
@@ -67,44 +62,40 @@
     }
 
     &_value {
-      color: #89939A;
+      color: #89939a;
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
-      line-height: 21px
+      line-height: 21px;
     }
 
     &_section:not(:last-child) {
       margin-bottom: 32px;
-
     }
-
   }
 
   &_tech {
-  
     @include onMobile {
       grid-column: 1 / 5;
       margin-top: 55px;
     }
-  
+
     @include onTablet {
-      grid-column: 1/ 12;
+      grid-column: 7/ 12;
       margin-top: 64px;
     }
-  
+
     @include onDesktop {
       grid-column: 14 / 25;
     }
-    
-    
+
     &_name {
       font-family: Mont;
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
       line-height: 21px;
-      color: #89939A
+      color: #89939a;
     }
 
     &_value {
@@ -116,6 +107,8 @@
     }
 
     &_header {
+      padding-bottom: 16px;
+      border-bottom: 1px solid #ddd;
       margin-bottom: 40px;
     }
 
@@ -123,8 +116,6 @@
       margin-bottom: 8px;
       display: flex;
       justify-content: space-between;
-
     }
-
   }
 }

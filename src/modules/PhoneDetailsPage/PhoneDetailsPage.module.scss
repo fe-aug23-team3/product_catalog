@@ -1,0 +1,90 @@
+@import '../HomePage/MainSlider/Slider_mixins.scss';
+
+.phoneDetails {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.head {
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-family: 'Mont';
+  font-weight: 800;
+  line-height: 41px;
+
+  @include onMobile {
+    margin: 0 auto 32px;
+    width: 288px;
+    line-height: 30.8px;
+    font-size: 22px;
+  }
+
+  @include onTablet {
+    max-width: 1199px;
+    margin: 0 auto 40px;
+    width: 592px;
+  }
+
+  @include onDesktop {
+    width: 1136px;
+    font-size: 32px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    font-family: 'Mont';
+    font-weight: 800;
+    line-height: 41px;
+  }
+}
+
+.detailsContainer {
+  @include onMobile {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 auto -30px;
+  }
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 16px;
+    margin: 0 auto;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-gap: 16px;
+  }
+
+  .sliderWrapper {
+    @include onMobile {
+      margin-bottom: 100px;
+      grid-column: 1 / -1;
+    }
+
+    @include onTablet {
+      grid-column: 3 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+      margin-right: 20px;
+    }
+  }
+
+  .phoneDetailsWrapper {
+    @include onMobile {
+      grid-column: 1 / -1;
+    }
+
+    @include onTablet {
+      grid-column: 7 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 13 / -1;
+      margin-left: 25px;
+    }
+  }
+}

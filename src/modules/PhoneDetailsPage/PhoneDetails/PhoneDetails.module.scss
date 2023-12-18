@@ -1,7 +1,31 @@
-// ProductDetails.module.scss
+@mixin onMobile {
+  @media (max-width: 460px) {
+    @content;
+  }
+}
+
 .productDetails {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-gap: 20px;
+  max-width: 300px;
+}
+
+.headColors {
+  margin-bottom: -20px;
+}
+
+.id {
+  font-family: 'Mont';
+  position: absolute;
+  font-weight: 600;
+  font-size: 12px;
+  color: #89939a;
+  text-align: right;
+  padding-left: 455px;
+
+  @include onMobile() {
+    padding-left: 222px;
+  }
 }
 
 .headColors,
@@ -15,11 +39,12 @@
 .capacity,
 .colors {
   border-bottom: 1px solid #ddd;
+  padding-bottom: 24px;
 }
 
 .capacityButton {
   padding: 8px 16px;
-  margin: 9px;
+  margin-left: 9px;
   border: 1px solid #b4bdc3;
   font-size: 14px;
   font-family: 'Mont';
@@ -44,9 +69,6 @@
 }
 
 .price {
-  display: flex;
-  gap: 8px;
-
   .salePrice {
     font-weight: 800;
     font-size: 32px;
@@ -55,8 +77,7 @@
   }
 
   .originalPrice {
-    margin-top: 8.5px;
-    margin-bottom: 8.5px;
+    padding-left: 8px;
     font-size: 22px;
     color: #89939a;
     font-weight: 600;
@@ -64,18 +85,9 @@
   }
 }
 
-.addToCart {
-  display: flex;
-  width: 263px;
-  height: 48px;
-}
-
 .specs {
   font-family: 'Mont';
   display: table;
-  border-collapse: collapse;
-  width: 100%;
-  margin: 0;
 }
 
 .spec {
@@ -86,7 +98,6 @@
 .specValue {
   display: table-cell;
   padding: 8px;
-  vertical-align: middle;
 }
 
 .specName {
@@ -101,7 +112,6 @@
   font-size: 12px;
   font-weight: 700;
   text-align: right;
-  line-height: normal;
 }
 
 .visuallyHidden {
@@ -115,8 +125,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  margin: 9px;
-  margin-bottom: 25px;
+  margin-left: 9px;
   background-color: #ccc;
   box-shadow: 0 0 0 1px #ccc;
   border: 2px solid white;

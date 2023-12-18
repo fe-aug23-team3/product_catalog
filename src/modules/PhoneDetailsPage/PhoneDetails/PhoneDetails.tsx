@@ -34,6 +34,7 @@ export const PhoneDetails = () => {
   return (
     <div className={styles.productDetails}>
       <h3 className={styles.headColors}>Available colors</h3>
+      <h3 className={styles.id}>ID: 802390</h3>
       <section className={styles.colors}>
         <div className={styles.colorOptions}>
           {Object.values(PhoneColors).map((color) => (
@@ -77,17 +78,9 @@ export const PhoneDetails = () => {
         </span>
       </div>
 
-      <div className={styles.addToCard}>
+      <div>
         <Button text="Add to cart" callback={() => {}} />
       </div>
-
-      <button type="button" className={styles.favorite} onClick={() => {}}>
-        <img
-          className={styles.iconHeart}
-          src="../shared/icons/Favorites (Heart Like).svg"
-          alt="Heart icon"
-        />
-      </button>
       <section className={styles.specs}>
         {specifications.map((spec) => (
           <div key={spec.name} className={styles.spec}>
