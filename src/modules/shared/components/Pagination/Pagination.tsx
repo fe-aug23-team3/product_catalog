@@ -5,20 +5,19 @@ import iconleft from '../../icons/Chevron-black (Arrow Left).svg';
 import iconright from '../../icons/Chevron-black (Arrow Right).svg';
 
 import styles from './Pagination.module.scss';
-import { Phone } from '../../../../types/Phone';
 import { PhonesContext } from '../../../../store/GlobalProvider';
 
 interface Props {
-  phones: Phone[];
+  phones: number;
   ITEMS: number;
 }
 
-export const Pagination: React.FC<Props> = ({ phones, ITEMS }) => {
+export const Pagination: React.FC<Props> = ({ phones, ITEMS = 16 }) => {
   const { page, setPage } = useContext(PhonesContext);
 
   function pagination() {
     const pages = [];
-    const amount = Math.ceil(phones.length / ITEMS);
+    const amount = Math.ceil(+phones / ITEMS);
 
     for (let i = 1; i <= amount; i += 1) {
       pages.push(i);
@@ -52,7 +51,9 @@ export const Pagination: React.FC<Props> = ({ phones, ITEMS }) => {
             })}
             type="button"
             key={button}
-            onClick={() => setPage(i)}
+            onClick={() => {
+              setPage(i);
+            }}
           >
             {i + 1}
           </button>

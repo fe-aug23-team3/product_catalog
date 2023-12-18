@@ -2,7 +2,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './Favourites.module.scss';
-import { getTheNewestPhones } from '../../utils/fetchClient';
+import { getAllProducts } from '../../utils/fetchClient';
 import { Phone } from '../../types/Phone';
 import { ProductCard } from '../shared/components/ProductCard';
 import { Pagination } from '../shared/components/Pagination';
@@ -15,13 +15,13 @@ export const Favourites: React.FC = () => {
   const ITEMS = 4;
 
   useEffect(() => {
-    getTheNewestPhones().then((res) =>
+    getAllProducts().then((res) => {
       setPhones([
         ...res.data.filter((tempPhone: Phone) =>
           favorites.includes(tempPhone.id),
         ),
-      ]),
-    ); // eslint-disable-line
+      ]);
+    });
   }, [favorites]);
 
   const split = () => {
@@ -49,7 +49,10 @@ export const Favourites: React.FC = () => {
         ))}
       </div>
 
-      {phones.length > ITEMS && <Pagination phones={phones} ITEMS={ITEMS} />}
+      {
+        phones.length > ITEMS
+        && <Pagination phones={phones.length} ITEMS={ITEMS} />
+      }
     </>
   );
 };
