@@ -1,8 +1,9 @@
-@import '../../../../scssStyles/colors';
-@import '../../../../scssStyles/mixins';
+@import "../../../../scssStyles/colors";
+@import "../../../../scssStyles/mixins";
+@import "../../../../scssStyles/_sizes";
 
 @mixin onDesktop {
-  @media (min-width: 1199x) {
+  @media (min-width: 1199px) {
     @content;
   }
 }
@@ -13,26 +14,33 @@
   }
 }
 
+.container {
+  width: 100%;
+}
+
 .footer {
   display: flex;
-  flex-direction: row;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 16px;
   justify-content: space-between;
+  flex-direction: row;
+  margin: 0 auto;
   gap: 32px;
+  max-width: 1200px;
+  padding: 32px 16px;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 
   @include onTablet {
-    flex-direction: row;
     padding: 32px;
     align-items: center;
-    justify-content: space-between;
+    flex-direction: row;
   }
 
   @include onDesktop {
     display: flex;
-    flex-direction: column;
     padding: 32px 152px;
+    flex-direction: row;
   }
 
   &_links {
@@ -72,9 +80,7 @@
     display: flex;
     align-items: center;
     font-size: 12px;
-    text-decoration: none;
     color: $secondary-color;
-
     font-family: Mont;
     font-weight: 700;
   }
@@ -82,7 +88,7 @@
 
 .logo {
   width: 89px;
-  height: 32px;
+  height: $arrow--height;
 }
 
 .button {
@@ -90,8 +96,8 @@
   margin-left: 16px;
   border-radius: 50%;
   border: 1px $icons-color solid;
-  width: 32px;
-  height: 32px;
+  width: $arrow--width;
+  height: $arrow--height;
 
   &:hover {
     border: 1px $primary-color solid;
@@ -100,9 +106,8 @@
 
 .iconUp {
   position: relative;
-  width: 16px;
-  height: 16px;
-  left: 8px;
+  width: $icon--width;
+  height: $icon--height;
   top: 8px;
 
   path {

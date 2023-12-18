@@ -28,6 +28,7 @@ export const Root = () => (
             <Route path=":phoneId?" element={<PhoneDetailsPage />} />
           </Route>
           <Route path="tablets" element={<OfStock />} />
+          <Route path="accessories" element={<OfStock />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="favourites" element={<Favourites />} />
 
