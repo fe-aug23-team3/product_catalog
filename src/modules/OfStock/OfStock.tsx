@@ -12,14 +12,12 @@ export const OfStock: React.FC = () => {
           <p>
             {
               // eslint-disable-next-line max-len
-              'but tablets is temporarily out of stock. Please check back soon for availability. Thank you for your understanding.'
+              'But this category of goods is temporarily out of stock. Please check back soon for availability. Thank you for your understanding.'
             }
           </p>
         </div>
 
-        <div className={style.OfStock__desert}>
-          <Desert />
-        </div>
+        <Desert />
       </div>
     </main>
   );
