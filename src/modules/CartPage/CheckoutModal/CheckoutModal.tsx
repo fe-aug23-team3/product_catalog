@@ -1,7 +1,14 @@
 import React from 'react';
 import styles from './CheckoutModal.module.scss';
+import { ReactComponent as Close } from '../../shared/icons/Close.svg';
 
-export const CheckoutModal: React.FC = () => {
+interface CartItemProps {
+  handleCloseModal: () =>void
+}
+
+export const CheckoutModal: React.FC<CartItemProps> = ({
+  handleCloseModal,
+}) => {
   return (
     <div className={styles.modal}>
       <div className={styles.content}>
@@ -18,6 +25,15 @@ export const CheckoutModal: React.FC = () => {
             <a href="/" className={styles.link}>
               go back home
             </a>
+          </button>
+
+          <button
+            type="button"
+            aria-label="close"
+            className={styles.close}
+            onClick={handleCloseModal}
+          >
+            <Close className={styles.closeIcon} />
           </button>
         </section>
       </div>

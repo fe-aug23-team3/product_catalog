@@ -1,3 +1,5 @@
+ @import "../../../scssStyles/colors";
+
 .modal {
   display: flex;
   justify-content: center;
@@ -14,6 +16,7 @@
 }
 
 .content {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,6 +50,7 @@
   border: 4px double ;
   box-sizing: border-box;
   box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, .1);
+
   animation: coin-flip 10s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 @keyframes coin-flip {
@@ -101,6 +105,7 @@
 }
 
 .home:hover {
+
   box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
   transition-duration: 0.5s;
   background-color: #222;
@@ -110,3 +115,27 @@
 .home:hover .link {
   color: aliceblue;
 }
+//
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+  }
+
+  .closeIcon {
+    flex-shrink: 0;
+    cursor: pointer;
+    path {
+      fill: $icons-color;
+    }
+
+    &:hover {
+      path {
+        transition-duration: 0.3s;
+        fill: $primary-color;
+      }
+    }
+  }
