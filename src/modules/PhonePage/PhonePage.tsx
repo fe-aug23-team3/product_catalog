@@ -1,14 +1,16 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { getLength, getPhones } from '../../utils/fetchClient';
 import styles from './PhonePage.module.scss';
 import { Dropdown } from './Dropdown';
 import { ProductCard } from '../shared/components/ProductCard';
+import { Pagination } from '../shared/components/Pagination';
 import { Phone } from '../../types/Phone';
 import { ItemsNum, SortBy } from '../../helpers/helper';
+import { PhonesContext } from '../../store/GlobalProvider';
 
 export const PhonePage: React.FC = () => {
   const [phonesLength, setPhonesLength] = useState(0);
@@ -16,10 +18,11 @@ export const PhonePage: React.FC = () => {
   const [itemsPerPage, setItemsPerPage] = useState<ItemsNum>('16');
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { page, setPage } = useContext(PhonesContext);
 
   const sort = searchParams.get('sortBy') || '';
-  const page = searchParams.get('page') || '';
-  const [phones, setPhones] = useState([]);
+  // const page = searchParams.get('page') || '';
+  const [phones, setPhones] = useState<Phone[]>([]);
   const sortByDropdown: SortBy[] = ['Alphabetically', 'Cheapest', 'Newest'];
   const amountPerPage: ItemsNum[] = ['4', '8', '16', 'all'];
 
@@ -28,19 +31,17 @@ export const PhonePage: React.FC = () => {
     const updateSearchParams = () => {
       params.set('sortBy', sortBy);
       params.set('itemsPerPage', itemsPerPage);
-      if (+page > 1) {
-        params.set('page', page);
-      }
+      params.set('page', page);
 
       navigate(`/phones?${params}`);
     };
 
-    getLength().then((res) => setPhonesLength(res.data));
     updateSearchParams();
-    getPhones(sortBy, +page || 1, itemsPerPage).then((res) =>
-      setPhones(res.data),
+    getPhones(sortBy, +page || 0, itemsPerPage).then((res) => {
+      setPhones(res.data.rows);
+      setPhonesLength(res.data.count);
+    }
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemsPerPage, page, sortBy, navigate]);
 
   return (
@@ -71,6 +72,7 @@ export const PhonePage: React.FC = () => {
           </div>
         ))}
       </div>
+      {itemsPerPage !== 'all' && <Pagination phones={phonesLength} ITEMS={+itemsPerPage - 1} />}
     </section>
   );
 };
