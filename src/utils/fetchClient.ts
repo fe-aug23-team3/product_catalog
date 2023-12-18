@@ -22,7 +22,7 @@ export const getPhones = (
 
 export const getLength = () => requests.get('/phones/length');
 
-export const getOnePhone = (id: any) => requests.get(`/phones:${id}`);
+export const getOnePhone = (id: number) => requests.get(`/phones:${id}`);
 
 export const getPhonesWithMaxDiscount = () => requests.get('/phones/discount');
 

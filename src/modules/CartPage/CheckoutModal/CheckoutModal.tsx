@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './CheckoutModal.module.scss';
-import { ReactComponent as Close } from '../../shared/icons/Close.svg';
+import { ReactComponent as Close } from '../../shared/icons/close-img.svg';
 
 interface CartItemProps {
-  handleCloseModal: () =>void
+  handleCloseModal: () => void;
 }
 
 export const CheckoutModal: React.FC<CartItemProps> = ({
@@ -12,26 +12,7 @@ export const CheckoutModal: React.FC<CartItemProps> = ({
   return (
     <div className={styles.modal}>
       <div className={styles.content}>
-        <div className={styles.loader}>
-          <div className={styles.loader__image}>
-            <div className={styles.loader__coin}>
-              <img
-                className={styles.coin}
-                // eslint-disable-next-line max-len
-                src="https://www.dropbox.com/s/fzc3fidyxqbqhnj/loader-coin.png?raw=1"
-                alt=""
-              />
-            </div>
-            <div className={styles.loader__hand}>
-              <img
-                className={styles.hand}
-                // eslint-disable-next-line max-len
-                src="https://www.dropbox.com/s/y8uqvjn811z6npu/loader-hand.png?raw=1"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
+        <span className={styles.loader}> </span>
         <section className={styles.text}>
           <h2
             // eslint-disable-next-line max-len
