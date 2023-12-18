@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.44190901.css",
-    "main.js": "/product_catalog/static/js/main.27859842.js",
+    "main.css": "/product_catalog/static/css/main.c55decdd.css",
+    "main.js": "/product_catalog/static/js/main.b7316a18.js",
     "static/media/Bannerr.png": "/product_catalog/static/media/Bannerr.277f40f5cb294b77ef9b.png",
     "static/media/banner_image_mobile_version.jpg": "/product_catalog/static/media/banner_image_mobile_version.b7890059ed2580b5808d.jpg",
     "static/media/main-logo.svg": "/product_catalog/static/media/main-logo.41f90dd2f918d31c63281c58f4204c51.svg",
@@ -27,13 +27,17 @@
     "static/media/Chevron-black (Arrow Left).svg": "/product_catalog/static/media/Chevron-black (Arrow Left).c3354adc7da219a0bdf81384ebb085de.svg",
     "static/media/Vector (Stroke).svg": "/product_catalog/static/media/Vector (Stroke).bf3a1891ec880be9db0579286762c0e2.svg",
     "static/media/ChevronLeft.svg": "/product_catalog/static/media/ChevronLeft.7460d67936be8c4491a8997e5e905650.svg",
+    "static/media/chevronArrowLeft.svg": "/product_catalog/static/media/chevronArrowLeft.7460d67936be8c4491a8.svg",
+    "static/media/chevronArrowRight.svg": "/product_catalog/static/media/chevronArrowRight.e028d3889646e0b5e56c.svg",
+    "static/media/chevronArrowRightActive.svg": "/product_catalog/static/media/chevronArrowRightActive.10850697d064a4f246ce.svg",
+    "static/media/chevronArrowLeftActive.svg": "/product_catalog/static/media/chevronArrowLeftActive.e5d8a4fb0323d57696b8.svg",
     "static/media/ChevronUp.svg": "/product_catalog/static/media/ChevronUp.1ea6958a07717117d3d583ab6fe7dcbd.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.7dbf40c4da6acbd0d40bdc842464762e.svg",
-    "main.44190901.css.map": "/product_catalog/static/css/main.44190901.css.map",
-    "main.27859842.js.map": "/product_catalog/static/js/main.27859842.js.map"
+    "main.c55decdd.css.map": "/product_catalog/static/css/main.c55decdd.css.map",
+    "main.b7316a18.js.map": "/product_catalog/static/js/main.b7316a18.js.map"
   },
   "entrypoints": [
-    "static/css/main.44190901.css",
-    "static/js/main.27859842.js"
+    "static/css/main.c55decdd.css",
+    "static/js/main.b7316a18.js"
   ]
 }
