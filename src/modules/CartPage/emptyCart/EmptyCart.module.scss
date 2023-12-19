@@ -1,0 +1,108 @@
+@import "../../../scssStyles/colors";
+@import "../../../scssStyles/mixins";
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+margin: auto;
+  @include onTablet {
+    padding: 16px 0;
+  }
+
+  &__title {
+    font-family: Mont;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: -0.32px;
+    margin-bottom: 32px;
+    color: $secondary-color;
+    margin: 0;
+    margin-bottom: 10px;
+    @include onTablet {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+
+  &__describe {
+    font-family: Mont;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: -0.32px;
+    margin-bottom: 32px;
+    color: $icons-color;
+    margin: 0;
+    margin-bottom: 20px;
+    @include onTablet {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+
+  &__button{
+    font-family: Mont;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+
+    width: 100%;
+    color: $white-color;
+    background-color: $accent-color;
+    border: none;
+    border-radius: 48px;
+    height: 48px;
+    max-width: 600px;
+    text-align: center;
+    line-height: 48px;
+    text-decoration: none;
+  
+    cursor: pointer;
+    @include onTablet {
+      font-size: 12px;
+    }
+
+
+
+    &:hover {
+      box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
+      transition-duration: 0.3s;
+    }
+
+    &:active {
+      border: 1px solid $elements-color;
+      background-color: $white-color;
+      color: $accent-color;
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.icon {
+  width: 180px;
+  height: 180px;
+  animation: shake 5s infinite;
+  margin-bottom: 40px;
+  @include onTablet {
+    width: 120px;
+    height: 120px;
+  }
+}

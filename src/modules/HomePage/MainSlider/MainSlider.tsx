@@ -1,12 +1,53 @@
-import React, { Component, useState, useEffect } from 'react';
-import Slider from 'react-slick'; // eslint-disable-line
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { CSSProperties, useState, useEffect } from 'react';
+import Slider from 'react-slick';
 import styles from './MainSlider.module.scss';
-import 'slick-carousel/slick/slick.css'; // eslint-disable-line
-import 'slick-carousel/slick/slick-theme.css'; // eslint-disable-line
-import image from './images/Banner.png';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import image2 from './images/Bannerr.png';
 import image3 from './images/banner_image_mobile_version.jpg';
-import './Arrow.scss';
+
+interface ArrowProps {
+  className?: string;
+  style?: CSSProperties;
+  onClick?: () => void;
+}
+
+const NextArrow: React.FC<ArrowProps> = ({
+  className,
+  style,
+  onClick,
+}) => (
+  <div
+    className={`${styles.arrow} ${styles.next_arrow}`}
+    style={{
+      display: 'block',
+      position: 'absolute',
+      top: '0',
+      right: '-25px',
+    }}
+    onClick={onClick}
+  />
+);
+
+const PrevArrow: React.FC<ArrowProps> = ({
+  className,
+  style,
+  onClick,
+}) => (
+  <div
+    className={`${styles.arrow} ${styles.prev_arrow}`}
+    style={{
+      display: 'block',
+      position: 'absolute',
+      top: '0',
+      left: '-25px',
+    }}
+    onClick={onClick}
+  />
+);
 
 export const MainSlider: React.FC = () => {
   function getCurrentDimension() {
@@ -24,7 +65,9 @@ export const MainSlider: React.FC = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: screenSize.width > 639,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   useEffect(() => {
