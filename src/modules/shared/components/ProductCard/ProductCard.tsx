@@ -39,9 +39,6 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
 
       setCart([...cart, newGood]);
     }
-    // else {
-    //   setCart(cart.filter((el: Good) => el.id !== id));
-    // }
   };
   // #endregion
 
