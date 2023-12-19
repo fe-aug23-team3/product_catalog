@@ -1,32 +1,66 @@
 @import "../../scssStyles/colors";
 @import "../../scssStyles/mixins";
 
+
+
+@mixin onTablets {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktops {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
 .Cart {
   display: flex;
   flex-direction: column;
-  background-color: $hover-bg-color;
-  min-height: 90vh; // temporal 💥!! 
-  
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-inline: 32px;
-  @include onDesktop {
-    padding-inline: 24px;
-  }
-  @include onTablet {
-    padding-inline: 16px;
-  }
+  // background-color: $hover-bg-color;
+  // min-height: 90vh; // temporal 💥!!
+
+  // max-width: 1136px;
+  // margin: 0 auto;
+  // flex-grow: 1;
+  min-width: 288px;
+  // max-width: 607px;
+  // margin: 0 16px;
+
+
+
+
+@include onTablets{
+   max-width: 1136px;
+   min-width: 570px;
+  //  margin: 0 24px;
+}
+
+@include onDesktops{
+   width: 1136px;
+  //  margin: 0;
+}
+
+  // padding: 0 32px;
+  // @include onDesktop {
+  //   padding: 0 24px;
+  // }
+  // @include onTablet {
+  //   padding: 0 16px;
+  // }
 
   &__linkBack {
-        margin-top: 64px; // temporal 💥!! jast for Cart
+    margin-top: 64px; // temporal 💥!! jast for Cart
     display: flex;
     align-items: center;
     text-decoration: none;
     margin-bottom: 16px;
-    @include onTablet {
-      font-size: 24px;
-  }
-    
+    font-size: 24px;
+    // @include onTablet {
+    //   font-size: 24px;
+    // }
+
   }
 
   &__backBtn {
@@ -38,7 +72,7 @@
     color: $secondary-color;
     @include onTablet {
       font-size: 12px;
-  }
+    }
     &:hover {
       color: $primary-color;
     }
@@ -54,10 +88,8 @@
     margin-bottom: 32px;
     letter-spacing: -0.48px;
     @include onTablet {
-     font-size: 32px;
+      font-size: 32px;
     }
-
-    
   }
 
   &__container {
@@ -94,4 +126,3 @@
     fill: $primary-color;
   }
 }
-

@@ -13,7 +13,8 @@
   margin: 0 auto;
   gap: 32px;
   max-width: 1200px;
-  padding: 32px 32px;
+  padding: 32px 52px;
+  max-width: 1136px;
 
   @include onTablet {
     padding: 32px 16px;
