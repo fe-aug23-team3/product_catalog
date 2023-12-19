@@ -1,5 +1,6 @@
 .slider__wrapper {
   width: 100%;
+  max-width: 1136px;
   margin: 0 auto;
   padding-inline: 16px;
   padding-top: 95px;
@@ -7,12 +8,12 @@
   @media (min-width: 640px) {
     width: 100%;
     margin: 0 auto;
-    padding-inline: 24px;
+    // padding-inline: 24px;
   }
 
   @media (min-width: 1200px) {
     width: 100%;
     margin: 0 auto;
-    padding-inline: 32px;
+    // padding-inline: 32px;
   }
 }
