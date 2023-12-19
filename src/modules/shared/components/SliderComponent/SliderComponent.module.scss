@@ -7,13 +7,15 @@
 
   @media (min-width: 640px) {
     width: 100%;
-    margin: 0 auto;
-    // padding-inline: 24px;
+    margin: 64px auto;
   }
 
   @media (min-width: 1200px) {
     width: 100%;
-    margin: 0 auto;
-    // padding-inline: 32px;
+    margin: 80px auto;
   }
+}
+
+.slider__header {
+  margin-bottom: 24px;
 }

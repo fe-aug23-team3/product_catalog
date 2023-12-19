@@ -14,6 +14,9 @@ export const Favourites: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const ITEMS = 4;
 
+  // eslint-disable-next-line no-console
+  console.log(favorites);
+
   useEffect(() => {
     getAllProducts().then((res) => {
       setPhones([
@@ -49,10 +52,9 @@ export const Favourites: React.FC = () => {
         ))}
       </div>
 
-      {
-        phones.length > ITEMS
-        && <Pagination phones={phones.length} ITEMS={ITEMS} />
-      }
+      {phones.length > ITEMS && (
+        <Pagination phones={phones.length} ITEMS={ITEMS} />
+      )}
     </>
   );
 };
