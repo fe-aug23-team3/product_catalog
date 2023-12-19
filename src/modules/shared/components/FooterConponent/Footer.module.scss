@@ -2,18 +2,6 @@
 @import "../../../../scssStyles/mixins";
 @import "../../../../scssStyles/_sizes";
 
-@mixin onDesktop {
-  @media (min-width: 1199px) {
-    @content;
-  }
-}
-
-@mixin onTablet {
-  @media (min-width: 639px) {
-    @content;
-  }
-}
-
 .container {
   width: 100%;
 }
@@ -25,38 +13,25 @@
   margin: 0 auto;
   gap: 32px;
   max-width: 1200px;
-  padding: 32px 16px;
-
-  @media (max-width: 400px) {
-    flex-direction: column;
-  }
+  padding: 32px 32px;
 
   @include onTablet {
-    padding: 32px;
-    align-items: center;
-    flex-direction: row;
-  }
-
-  @include onDesktop {
-    display: flex;
-    padding: 32px 152px;
-    flex-direction: row;
+    padding: 32px 16px;
+    flex-direction: column;
   }
 
   &_links {
     display: flex;
-    flex-direction: column;
     gap: 16px;
-
-    @include onTablet {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+    width: 380px;
+    justify-content: space-between;
+    align-items: center;
+    @include onDesktop {
       width: 200px;
     }
-
-    @include onDesktop {
-      width: 380px;
+    @include onTablet {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
@@ -74,6 +49,10 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 800;
+    transition: color 0.4s;
+    &:hover {
+      color: $primary-color;
+    }
   }
 
   &_upLink {
@@ -83,6 +62,14 @@
     color: $secondary-color;
     font-family: Mont;
     font-weight: 700;
+    transition: color 0.4s;
+    cursor: pointer;
+    &:hover {
+      color: $primary-color;
+      .button {
+        border: 1px $primary-color solid;
+      }
+    }
   }
 }
 
@@ -98,10 +85,8 @@
   border: 1px $icons-color solid;
   width: $arrow--width;
   height: $arrow--height;
-
-  &:hover {
-    border: 1px $primary-color solid;
-  }
+  transition: color 0.4s;
+  transition: border 0.4s;
 }
 
 .iconUp {

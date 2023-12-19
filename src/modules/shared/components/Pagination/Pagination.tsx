@@ -12,6 +12,13 @@ interface Props {
   ITEMS: number;
 }
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 export const Pagination: React.FC<Props> = ({ phones, ITEMS = 16 }) => {
   const { page, setPage } = useContext(PhonesContext);
 
@@ -53,6 +60,7 @@ export const Pagination: React.FC<Props> = ({ phones, ITEMS = 16 }) => {
             key={button}
             onClick={() => {
               setPage(i);
+              scrollToTop();
             }}
           >
             {i + 1}
