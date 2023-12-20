@@ -1,5 +1,5 @@
 export interface PhoneDescription {
-  id: any;
+  id: string;
   title: string;
   text: string[];
 }

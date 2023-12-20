@@ -1,13 +1,11 @@
-/* eslint-disable max-len */
-/* eslint-disable no-console */
-/* eslint-disable react/button-has-type */
+/* eslint-disable */
+
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './PhoneDetails.module.scss';
 import { Button } from '../../Button';
 import { PhonesContext } from '../../../store/GlobalProvider';
-import { getAllProducts, getOnePhone }
-  from '../../../utils/fetchClient';
+import { getAllProducts, getOnePhone } from '../../../utils/fetchClient';
 import { PhoneDetail } from './PhoneDetail';
 import { colorMappings } from './colorMappings';
 import { ButtonHeartLike } from '../../ButtonHeartLike';
@@ -16,8 +14,8 @@ import { Phone } from '../../../types/Phone';
 export const PhoneDetails: React.FC = () => {
   const navigate = useNavigate();
   const [phoneDetailArray, setPhoneDetailArray] = useState<PhoneDetail[]>([]);
-  const [selectedPhoneDetails, setSelectedPhoneDetails]
-  = useState<PhoneDetail | null>(null);
+  const [selectedPhoneDetails, setSelectedPhoneDetails] =
+    useState<PhoneDetail | null>(null);
   const [allPhones, setAllphones] = useState<Phone[]>([]);
   const {
     setSelectedCapacity,
@@ -29,7 +27,6 @@ export const PhoneDetails: React.FC = () => {
     setFavorites,
     cart,
     setCart,
-    photos,
     setPhotos,
   } = useContext(PhonesContext);
 
@@ -53,15 +50,15 @@ export const PhoneDetails: React.FC = () => {
   }, [phoneItemId]);
 
   useEffect(() => {
-    getAllProducts()
-      .then((res) => setAllphones(res.data));
+    getAllProducts().then((res) => setAllphones(res.data));
     setSelectedCapacity(selectedPhoneDetails?.capacity[0]);
-  }, []);
+  }, [selectedPhoneDetails?.capacity, setSelectedCapacity]);
 
   useEffect(() => {
     if (selectedColor || selectedCapacity) {
       const foundPhone = phoneDetailArray.find(
-        (phone) => phone.color === selectedColor && phone.capacity === selectedCapacity,
+        (phone) =>
+          phone.color === selectedColor && phone.capacity === selectedCapacity,
       );
 
       if (foundPhone) {
@@ -74,6 +71,8 @@ export const PhoneDetails: React.FC = () => {
     const newUrl = `/phones/:${selectedPhoneDetails?.namespaceId}-${'256gb'}-${color}`;
 
     navigate(newUrl);
+
+    capacity;
   };
 
   useEffect(() => {
@@ -85,9 +84,7 @@ export const PhoneDetails: React.FC = () => {
   }, [selectedPhoneDetails, setPhotos, selectedColor]);
 
   const handleColorClick = (color: string) => {
-    const foundPhone = phoneDetailArray.find(
-      (phone) => phone.color === color,
-    );
+    const foundPhone = phoneDetailArray.find((phone) => phone.color === color);
 
     setSelectedColor(color);
     setSelectedPhoneDetails(foundPhone || null);
@@ -108,18 +105,20 @@ export const PhoneDetails: React.FC = () => {
   let parentPhone: Phone | null | undefined = null;
 
   if (selectedPhoneDetails) {
-    parentPhone = allPhones.find(phone => phone.phoneId === selectedPhoneDetails.id);
+    parentPhone = allPhones.find(
+      (phone) => phone.phoneId === selectedPhoneDetails.id,
+    );
   }
 
   const isInFavorites = favorites.includes(parentPhone?.id);
-  const isInCart = cart
-    .some((el: Phone) => el.id === parentPhone?.id);
+  const isInCart = cart.some((el: Phone) => el.id === parentPhone?.id);
 
   const addToFavorites = () => {
     if (selectedPhoneDetails) {
       if (isInFavorites && selectedPhoneDetails) {
-        setFavorites(favorites
-          .filter((phone: string) => phone !== parentPhone?.id));
+        setFavorites(
+          favorites.filter((phone: string) => phone !== parentPhone?.id),
+        );
       } else {
         setFavorites([...favorites, parentPhone?.id]);
       }
@@ -128,7 +127,9 @@ export const PhoneDetails: React.FC = () => {
 
   const addToCart = () => {
     if (!isInCart && selectedPhoneDetails) {
-      const parentPhoneCart = allPhones.find(phone => phone.phoneId === selectedPhoneDetails.id);
+      const parentPhoneCart = allPhones.find(
+        (phone) => phone.phoneId === selectedPhoneDetails.id,
+      );
       const newPhone = {
         quantity: 1,
         ...parentPhoneCart,
@@ -140,19 +141,19 @@ export const PhoneDetails: React.FC = () => {
 
   const salePrice = selectedPhoneDetails?.priceDiscount || 'Loading...';
   const originalPrice = selectedPhoneDetails?.priceRegular || 'Loading...';
-  const specifications = selectedPhoneDetails ? [
-    { name: 'Screen', value: selectedPhoneDetails.screen },
-    { name: 'Resolution', value: selectedPhoneDetails.resolution },
-    { name: 'Processor', value: selectedPhoneDetails.processor },
-    { name: 'RAM', value: selectedPhoneDetails.ram },
-  ] : [];
+  const specifications = selectedPhoneDetails
+    ? [
+        { name: 'Screen', value: selectedPhoneDetails.screen },
+        { name: 'Resolution', value: selectedPhoneDetails.resolution },
+        { name: 'Processor', value: selectedPhoneDetails.processor },
+        { name: 'RAM', value: selectedPhoneDetails.ram },
+      ]
+    : [];
   const availableCapacities = selectedPhoneDetails?.capacityAvailable || [];
 
   return (
     <>
-      <h3 className={styles.head}>
-        {selectedPhoneDetails?.name}
-      </h3>
+      <h3 className={styles.head}>{selectedPhoneDetails?.name}</h3>
       <div className={styles.productDetails}>
         <h3 className={styles.headColors}>Available colors</h3>
         <section className={styles.colors}>
@@ -160,19 +161,26 @@ export const PhoneDetails: React.FC = () => {
             {selectedPhoneDetails?.colorsAvailable.map((colorKey) => {
               const isColorValid = colorKey in colorMappings;
 
-              const buttonColor
-              = isColorValid ? colorMappings[colorKey] : '#fff';
+              const buttonColor = isColorValid
+                ? colorMappings[colorKey]
+                : '#fff';
 
               return (
                 <button
                   key={colorKey}
-                  className={`${styles.button} ${selectedColor === colorKey ? styles.selected : ''}`}
+                  className={`${styles.button} ${
+                    selectedColor === colorKey ? styles.selected : ''
+                  }`}
                   style={{ backgroundColor: buttonColor }}
-                  aria-label={`${colorKey.charAt(0).toUpperCase() + colorKey.slice(1)} color`}
+                  aria-label={`${
+                    colorKey.charAt(0).toUpperCase() + colorKey.slice(1)
+                  } color`}
                   onClick={() => handleColorClick(colorKey)}
                 >
                   <span className={styles.visuallyHidden}>
-                    {`${colorKey.charAt(0).toUpperCase() + colorKey.slice(1)} color`}
+                    {`${
+                      colorKey.charAt(0).toUpperCase() + colorKey.slice(1)
+                    } color`}
                   </span>
                 </button>
               );
@@ -183,8 +191,11 @@ export const PhoneDetails: React.FC = () => {
           <h3 className={styles.headCapacity}>Select capacity</h3>
           {availableCapacities.map((cap) => (
             <button
-              className={`${styles.capacityButton} ${selectedPhoneDetails?.capacity === cap
-                ? styles.selectedCapacity : ''}`}
+              className={`${styles.capacityButton} ${
+                selectedPhoneDetails?.capacity === cap
+                  ? styles.selectedCapacity
+                  : ''
+              }`}
               key={cap}
               onClick={() => handleCapacityClick(cap)}
             >
@@ -195,12 +206,13 @@ export const PhoneDetails: React.FC = () => {
 
         <div className={styles.price}>
           <span className={styles.salePrice} data-text={`$${salePrice}`}>
-            $
-            {salePrice}
+            ${salePrice}
           </span>
-          <span className={styles.originalPrice} data-text={`$${originalPrice}`}>
-            $
-            {originalPrice}
+          <span
+            className={styles.originalPrice}
+            data-text={`$${originalPrice}`}
+          >
+            ${originalPrice}
           </span>
         </div>
 
@@ -211,7 +223,10 @@ export const PhoneDetails: React.FC = () => {
               text={isInCart ? 'Added' : 'Add to cart'}
               callback={addToCart}
             />
-            <ButtonHeartLike isActive={isInFavorites} callback={addToFavorites} />
+            <ButtonHeartLike
+              isActive={isInFavorites}
+              callback={addToFavorites}
+            />
           </div>
         </div>
         <section className={styles.specs}>
