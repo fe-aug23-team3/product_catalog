@@ -6,28 +6,40 @@
 $primary-text-color: #2d3748;
 
 .OfStock {
-  // height: calc(100vh - 96px - 32px);
-  width: 100%;
-  height: auto;;
-  margin: 0 auto;
-
+  margin: 64px 0 0;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
+  justify-content: space-between;
 
   &__text {
+    height: calc(100vh - 128px - 66px - 98px);
     color: $secondary-color;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
-    // max-width: 512px;
-    // margin: 33vh auto;
-    // gap: 12px;
 
-    & :first-child{
-      color:  $primary-text-color;
+    gap: 12px;
+
+    & :first-child {
+      color: $primary-text-color;
       font-size: 60px;
       font-weight: 600;
+      @include onTablet {
+        font-weight: 40px;
+      }
+    }
+  }
+
+  &__wrap {
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 96px;
+
+    @media (max-width: 640px) {
+      bottom: 198px;
     }
   }
 }

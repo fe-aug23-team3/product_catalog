@@ -12,6 +12,9 @@
   border-radius: 8px;
   color: $primary-color;
 
+
+  min-width: 229px;
+  max-width: 288px;
   width: 272px;
   height: 506px;
 
@@ -76,7 +79,7 @@
     justify-content: space-between;
   }
 
-  &__characteristic > :first-child {
+  &__characteristic> :first-child {
     color: $secondary-color;
   }
 
