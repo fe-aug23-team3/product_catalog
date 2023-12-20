@@ -27,13 +27,19 @@ $mobile-max-width: 480px;
 .slider-container {
   position: relative;
   height: 288px;
-  width: 288px;
+  max-width: 442px;
   margin: 0 auto;
+
+  @include onMobile {
+    @include onTabletGrid;
+    width: 288px;
+    height: 288px;
+  }
 
   @include onTablet {
     @include onTabletGrid;
-    width: 273px;
-    height: 273px;
+    width: 287px;
+    height: 287px;
   }
 
   @include onDesktop {
@@ -48,6 +54,8 @@ $mobile-max-width: 480px;
     @include onTabletGrid;
     height: 35px;
     width: 35px;
+    margin-left: 10px;
+
   }
 
   @include onMobile {
@@ -65,20 +73,34 @@ $mobile-max-width: 480px;
 }
 
 .image {
-  height: 100%;
-  width: 100%;
-  border: 1px solid $elements-color;
-  border-radius: 8px;
-  transition: border 0.3s ease;
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  @include onMobile {
+    justify-content: center;
+    line-height: 100%;
+    margin-top: 5px;
+    height: 40px;
+    width: 25px;
+  }
+
+  @include onTablet {
+    height: 33px;
+    margin-top: 1px;
+    width: 20px;
+    margin-bottom: 10px;
+  }
+
+  @include onDesktop {
+    height: 66px;
+    margin-top: 7px;
+    width: 40px;
+    margin-bottom: 10px;
+  }
 }
 
-.image:hover {
-  border: 1px solid $primary-color;
-  border-radius: 8px;
-  transform: scale(1.1);
+
+.slick-active {
+  .paging-container{
+    border: 1px solid black;
+  }
 }
 
 .slick-dots {
@@ -123,6 +145,21 @@ $mobile-max-width: 480px;
 }
 
 .main-image {
-  height: 100%;
-  width: 100%;
+  margin: 0 auto;
+  height: 288px;
+  width: 210px;
+  
+
+  @include onTablet {
+    height: 273px;
+    margin-top: 8px;
+    width: 190px;
+    margin-bottom: 10px;
+  }
+  @include onDesktop {
+    height: 420px;
+    margin-top: 7px;
+    width: 300px;
+    margin-bottom: 10px;
+  }
 }

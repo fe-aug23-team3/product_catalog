@@ -7,7 +7,6 @@
 
 .specs {
   &_container {
-    
     @include onMobile {
       margin: 80px auto 0 auto;
       width: 288px;
@@ -17,7 +16,7 @@
     }
   
     @include onTablet {
-      margin: 80px auto 0 auto;
+      margin: 0 auto;
       width: 592px;
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -25,9 +24,8 @@
     }
   
     @include onDesktop {
-      margin: 80px auto 0 auto;
+      margin: 0 auto;
       width: 1136px;
-      margin-top: 80px;
       display: grid;
       grid-template-columns: repeat(24, 1fr);
       column-gap: 16px;
@@ -54,6 +52,7 @@
     grid-column: 1 / 13;
 
     &_header {
+      border-bottom: 1px solid rgb(230, 227, 223);
       margin-bottom: 48px;
       font-weight: 800;
     }
@@ -117,6 +116,7 @@
     }
 
     &_header {
+      border-bottom: 1px solid rgb(230, 227, 223);
       margin-bottom: 40px;
     }
 

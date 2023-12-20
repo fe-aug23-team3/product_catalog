@@ -5,6 +5,7 @@ import styles from './Specs.module.scss';
 import { PhoneDetail } from '../PhoneDetails/PhoneDetail';
 import { PhonesContext } from '../../../store/GlobalProvider';
 import { getOnePhone } from '../../../utils/fetchClient';
+import { Loader } from '../../shared/components/loader';
 
 export const Specs = () => {
   const [selectedPhoneDetails, setSelectedPhoneDetails] = useState<PhoneDetail | null>(null);
@@ -27,7 +28,7 @@ export const Specs = () => {
   }, [phoneItemId]);
 
   if (!selectedPhoneDetails) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   const techSpecs = [

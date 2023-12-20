@@ -1,21 +1,35 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable prefer-template */
-/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable */
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './PhoneDetailsPageSlider.scss';
+import { useContext } from 'react';
+import { PhonesContext } from '../../../store/GlobalProvider';
+import white from '../../../img/white-phone.jpg'
 
 export const baseUrl = process.env.PUBLIC_URL + '/images';
 
 export function ItemPageSlider() {
+  const { photos } = useContext(PhonesContext);
+
+  const changedPhotosUrl = photos.map((photo: string) => {
+    const parts = photo.split('/public/');
+
+    const newLink = parts[0] + '/public/' + parts[2];
+
+    return newLink;
+  });
+
   const settings = {
     customPaging(i: number) {
       return (
         <div className="paging-container">
           <a>
-            <img src={`${baseUrl}/abstract0${i + 1}.jpg`} className="image" />
+            <img src={changedPhotosUrl[i]} onError={(error) => {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+             // @ts-ignore
+              error.target.src = white
+            }} className="image" alt='' />
           </a>
         </div>
       );
@@ -26,6 +40,7 @@ export function ItemPageSlider() {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
+    focusOnSelect: true,
     slidesToScroll: 1,
   };
 
@@ -33,21 +48,15 @@ export function ItemPageSlider() {
     <>
       <div className="slider-container">
         <Slider {...settings}>
-          <div>
-            <img src={`${baseUrl}/abstract01.jpg`} className="main-image" />
-          </div>
-          <div>
-            <img src={`${baseUrl}/abstract02.jpg`} className="main-image" />
-          </div>
-          <div>
-            <img src={`${baseUrl}/abstract03.jpg`} className="main-image" />
-          </div>
-          <div>
-            <img src={`${baseUrl}/abstract04.jpg`} className="main-image" />
-          </div>
-          <div>
-            <img src={`${baseUrl}/abstract05.jpg`} className="main-image" />
-          </div>
+          {changedPhotosUrl.length > 0 && (
+            changedPhotosUrl.map((photo: string) => {
+              return (
+                <div key={photo}>
+                  <img src={photo} className="main-image" />
+                </div>
+              );
+            })
+          )}
         </Slider>
       </div>
     </>

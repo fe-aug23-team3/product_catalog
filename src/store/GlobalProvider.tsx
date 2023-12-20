@@ -49,13 +49,19 @@ export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
   const [page, setPage] = useState(0);
   const [phoneItemId, setPhoneItemId]
    = useLocalState<string>('SelectedPhoneItemId', '');
+
   const [selectedCapacity, setSelectedCapacity]
    = useLocalState<string>('SelectedCapacity', '');
+
   const [phoneDetailArray, setPhoneDetailArray] = useState([]);
+
   const [selectedColor, setSelectedColor]
    = useLocalState<string>('selectedColor', '');
+
   const [selectedPhoneDetails, setSelectedPhoneDetails]
    = useState<PhoneDetail | null>(null);
+
+  const [photos, setPhotos] = useState<string[]>([]);
 
   return (
     <PhonesContext.Provider
@@ -80,6 +86,8 @@ export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
         setCart,
         page,
         setPage,
+        photos,
+        setPhotos,
       }}
     >
       {children}
