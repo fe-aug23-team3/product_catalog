@@ -4,17 +4,20 @@
 .Mcontainer {
   max-width: 100vw;
   margin: auto;
+  margin-top: 130px;
 }
 
 .container {
   @include onTablet {
     max-width: 490px;
     margin: auto;
+    margin-top: 176px;
   }
 
   @include onDesktop {
     max-width: 1040px;
     margin: auto;
+    margin-top: 168px;
   }
 }
 
@@ -214,7 +217,6 @@
     }
 
     @include onDesktop {
-      margin-top: 30px;
       font-size: 30px;
     }
 
