@@ -68,7 +68,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
       <p
         onClick={() => {
           setPhoneItemId(phoneId);
-          navigate(`/phones:${phoneId}`);
+          navigate(`/phones/:${phoneId}`);
         }}
         className={style.card__title}
       >
