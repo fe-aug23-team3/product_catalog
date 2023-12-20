@@ -7,11 +7,13 @@ import style from './HomePage.module.scss';
 
 export const HomePage: React.FC = () => {
   return (
-    <div className={style.home__page}>
+    <>
       <MainSlider />
-      <BrandNewModels />
-      <CategorySection />
-      <HotPrices />
-    </div>
+      <div className={style.home__page}>
+        <BrandNewModels />
+        <CategorySection />
+        <HotPrices />
+      </div>
+    </>
   );
 };
