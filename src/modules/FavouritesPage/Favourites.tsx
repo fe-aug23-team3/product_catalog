@@ -16,19 +16,15 @@ export const Favourites: React.FC = () => {
   const [loader, setLoader] = useState(false);
   const ITEMS = 4;
 
-  // eslint-disable-next-line no-console
-  console.log(favorites);
-
   useEffect(() => {
     setLoader(true);
-    getAllProducts()
-      .then((res) => {
-        setPhones([
-          ...res.data.filter((tempPhone: Phone) =>
-            favorites.includes(tempPhone.id),
-          ),
-        ]);
-      })
+    getAllProducts().then((res) => {
+      setPhones([
+        ...res.data.filter((tempPhone: Phone) =>
+          favorites.includes(tempPhone.id),
+        ),
+      ]);
+    })
       .finally(() => setLoader(false));
   }, [favorites]);
 
@@ -50,26 +46,29 @@ export const Favourites: React.FC = () => {
       </div>
       <Loader />
     </>
-  ) : (
-    <>
-      <div className={styles.favourite_Header}>
-        <h1 className={styles.favourite_Header_content}>Favourites</h1>
-        <p className={styles.favourite_Header_content_sub}>
-          {`${phones.length} items`}
-        </p>
-      </div>
+  )
 
-      <div className={styles.favourite_Content}>
-        {split().map((phone) => (
-          <div className={styles.favourite_Content_mobile} key={phone.id}>
-            <ProductCard model={phone} />
-          </div>
-        ))}
-      </div>
+    : (
+      <>
+        <div className={styles.favourite_Header}>
+          <h1 className={styles.favourite_Header_content}>Favourites</h1>
+          <p className={styles.favourite_Header_content_sub}>
+            {`${phones.length} items`}
+          </p>
+        </div>
 
-      {phones.length > ITEMS && (
-        <Pagination phones={phones.length} ITEMS={ITEMS} />
-      )}
-    </>
-  );
+        <div className={styles.favourite_Content}>
+          {split().map((phone) => (
+            <div className={styles.favourite_Content_mobile} key={phone.id}>
+              <ProductCard model={phone} />
+            </div>
+          ))}
+        </div>
+
+        {
+          phones.length > ITEMS
+          && <Pagination phones={phones.length} ITEMS={ITEMS} />
+        }
+      </>
+    );
 };

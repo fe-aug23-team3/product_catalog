@@ -15,7 +15,11 @@ interface ArrowProps {
   onClick?: () => void;
 }
 
-const NextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => (
+const NextArrow: React.FC<ArrowProps> = ({
+  className,
+  style,
+  onClick,
+}) => (
   <div
     className={`${styles.arrow} ${styles.next_arrow}`}
     style={{
@@ -28,7 +32,11 @@ const NextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => (
   />
 );
 
-const PrevArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => (
+const PrevArrow: React.FC<ArrowProps> = ({
+  className,
+  style,
+  onClick,
+}) => (
   <div
     className={`${styles.arrow} ${styles.prev_arrow}`}
     style={{
@@ -52,7 +60,7 @@ export const MainSlider: React.FC = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
 
   const settings = {
-    dots: false,
+    dots: screenSize.width > 639,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -124,7 +132,7 @@ export const MainSlider: React.FC = () => {
             </div>
             <div className={styles.card_item}>
               <div className={styles.card_promo}>
-                <p className={styles.card_promo}>iPhone 14 Pro</p>
+                <p className={styles.card_promo}> iPhone 14 Pro</p>
                 <p className={styles.card_sub_promo}>Pro. Beyond.</p>
               </div>
               <div className={styles.card_img}>
