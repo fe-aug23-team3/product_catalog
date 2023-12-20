@@ -1,14 +1,16 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { getLength, getPhones } from '../../utils/fetchClient';
 import styles from './PhonePage.module.scss';
 import { Dropdown } from './Dropdown';
 import { ProductCard } from '../shared/components/ProductCard';
+import { Pagination } from '../shared/components/Pagination';
 import { Phone } from '../../types/Phone';
 import { ItemsNum, SortBy } from '../../helpers/helper';
+import { PhonesContext } from '../../store/GlobalProvider';
 
 export const PhonePage: React.FC = () => {
   const [phonesLength, setPhonesLength] = useState(0);
@@ -16,31 +18,41 @@ export const PhonePage: React.FC = () => {
   const [itemsPerPage, setItemsPerPage] = useState<ItemsNum>('16');
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-
-  const sort = searchParams.get('sortBy') || '';
-  const page = searchParams.get('page') || '';
-  const [phones, setPhones] = useState([]);
+  const { page, setPage } = useContext(PhonesContext);
+  const [phones, setPhones] = useState<Phone[]>([]);
   const sortByDropdown: SortBy[] = ['Alphabetically', 'Cheapest', 'Newest'];
   const amountPerPage: ItemsNum[] = ['4', '8', '16', 'all'];
 
   useEffect(() => {
     const params = new URLSearchParams();
-    const updateSearchParams = () => {
-      params.set('sortBy', sortBy);
-      params.set('itemsPerPage', itemsPerPage);
-      if (+page > 1) {
-        params.set('page', page);
+    let currentSort = '';
+
+    if (sortBy !== 'Newest') {
+      switch (sortBy) {
+        case 'Alphabetically':
+          currentSort = 'name';
+          break;
+        case 'Cheapest':
+          currentSort = 'price';
+          break;
       }
+      params.set('sortBy', currentSort);
+    }
 
-      navigate(`/phones?${params}`);
-    };
+    if (page !== 0) {
+      params.set('page', page + 1);
+    }
 
-    getLength().then((res) => setPhonesLength(res.data));
-    updateSearchParams();
-    getPhones(sortBy, +page || 1, itemsPerPage).then((res) =>
-      setPhones(res.data),
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (itemsPerPage !== '16') {
+      params.set('itemsPerPage', itemsPerPage);
+    }
+
+    navigate(`/phones?${params}`);
+
+    getPhones(currentSort, +page + 1, itemsPerPage).then((res) => {
+      setPhones(res.data.rows);
+      setPhonesLength(res.data.count);
+    });
   }, [itemsPerPage, page, sortBy, navigate]);
 
   return (
@@ -71,6 +83,7 @@ export const PhonePage: React.FC = () => {
           </div>
         ))}
       </div>
+      {itemsPerPage !== 'all' && <Pagination phones={phonesLength} ITEMS={+itemsPerPage} />}
     </section>
   );
 };

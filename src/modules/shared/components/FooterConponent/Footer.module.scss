@@ -1,54 +1,37 @@
-@import '../../../../scssStyles/colors';
-@import '../../../../scssStyles/mixins';
+@import "../../../../scssStyles/colors";
+@import "../../../../scssStyles/mixins";
+@import "../../../../scssStyles/_sizes";
 
-@mixin onDesktop {
-  @media (min-width: 1199x) {
-    @content;
-  }
-}
-
-@mixin onTablet {
-  @media (min-width: 639px) {
-    @content;
-  }
+.container {
+  width: 100%;
 }
 
 .footer {
   display: flex;
-  flex-direction: row;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 16px;
   justify-content: space-between;
+  flex-direction: row;
+  margin: 0 auto;
   gap: 32px;
+  max-width: 1200px;
+  padding: 32px 32px;
 
   @include onTablet {
-    flex-direction: row;
-    padding: 32px;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  @include onDesktop {
-    display: flex;
+    padding: 32px 16px;
     flex-direction: column;
-    padding: 32px 152px;
   }
 
   &_links {
     display: flex;
-    flex-direction: column;
     gap: 16px;
-
-    @include onTablet {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+    width: 380px;
+    justify-content: space-between;
+    align-items: center;
+    @include onDesktop {
       width: 200px;
     }
-
-    @include onDesktop {
-      width: 380px;
+    @include onTablet {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
@@ -66,23 +49,33 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 800;
+    transition: color 0.4s;
+    &:hover {
+      color: $primary-color;
+    }
   }
 
   &_upLink {
     display: flex;
     align-items: center;
     font-size: 12px;
-    text-decoration: none;
     color: $secondary-color;
-
     font-family: Mont;
     font-weight: 700;
+    transition: color 0.4s;
+    cursor: pointer;
+    &:hover {
+      color: $primary-color;
+      .button {
+        border: 1px $primary-color solid;
+      }
+    }
   }
 }
 
 .logo {
   width: 89px;
-  height: 32px;
+  height: $arrow--height;
 }
 
 .button {
@@ -90,19 +83,16 @@
   margin-left: 16px;
   border-radius: 50%;
   border: 1px $icons-color solid;
-  width: 32px;
-  height: 32px;
-
-  &:hover {
-    border: 1px $primary-color solid;
-  }
+  width: $arrow--width;
+  height: $arrow--height;
+  transition: color 0.4s;
+  transition: border 0.4s;
 }
 
 .iconUp {
   position: relative;
-  width: 16px;
-  height: 16px;
-  left: 8px;
+  width: $icon--width;
+  height: $icon--height;
   top: 8px;
 
   path {

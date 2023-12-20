@@ -41,9 +41,12 @@ export const Specs = () => {
     { name: 'Cell', value: selectedPhoneDetails?.cell },
   ];
 
+  /// я не ебнулся, это загулшка для мапа
+
   return (
     <div className={styles.specs_container}>
       <div className={styles.specs_about}>
+
         <div className={styles.specs_about_header}>
           <h2>About </h2>
         </div>

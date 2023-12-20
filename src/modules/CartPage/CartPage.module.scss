@@ -1,0 +1,97 @@
+@import "../../scssStyles/colors";
+@import "../../scssStyles/mixins";
+
+.Cart {
+  display: flex;
+  flex-direction: column;
+  background-color: $hover-bg-color;
+  min-height: 90vh; // temporal 💥!! 
+  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 32px;
+  @include onDesktop {
+    padding-inline: 24px;
+  }
+  @include onTablet {
+    padding-inline: 16px;
+  }
+
+  &__linkBack {
+        margin-top: 64px; // temporal 💥!! jast for Cart
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 16px;
+    @include onTablet {
+      font-size: 24px;
+  }
+    
+  }
+
+  &__backBtn {
+    font-family: Mont;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: $secondary-color;
+    @include onTablet {
+      font-size: 12px;
+  }
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__title {
+    font-family: Mont;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 41px;
+    letter-spacing: -0.32px;
+    margin-bottom: 32px;
+    letter-spacing: -0.48px;
+    @include onTablet {
+     font-size: 32px;
+    }
+
+    
+  }
+
+  &__container {
+    display: grid;
+    @include onDesktopGrid;
+
+    @include onTablet {
+      @include onTabletGrid;
+    }
+  }
+
+  &__items {
+    grid-column: 1 / 17;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onDesktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__total {
+    grid-column: 17 /-1;
+
+    @include onDesktop {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+.ChevronLeft {
+  path {
+    fill: $primary-color;
+  }
+}
+

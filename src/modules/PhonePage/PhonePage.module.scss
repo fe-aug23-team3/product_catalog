@@ -1,7 +1,7 @@
 @mixin pageGrid {
   grid-template-columns: repeat(1, 1fr);
   row-gap: 40px;
-
+  column-gap: 16px;
   display: grid;
   @media (min-width: 640px) {
     grid-template-columns: repeat(4, 1fr);
@@ -15,8 +15,7 @@
 .main {
   margin: 150px auto;
   max-width: 1200px;
-
-  padding: 16px;
+  padding: 16px 0;
 
   &__header {
     font-size: 32px;
@@ -34,11 +33,11 @@
   }
 
   @media (min-width: 640px) {
-    padding: 24px;
+    padding: 24px 0;
   }
 
   @media (min-width: 1200px) {
-    padding: 32px;
+    padding: 32px 0;
   }
 }
 

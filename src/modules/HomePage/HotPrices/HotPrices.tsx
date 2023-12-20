@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styles from './HotPrices.module.scss';
 import { SliderComponent } from '../../shared/components/SliderComponent';
 import { getPhonesWithMaxDiscount } from '../../../utils/fetchClient';
 import { Phone } from '../../../types/Phone';

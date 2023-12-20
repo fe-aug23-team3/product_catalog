@@ -1,6 +1,6 @@
-@import '../../../../scssStyles/colors';
-@import '../../../../scssStyles/_sizes';
-@import '../../../../scssStyles/mixins';
+@import "../../../../scssStyles/colors";
+@import "../../../../scssStyles/_sizes";
+@import "../../../../scssStyles/mixins";
 
 .header {
   position: fixed;
@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: space-between;
   border: 1px solid $icons-color;
-  background-color: $white-color;
+  background-color: $white-color;  
 }
 
 .logo {
@@ -42,7 +42,7 @@
     display: block;
     position: relative;
     color: $primary-color;
-    background-image: url('../../icons/favorites.svg');
+    background-image: url("../../icons/favorites.svg");
     background-position: center;
     background-repeat: no-repeat;
     padding: 24px;
@@ -51,34 +51,12 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       top: 0;
       left: 0;
       height: 100%;
       width: 1px;
       background-color: $icons-color;
-    }
-
-    &::after {
-      position: absolute;
-      content: '12';
-      font-size: 14px;
-      font-family: 'Mont';
-      font-weight: 600;
-      line-height: 21px;
-      letter-spacing: 0;
-      color: $white-color;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 14px;
-      padding: 2px;
-      height: 14px;
-      background-color: $accent-color;
-      border-radius: 50%;
-      border: 2px solid $white-color;
-      top: 12px;
-      right: 10px;
     }
 
     @media (max-width: 639px) {
@@ -87,7 +65,7 @@
   }
 
   &__cart {
-    background-image: url('../../icons/cart.svg');
+    background-image: url("../../icons/cart.svg");
   }
 
   &__cross {
@@ -104,7 +82,7 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       top: 0;
       left: 0;
       height: 100%;
@@ -146,7 +124,7 @@
   // BURGER MENU(ACTIVE)
   &__active {
     padding-top: 60px;
-    padding-inline: 25px;
+    // padding-inline: 25px;
     display: flex;
     gap: 64px;
     align-items: center;
@@ -158,9 +136,9 @@
       align-items: center;
       gap: 32px;
       position: absolute;
-      height: 93vh;
+      height: 90vh;
       width: 100%;
-      top: 65px;
+      top: 67px;
       bottom: 0;
       left: 0;
       flex-direction: column;
@@ -174,21 +152,18 @@
   font-size: 12px;
   line-height: 11px;
   letter-spacing: 0.04em;
-  font-family: 'Mont';
+  font-family: "Mont";
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   padding: 24px 0;
   color: $secondary-color;
-  //TODO - REPLACE WITH TRANSITION TIME VAR;
-  transition:
-    color 0.4s ease,
-    left 0.4s ease;
+  transition: color 0.4s ease, left 0.4s ease;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 1px;
     left: -3000%;
     width: 100%;
     height: 1px;
@@ -213,54 +188,32 @@
 }
 
 .buttons {
-  position: absolute;
-  bottom: 10vh;
+  position: fixed;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
 
   &__favorites,
   &__cart {
-    width: 50%;
+    flex-basis: 50%;
     display: block;
     position: relative;
     color: $primary-color;
-    background-image: url('../../icons/favorites.svg');
+    background-image: url("../../icons/favorites.svg");
     background-position: center;
     background-repeat: no-repeat;
-    height: 65px;
+    height: 64px;
     border: 0.5px solid $icons-color;
 
-    &::after {
-      position: absolute;
-      content: '12';
-      font-size: 14px;
-      font-family: 'Mont';
-      font-weight: 600;
-      line-height: 21px;
-      letter-spacing: 0;
-      color: $white-color;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 14px;
-      padding: 2px;
-      height: 14px;
-      background-color: $accent-color;
-      border-radius: 50%;
-      border: 2px solid $white-color;
-      top: 12px;
-      left: 50%;
-    }
-
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       height: 2px;
       background-color: $primary-color;
       width: 100%;
       left: -600%;
-      bottom: 0;
+      bottom: 1px;
       transition: left 0.4s ease;
     }
 
@@ -272,6 +225,106 @@
   }
 
   &__cart {
-    background-image: url('../../icons/cart.svg');
+    background-image: url("../../icons/cart.svg");
   }
+}
+
+.link__active {
+    position: relative;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+    font-family: "Mont";
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 24px 0;
+    color: $primary-color;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 1px;
+      width: 100%;
+      left: 0;
+      height: 3px;
+      background-color: $primary-color;
+    }
+}
+
+.buttons__active {
+  display: block;
+  position: relative;
+  color: $primary-color;
+  background-image: url("../../icons/favorites.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 24px;
+  width: $icon--width;
+  height: $icon--height;
+  &::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: $primary-color;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 1px;
+    background-color: $icons-color;
+  }
+}
+
+.buttons__cart {
+  background-image: url("../../icons/cart.svg");
+}
+
+.good__counter {
+      position: absolute;
+      content: "";
+      font-size: 14px;
+      font-family: "Mont";
+      font-weight: 600;
+      line-height: 21px;
+      letter-spacing: 0;
+      color: $white-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $icon--width;
+      padding: 2px;
+      height: $icon--height;
+      background-color: $accent-color;
+      border-radius: 50%;
+      border: 2px solid $white-color;
+      top: 12px;
+      left: 50%;
+}
+
+.control__favorites_active,
+.control__cart_active,
+.buttons__cart_active,
+.buttons__favorites_active {
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: $primary-color;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+    transition: left 0.4s ease;
+  }
+}
+
+.buttons__cart_active,
+.buttons__favorites_active {
+  bottom: 1px;
 }
