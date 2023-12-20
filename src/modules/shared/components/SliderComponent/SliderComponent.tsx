@@ -29,7 +29,7 @@ export const SliderComponent: React.FC<SliderProps> = ({ data, header }) => {
         },
       },
       {
-        breakpoint: 639,
+        breakpoint: 592,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
