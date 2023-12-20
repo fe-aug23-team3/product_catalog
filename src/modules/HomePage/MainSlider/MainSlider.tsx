@@ -15,11 +15,7 @@ interface ArrowProps {
   onClick?: () => void;
 }
 
-const NextArrow: React.FC<ArrowProps> = ({
-  className,
-  style,
-  onClick,
-}) => (
+const NextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => (
   <div
     className={`${styles.arrow} ${styles.next_arrow}`}
     style={{
@@ -32,11 +28,7 @@ const NextArrow: React.FC<ArrowProps> = ({
   />
 );
 
-const PrevArrow: React.FC<ArrowProps> = ({
-  className,
-  style,
-  onClick,
-}) => (
+const PrevArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => (
   <div
     className={`${styles.arrow} ${styles.prev_arrow}`}
     style={{
