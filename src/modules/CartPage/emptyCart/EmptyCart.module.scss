@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-margin: auto;
+  margin: auto;
   @include onTablet {
     padding: 16px 0;
   }
@@ -43,7 +43,7 @@ margin: auto;
     }
   }
 
-  &__button{
+  &__button {
     font-family: Mont;
     font-size: 16px;
     font-style: normal;
@@ -60,13 +60,11 @@ margin: auto;
     text-align: center;
     line-height: 48px;
     text-decoration: none;
-  
+
     cursor: pointer;
     @include onTablet {
       font-size: 12px;
     }
-
-
 
     &:hover {
       box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
@@ -100,7 +98,7 @@ margin: auto;
   width: 180px;
   height: 180px;
   animation: shake 5s infinite;
-  margin-bottom: 40px;
+  margin: 60px 0 40px;
   @include onTablet {
     width: 120px;
     height: 120px;
