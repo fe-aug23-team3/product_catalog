@@ -65,7 +65,7 @@ export const MainSlider: React.FC = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: screenSize.width > 639,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
@@ -102,7 +102,7 @@ export const MainSlider: React.FC = () => {
             </div>
             <div className={styles.card_item}>
               <div className={styles.card_promo}>
-                <p>iPhone 14 Pro</p>
+                <p className={styles.card_promo}>iPhone 14 Pro</p>
                 <p className={styles.card_sub_promo}>Pro. Beyond.</p>
               </div>
               <div className={styles.card_img}>
@@ -132,7 +132,7 @@ export const MainSlider: React.FC = () => {
             </div>
             <div className={styles.card_item}>
               <div className={styles.card_promo}>
-                <p>iPhone 14 Pro</p>
+                <p className={styles.card_promo}> iPhone 14 Pro</p>
                 <p className={styles.card_sub_promo}>Pro. Beyond.</p>
               </div>
               <div className={styles.card_img}>
