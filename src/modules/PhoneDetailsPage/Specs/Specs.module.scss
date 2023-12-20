@@ -19,10 +19,8 @@
     }
 
     @include onDesktop {
-      margin-top: 80px;
       margin: 0 auto;
       width: 1136px;
-      margin-top: 80px;
       display: grid;
       grid-template-columns: repeat(24, 1fr);
       column-gap: 16px;

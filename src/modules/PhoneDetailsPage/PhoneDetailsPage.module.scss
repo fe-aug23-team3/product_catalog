@@ -6,37 +6,6 @@
   margin: 0 auto;
 }
 
-.head {
-  font-size: 32px;
-  margin-bottom: 40px;
-  font-family: 'Mont';
-  font-weight: 800;
-  line-height: 41px;
-
-  @include onMobile {
-    margin: 0 auto 32px;
-    width: 288px;
-    line-height: 30.8px;
-    font-size: 22px;
-  }
-
-  @include onTablet {
-    max-width: 1199px;
-    margin: 0 auto 40px;
-    width: 592px;
-  }
-
-  @include onDesktop {
-    width: 1136px;
-    font-size: 32px;
-    margin: 0 auto;
-    margin-bottom: 40px;
-    font-family: 'Mont';
-    font-weight: 800;
-    line-height: 41px;
-  }
-}
-
 .detailsContainer {
   @include onMobile {
     display: grid;

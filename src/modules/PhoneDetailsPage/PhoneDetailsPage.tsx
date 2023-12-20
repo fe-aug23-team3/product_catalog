@@ -7,6 +7,7 @@ import Breadcrumps from '../shared/components/breadcrumbs/Breadcrumps';
 import { PhoneDetails } from './PhoneDetails/PhoneDetails';
 import { Specs } from './Specs';
 import styles from './PhoneDetailsPage.module.scss';
+import { SliderComponent } from '../shared/components/SliderComponent';
 
 export const PhoneDetailsPage: React.FC = () => {
   return (
@@ -14,9 +15,6 @@ export const PhoneDetailsPage: React.FC = () => {
       <Header />
       <div className={styles.phoneDetails}>
         <Breadcrumps />
-        <h2 className={styles.head}>
-          Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
-        </h2>
         <div className={styles.detailsContainer}>
           <div className={styles.sliderWrapper}>
             <ItemPageSlider />
@@ -26,6 +24,9 @@ export const PhoneDetailsPage: React.FC = () => {
           </div>
         </div>
         <Specs />
+        <div className={styles.sliderHeader}>
+          <SliderComponent data={[]} header="You may also like" />
+        </div>
       </div>
       <Footer />
     </>

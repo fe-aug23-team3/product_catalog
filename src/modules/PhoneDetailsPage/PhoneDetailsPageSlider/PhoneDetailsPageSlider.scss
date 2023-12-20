@@ -1,4 +1,5 @@
 @import 'src/scssStyles/mixins';
+@import 'src/scssStyles/_colors';
 
 $tablet-min-width: 576px;
 $tablet-max-width: 1199px;
@@ -66,7 +67,7 @@ $mobile-max-width: 480px;
 .image {
   height: 100%;
   width: 100%;
-  border: 1px solid #e2e6e9;
+  border: 1px solid $elements-color;
   border-radius: 8px;
   transition: border 0.3s ease;
   transition:
@@ -75,7 +76,7 @@ $mobile-max-width: 480px;
 }
 
 .image:hover {
-  border: 1px solid #000000;
+  border: 1px solid $primary-color;
   border-radius: 8px;
   transform: scale(1.1);
 }

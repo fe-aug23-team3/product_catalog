@@ -1,94 +1,202 @@
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-console */
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './PhoneDetails.module.scss';
-import { PhoneColors } from './PhoneColors';
 import { Button } from '../../Button';
+import { PhonesContext } from '../../../store/GlobalProvider';
+import { getOnePhone } from '../../../utils/fetchClient';
+import { PhoneDetail } from './PhoneDetail';
+import { colorMappings } from './colorMappings';
+import { Good } from '../../../types/Phone';
 
-export enum PhoneCapacities {
-  SixtyFour = '64',
-  TwoHundredFiftySix = '256',
-  FiveHundredTwelve = '512',
-}
+export const PhoneDetails: React.FC = () => {
+  const navigate = useNavigate();
+  const [phoneDetailArray, setPhoneDetailArray] = useState<PhoneDetail[]>([]);
+  const [selectedPhoneDetails, setSelectedPhoneDetails]
+  = useState<PhoneDetail | null>(null);
+  const {
+    setSelectedCapacity,
+    phoneItemId,
+    selectedColor,
+    setSelectedColor,
+    selectedCapacity,
+    favorites,
+    setFavorites,
+    cart,
+    setCart,
+  } = useContext(PhonesContext);
 
-const specifications = [
-  { name: 'Screen', value: '6.5" OLED' },
-  { name: 'Resolution', value: '2688x1242' },
-  { name: 'Processor', value: 'Apple A12 Bionic' },
-  { name: 'RAM', value: '3 GB' },
-];
+  useEffect(() => {
+    if (!phoneItemId) {
+      return;
+    }
 
-export const PhoneDetails = () => {
-  const [capacity, setCapacity] = useState<PhoneCapacities>(
-    PhoneCapacities.SixtyFour,
-  );
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const capacities: PhoneCapacities[] = Object.values(
-    PhoneCapacities,
-  ) as PhoneCapacities[];
+    getOnePhone(phoneItemId).then((res) => {
+      setPhoneDetailArray(res.data);
+      const foundPhone = res.data.find(
+        (phone: PhoneDetail) => phone.id === phoneItemId,
+      );
+
+      setSelectedPhoneDetails(foundPhone);
+    });
+  }, [phoneItemId]);
+
+  const updateUrl = (color: unknown, capacity: string) => {
+    const newUrl = `/phones:${selectedPhoneDetails?.namespaceId}-${capacity.toLowerCase()}-${color}`;
+
+    navigate(newUrl);
+  };
 
   const handleColorClick = (color: string) => {
     setSelectedColor(color);
+    updateUrl(color, selectedCapacity);
   };
 
+  // eslint-disable-next-line no-console
+  console.log(phoneDetailArray);
+
+  const handleCapacityClick = (selectedCap: string) => {
+    setSelectedCapacity(selectedCap);
+
+    const foundPhone = phoneDetailArray.find(
+      (phone) => phone.capacity === selectedCap,
+    );
+
+    updateUrl(selectedColor, selectedCap);
+    setSelectedPhoneDetails(foundPhone || null);
+  };
+
+  const isInFavorites = favorites.includes(selectedPhoneDetails?.id);
+  const isInCart = cart
+    .some((el: any) => el.id === selectedPhoneDetails?.id);
+
+  const addToFavorites = () => {
+    if (isInFavorites) {
+      setFavorites(favorites
+        .filter((el: string) => el !== selectedPhoneDetails?.id));
+    } else {
+      setFavorites([...favorites, selectedPhoneDetails?.id]);
+    }
+  };
+
+  const addToCart = () => {
+    if (!isInCart) {
+      const newGood = { ...selectedPhoneDetails, quantity: 1 };
+
+      setCart([...cart, newGood]);
+    } else {
+      setCart(cart.filter((el: Good) => el.id !== selectedPhoneDetails?.id));
+    }
+  };
+
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  const getFormattedTitle = () => {
+    const baseName = selectedPhoneDetails?.name || 'Loading...';
+    let formattedTitle = baseName;
+
+    // Видаляємо зайві деталі про місткість пам'яті та колір з основної назви
+    const nameParts = baseName.split(' ');
+
+    if (nameParts.length > 6) {
+      formattedTitle = nameParts.slice(0, 4).join(' ');
+    } else {
+      formattedTitle = nameParts.slice(0, 3).join(' ');
+    }
+
+    const colorPart = selectedColor ? ` ${capitalizeFirstLetter(selectedColor)}` : '';
+    const capacityPart = selectedCapacity ? ` ${selectedCapacity}` : '';
+
+    return `${formattedTitle}${capacityPart}${colorPart}`;
+  };
+
+  const salePrice = selectedPhoneDetails?.priceDiscount || 'Loading...';
+  const originalPrice = selectedPhoneDetails?.priceRegular || 'Loading...';
+  const specifications = selectedPhoneDetails ? [
+    { name: 'Screen', value: selectedPhoneDetails.screen },
+    { name: 'Resolution', value: selectedPhoneDetails.resolution },
+    { name: 'Processor', value: selectedPhoneDetails.processor },
+    { name: 'RAM', value: selectedPhoneDetails.ram },
+  ] : [];
+  const numericId = selectedPhoneDetails?.id.match(/\d+/g)?.join('') || 'No ID';
+  const availableCapacities = selectedPhoneDetails?.capacityAvailable || [];
+
   return (
-    <div className={styles.productDetails}>
-      <h3 className={styles.headColors}>Available colors</h3>
-      <h3 className={styles.id}>ID: 802390</h3>
-      <section className={styles.colors}>
-        <div className={styles.colorOptions}>
-          {Object.values(PhoneColors).map((color) => (
+    <>
+      <h3 className={styles.head}>
+        {getFormattedTitle()}
+      </h3>
+      <div className={styles.productDetails}>
+        <h3 className={styles.headColors}>Available colors</h3>
+        <h3 className={styles.id}>
+          ID:
+          {numericId}
+        </h3>
+        <section className={styles.colors}>
+          <div className={styles.colorOptions}>
+            {selectedPhoneDetails?.colorsAvailable.map((colorKey) => {
+              const isColorValid = colorKey in colorMappings;
+
+              const buttonColor
+              = isColorValid ? colorMappings[colorKey] : '#fff';
+
+              return (
+                <button
+                  key={colorKey}
+                  className={`${styles.button} ${selectedColor === colorKey ? styles.selected : ''}`}
+                  style={{ backgroundColor: buttonColor }}
+                  aria-label={`${colorKey.charAt(0).toUpperCase() + colorKey.slice(1)} color`}
+                  onClick={() => handleColorClick(colorKey)}
+                >
+                  <span className={styles.visuallyHidden}>
+                    {`${colorKey.charAt(0).toUpperCase() + colorKey.slice(1)} color`}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+        <section className={styles.capacity}>
+          <h3 className={styles.headCapacity}>Select capacity</h3>
+          {availableCapacities.map((cap) => (
             <button
-              key={color}
-              className={`${styles.button} ${styles[color]} ${
-                selectedColor === color ? styles.selected : ''
-              }`}
-              aria-label={`${
-                color.charAt(0).toUpperCase() + color.slice(1)
-              } color`}
-              onClick={() => handleColorClick(color)}
+              className={`${styles.capacityButton} ${selectedPhoneDetails?.capacity === cap
+                ? styles.selectedCapacity : ''}`}
+              key={cap}
+              onClick={() => handleCapacityClick(cap)}
             >
-              <span className={styles.visuallyHidden}>
-                {`${color.charAt(0).toUpperCase() + color.slice(1)} color`}
-              </span>
+              {cap}
             </button>
           ))}
+        </section>
+
+        <div className={styles.price}>
+          <span className={styles.salePrice} data-text={`$${salePrice}`}>
+            $
+            {salePrice}
+          </span>
+          <span className={styles.originalPrice} data-text={`$${originalPrice}`}>
+            $
+            {originalPrice}
+          </span>
         </div>
-      </section>
-      <section className={styles.capacity}>
-        <h3 className={styles.headCapacity}>Select capacity</h3>
-        {capacities.map((cap) => (
-          <button
-            className={`${styles.capacityButton} ${
-              capacity === cap ? styles.selectedCapacity : ''
-            }`}
-            key={cap}
-            onClick={() => setCapacity(cap)}
-          >
-            {cap}
-            GB
-          </button>
-        ))}
-      </section>
 
-      <div className={styles.price}>
-        <span className={styles.salePrice}>$799</span>
-        <span className={styles.originalPrice} data-text="$1199">
-          $1199
-        </span>
+        <div>
+          {/* <Button text="Add to favorites" callback={addToFavorites} /> */}
+          <Button text="Add to cart" callback={addToCart} />
+        </div>
+        <section className={styles.specs}>
+          {specifications.map((spec) => (
+            <div key={spec.name} className={styles.spec}>
+              <span className={styles.specName}>{spec.name}</span>
+              <span className={styles.specValue}>{spec.value}</span>
+            </div>
+          ))}
+        </section>
       </div>
-
-      <div>
-        <Button text="Add to cart" callback={() => {}} />
-      </div>
-      <section className={styles.specs}>
-        {specifications.map((spec) => (
-          <div key={spec.name} className={styles.spec}>
-            <span className={styles.specName}>{spec.name}</span>
-            <span className={styles.specValue}>{spec.value}</span>
-          </div>
-        ))}
-      </section>
-    </div>
+    </>
   );
 };

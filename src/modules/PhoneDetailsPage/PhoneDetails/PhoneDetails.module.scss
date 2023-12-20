@@ -1,3 +1,12 @@
+@import 'src/scssStyles/_colors';
+@import '../../HomePage/MainSlider/Slider_mixins.scss';
+
+
+$mobile_color-black: #4c4c4c;
+$mobile_color-green: #5f7170;
+$mobile_color-white: #f0f0f0;
+$mobile_color-gold: #fcdbc1;
+
 @mixin onMobile {
   @media (max-width: 460px) {
     @content;
@@ -19,7 +28,7 @@
   position: absolute;
   font-weight: 600;
   font-size: 12px;
-  color: #89939a;
+  color: $secondary-color;
   text-align: right;
   padding-left: 455px;
 
@@ -33,19 +42,19 @@
   font-family: 'Mont';
   font-weight: 600;
   font-size: 12px;
-  color: #89939a;
+  color: $secondary-color;
 }
 
 .capacity,
 .colors {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $elements-color;
   padding-bottom: 24px;
 }
 
 .capacityButton {
   padding: 8px 16px;
   margin-left: 9px;
-  border: 1px solid #b4bdc3;
+  border: 1px solid $icons-color;
   font-size: 14px;
   font-family: 'Mont';
   font-weight: 600;
@@ -56,15 +65,15 @@
     color 0.3s;
 
   &:hover {
-    background-color: #000;
-    border: 1px solid black;
-    color: #fff;
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+    color: $white-color;
   }
 
   &.selectedCapacity {
-    background-color: #000;
-    border: 1px solid black;
-    color: #fff;
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+    color: $white-color;
   }
 }
 
@@ -79,7 +88,7 @@
   .originalPrice {
     padding-left: 8px;
     font-size: 22px;
-    color: #89939a;
+    color: $secondary-color;
     font-weight: 600;
     text-decoration: line-through;
   }
@@ -102,7 +111,7 @@
 
 .specName {
   font-size: 12px;
-  color: #89939a;
+  color: $secondary-color;
   font-weight: 600;
   text-align: left;
   line-height: normal;
@@ -126,34 +135,46 @@
   height: 30px;
   border-radius: 50%;
   margin-left: 9px;
-  background-color: #ccc;
-  box-shadow: 0 0 0 1px #ccc;
-  border: 2px solid white;
+  background-color: $icons-color;
+  box-shadow: 0 0 0 1px $icons-color;
+  border: 2px solid $white-color;
   cursor: pointer;
   transition: box-shadow 0.3s;
 }
 
 .button:hover {
-  box-shadow: 0 0 0 2px #b4bdc3;
+  box-shadow: 0 0 0 2px $icons-color;
 }
 
 .selected {
-  box-shadow: 0 0 0 1px black;
+  box-shadow: 0 0 0 1px $primary-color;
 }
 
 .selected:hover {
-  box-shadow: 0 0 0 1px black;
+  box-shadow: 0 0 0 1px $primary-color;
 }
 
-.black {
-  background-color: #4c4c4c;
-}
-.green {
-  background-color: #5f7170;
-}
-.white {
-  background-color: #f0f0f0;
-}
-.gold {
-  background-color: #fcdbc1;
+.head {
+  position: absolute;
+    margin-top: -460px;
+    width: 288px;
+    line-height: 30.8px;
+    font-size: 22px;
+
+  @include onTablet {
+    max-width: 1199px;
+    margin-left: -420px;
+    margin-top: -50px;
+    width: 592px;
+  }
+
+  @include onDesktop {
+    width: 1136px;
+    font-size: 32px;
+    margin-left: -600px;
+    margin-top: -80px;
+    font-family: 'Mont';
+    font-weight: 800;
+    line-height: 41px;
+  }
 }

@@ -36,7 +36,7 @@
   }
 
   &.active {
-    color: black;
+    color: $primary-color;
     pointer-events: none;
   }
 }

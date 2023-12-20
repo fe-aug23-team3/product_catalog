@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Good } from '../types/Phone';
+import { PhoneDetail }
+  from '../modules/PhoneDetailsPage/PhoneDetails/PhoneDetail';
 
 export const initialValue: any = {
   todos: [],
@@ -44,10 +46,29 @@ export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useLocalState<Good[]>('Cart', []);
 
   const [page, setPage] = useState(0);
+  const [phoneItemId, setPhoneItemId]
+   = useLocalState<string>('SelectedPhoneItemId', '');
+  const [selectedCapacity, setSelectedCapacity]
+   = useLocalState<string>('SelectedCapacity', '');
+  const [phoneDetailArray, setPhoneDetailArray] = useState([]);
+  const [selectedColor, setSelectedColor]
+   = useLocalState<string>('selectedColor', '');
+  const [selectedPhoneDetails, setSelectedPhoneDetails]
+   = useState<PhoneDetail | null>(null);
 
   return (
     <PhonesContext.Provider
       value={{
+        selectedColor,
+        selectedPhoneDetails,
+        setSelectedPhoneDetails,
+        setSelectedColor,
+        phoneItemId,
+        selectedCapacity,
+        setSelectedCapacity,
+        setPhoneItemId,
+        phoneDetailArray,
+        setPhoneDetailArray,
         isOpened,
         setIsOpened,
         current,
