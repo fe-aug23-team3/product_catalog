@@ -1,17 +1,23 @@
 @import "../../scssStyles/colors";
 @import "../../scssStyles/mixins";
 
+@mixin onBigScreen {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
 .Cart {
   display: flex;
   flex-direction: column;
-  // background-color: $hover-bg-color;
-
-  // max-width: 1136px;
+  
   margin: 0 auto;
   padding: 0 32px;
   padding-top: 110px; // header+40px
   padding-bottom: 56px; 
-
+  @include onBigScreen{
+    width: 1136px;
+  }
 
   @include onDesktop {
     padding-inline: 24px;
