@@ -52,10 +52,9 @@ export const CartItem: React.FC<CartItemProps> = ({
           <button
             type="button"
             aria-label="decrease"
-            // className={`${styles.cartItem__quantityBtn} ${
-            //   isDisabled ? styles.disabled : ''
-            // }`}
-            className={styles.cartItem__quantityBtn}
+            className={`${styles.cartItem__quantityBtn} ${
+              isDisabled ? styles.disabled : ''
+            }`}
             onClick={handleDecrease}
             disabled={isDisabled}
           >

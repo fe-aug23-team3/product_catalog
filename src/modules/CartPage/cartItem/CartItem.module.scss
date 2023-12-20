@@ -47,10 +47,6 @@
     background-color: transparent;
     padding: 0;
     border: none;
-    transition: scale 0.4s;
-    &:hover{
-      scale: 1.1;
-    }
   }
 
   &__closeIcon {
@@ -123,26 +119,12 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
-    transition: border-color 0.4s;
 
     &:hover {
       border-color: $primary-color;
     }
   }
-  //
-  &__quantityBtn:disabled {
-    border-color: $icons-color;
-    cursor: default;
 
-    &:hover {
-      border-color: $icons-color;
-    }
-  }
-
-  &__minusIcon:disabled path {
-  fill: $icons-color;
-}
-  //
   &__quantityValue {
     display: inline-block;
     text-align: center;
@@ -173,4 +155,3 @@
     fill: $icons-color;
   }
 }
-
