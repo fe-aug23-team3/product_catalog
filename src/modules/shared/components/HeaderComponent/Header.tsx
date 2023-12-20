@@ -30,7 +30,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className={styles.header}>
-      <NavLink to="/">
+      <NavLink to="/" onClick={() => toggleMenu()}>
         <img className={styles.logo} src={logo} alt="logo" />
       </NavLink>
 
@@ -105,7 +105,10 @@ export const Header: React.FC = () => {
             <div className={styles.buttons}>
               <NavLink
                 to="/favourites"
-                className={styles.buttons__favorites}
+                className={({ isActive }) => cn(
+                  styles.buttons__favorites,
+                  { [styles.buttons__favorites_active]: isActive },
+                )}
                 onClick={() => toggleMenu()}
               >
                 {preparedFavorites.length > 0 && (
@@ -117,7 +120,10 @@ export const Header: React.FC = () => {
 
               <NavLink
                 to="/cart"
-                className={styles.buttons__cart}
+                className={({ isActive }) => cn(
+                  styles.buttons__cart,
+                  { [styles.buttons__cart_active]: isActive },
+                )}
                 onClick={() => toggleMenu()}
               >
                 {cart.length > 0 && (
@@ -133,7 +139,10 @@ export const Header: React.FC = () => {
         <button className=${styles.control__theme}></button> */}
         <NavLink
           to="/favourites"
-          className={styles.control__favorites}
+          className={({ isActive }) => cn(
+            styles.control__favorites,
+            { [styles.control__favorites_active]: isActive },
+          )}
           onClick={() => toggleMenu()}
         >
           {preparedFavorites.length > 0 && (
@@ -145,7 +154,10 @@ export const Header: React.FC = () => {
 
         <NavLink
           to="/cart"
-          className={styles.control__cart}
+          className={({ isActive }) => cn(
+            styles.control__cart,
+            { [styles.control__cart_active]: isActive },
+          )}
           onClick={() => toggleMenu()}
         >
           {cart.length > 0 && (
