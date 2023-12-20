@@ -52,7 +52,7 @@ export const MainSlider: React.FC = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
 
   const settings = {
-    dots: screenSize.width > 639,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -124,7 +124,7 @@ export const MainSlider: React.FC = () => {
             </div>
             <div className={styles.card_item}>
               <div className={styles.card_promo}>
-                <p className={styles.card_promo}> iPhone 14 Pro</p>
+                <p className={styles.card_promo}>iPhone 14 Pro</p>
                 <p className={styles.card_sub_promo}>Pro. Beyond.</p>
               </div>
               <div className={styles.card_img}>
