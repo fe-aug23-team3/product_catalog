@@ -1,7 +1,7 @@
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable */
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import cn from 'classnames';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { PhonesContext } from '../../../../store/GlobalProvider';
 import styles from './Header.module.scss';
@@ -18,15 +18,13 @@ export const Header: React.FC = () => {
 
   const toggleMenu = () => setIsMenuActive(false);
 
-  const { favorites, cart } = useContext(PhonesContext);
+  const {
+    favorites,
+    cart,
+  } = useContext(PhonesContext);
 
-  const preparedFavorites = favorites.filter(
-    (el: Phone) => typeof el === 'number',
-  );
-
-  useEffect(() => {
-    document.body.style.overflow = isMenuActive ? 'hidden' : 'visible';
-  }, [isMenuActive]);
+  const preparedFavorites = favorites
+    .filter((el: Phone) => typeof el === 'number');
 
   return (
     <header className={styles.header}>
@@ -43,12 +41,10 @@ export const Header: React.FC = () => {
         >
           <li className={styles.navlist__item}>
             <NavLink
-              className={({ isActive }) =>
-                cn({
-                  [styles.link]: !isActive,
-                  [styles.link__active]: isActive,
-                })
-              }
+              className={({ isActive }) => cn({
+                [styles.link]: !isActive,
+                [styles.link__active]: isActive,
+              })}
               to="/"
               onClick={() => toggleMenu()}
             >
@@ -58,12 +54,10 @@ export const Header: React.FC = () => {
 
           <li className={styles.navlist__item}>
             <NavLink
-              className={({ isActive }) =>
-                cn({
-                  [styles.link]: !isActive,
-                  [styles.link__active]: isActive,
-                })
-              }
+              className={({ isActive }) => cn({
+                [styles.link]: !isActive,
+                [styles.link__active]: isActive,
+              })}
               to="/phones"
               onClick={() => toggleMenu()}
             >
@@ -73,12 +67,10 @@ export const Header: React.FC = () => {
 
           <li className={styles.navlist__item}>
             <NavLink
-              className={({ isActive }) =>
-                cn({
-                  [styles.link]: !isActive,
-                  [styles.link__active]: isActive,
-                })
-              }
+              className={({ isActive }) => cn({
+                [styles.link]: !isActive,
+                [styles.link__active]: isActive,
+              })}
               to="/tablets"
               onClick={() => toggleMenu()}
             >
@@ -88,12 +80,10 @@ export const Header: React.FC = () => {
 
           <li className={styles.navlist__item}>
             <NavLink
-              className={({ isActive }) =>
-                cn({
-                  [styles.link]: !isActive,
-                  [styles.link__active]: isActive,
-                })
-              }
+              className={({ isActive }) => cn({
+                [styles.link]: !isActive,
+                [styles.link__active]: isActive,
+              })}
               to="/accessories"
               onClick={() => toggleMenu()}
             >
@@ -111,11 +101,12 @@ export const Header: React.FC = () => {
                 )}
                 onClick={() => toggleMenu()}
               >
-                {preparedFavorites.length > 0 && (
-                  <span className={styles.good__counter}>
-                    {preparedFavorites.length}
-                  </span>
-                )}
+                {preparedFavorites.length > 0
+                  && (
+                    <span className={styles.good__counter}>
+                      {preparedFavorites.length}
+                    </span>
+                  )}
               </NavLink>
 
               <NavLink
@@ -126,9 +117,12 @@ export const Header: React.FC = () => {
                 )}
                 onClick={() => toggleMenu()}
               >
-                {cart.length > 0 && (
-                  <span className={styles.good__counter}>{cart.length}</span>
-                )}
+                {cart.length > 0
+                  && (
+                    <span className={styles.good__counter}>
+                      {cart.length}
+                    </span>
+                  )}
               </NavLink>
             </div>
           )}
@@ -145,11 +139,12 @@ export const Header: React.FC = () => {
           )}
           onClick={() => toggleMenu()}
         >
-          {preparedFavorites.length > 0 && (
-            <span className={styles.good__counter}>
-              {preparedFavorites.length}
-            </span>
-          )}
+          {preparedFavorites.length > 0
+            && (
+              <span className={styles.good__counter}>
+                {preparedFavorites.length}
+              </span>
+            )}
         </NavLink>
 
         <NavLink
@@ -160,9 +155,12 @@ export const Header: React.FC = () => {
           )}
           onClick={() => toggleMenu()}
         >
-          {cart.length > 0 && (
-            <span className={styles.good__counter}>{cart.length}</span>
-          )}
+          {cart.length > 0
+            && (
+              <span className={styles.good__counter}>
+                {cart.length}
+              </span>
+            )}
         </NavLink>
 
         {!isMenuActive && (
