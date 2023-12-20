@@ -1,18 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './CartPage.module.scss';
 import { CartItem } from './cartItem';
 import { CartTotal } from './cartTotal';
-import { ReactComponent as ChevronLeft } from '../shared/icons/ChevronLeft.svg';
 import { CartItemType } from './CartTypes/cartItemType';
 import { calculateCartSummary } from './cartUtils';
 import { EmptyCart } from './emptyCart/EmptyCart';
 import { CheckoutModal } from './CheckoutModal/CheckoutModal';
 import { PhonesContext } from '../../store/GlobalProvider';
+import { BackBtn } from '../shared/components/BackBtn';
 
 export const CartPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate();
   const phonesContext = useContext(PhonesContext);
   const [cartData, setCartData] = useState<CartItemType[]>(phonesContext.cart);
 
@@ -48,16 +46,9 @@ export const CartPage: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const goBack = () => {
-    navigate(-1);
-  };
-
   return (
     <div className={styles.Cart}>
-      <button type="button" className={styles.Cart__linkBack} onClick={goBack}>
-        <ChevronLeft className={styles.ChevronLeft} />
-        <span className={styles.Cart__backBtn}> Back</span>
-      </button>
+      <BackBtn />
       <h1 className={styles.Cart__title}>Cart</h1>
 
       {cartSummary.quantity ? (
