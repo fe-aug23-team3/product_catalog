@@ -1,6 +1,6 @@
-@import '../../../../scssStyles/sizes';
-@import '../../../../scssStyles/colors';
-@import '../../../../scssStyles/mixins';
+@import "../../../../scssStyles/sizes";
+@import "../../../../scssStyles/colors";
+@import "../../../../scssStyles/mixins";
 
 .slick-arrow {
   position: relative;
@@ -16,7 +16,7 @@
 
 .slick-next,
 .slick-prev {
-  background-image: url('../../icons/chevronArrowRight.svg');
+  background-image: url("../../icons/chevronArrowRight.svg");
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
@@ -28,23 +28,23 @@
   &:focus {
     border: 1px solid $primary-color;
     color: $primary-color;
-    background-image: url('../../icons/chevronArrowRightActive.svg');
+    background-image: url("../../icons/chevronArrowRightActive.svg");
     background-position: center;
     background-repeat: no-repeat;
   }
 }
 
 .slick-prev {
-  background-image: url('../../icons/chevronArrowLeft.svg');
+  background-image: url("../../icons/chevronArrowLeft.svg");
   left: unset;
-  right: 46px;
+  right: 55px;
 
   &:active,
   &:hover,
   &:focus {
     border: 1px solid $primary-color;
     color: $primary-color;
-    background-image: url('../../icons/chevronArrowLeftActive.svg');
+    background-image: url("../../icons/chevronArrowLeftActive.svg");
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -55,9 +55,9 @@
 }
 
 .slider__header {
+  margin-bottom: 24px;
   font-weight: 700;
   font-size: 22px;
   line-height: 31px;
   letter-spacing: 0;
-  margin-bottom: 24px;
 }

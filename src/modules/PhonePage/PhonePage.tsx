@@ -65,37 +65,39 @@ export const PhonePage: React.FC = () => {
   }, [itemsPerPage, page, sortBy, navigate]);
 
   return (
-      <section className={styles.main}>
-        <h1 className={styles.main__header}>Mobile phones</h1>
-        <p className={styles.main__models}>{phonesLength} models</p>
-        <div className={styles.main__dropdown}>
-          <Dropdown
-            title="Sort by"
-            list={sortByDropdown}
-            customClass={styles.dropdown__sortBy}
-            checker={setSortBy}
-            setParams={setSearchParams}
-          />
-          <Dropdown
-            title="Items on page"
-            list={amountPerPage}
-            customClass={styles.dropdown__sortByNums}
-            checker={setItemsPerPage}
-            setParams={setSearchParams}
-          />
+    <section className={styles.main}>
+      <h1 className={styles.main__header}>Mobile phones</h1>
+      <p className={styles.main__models}>{phonesLength} models</p>
+      <div className={styles.main__dropdown}>
+        <Dropdown
+          title="Sort by"
+          list={sortByDropdown}
+          customClass={styles.dropdown__sortBy}
+          checker={setSortBy}
+          setParams={setSearchParams}
+        />
+        <Dropdown
+          title="Items on page"
+          list={amountPerPage}
+          customClass={styles.dropdown__sortByNums}
+          checker={setItemsPerPage}
+          setParams={setSearchParams}
+        />
+      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className={styles.list}>
+          {phones.map((phone: Phone) => (
+            <div className={styles.list__products} key={phone.id}>
+              <ProductCard model={phone} />
+            </div>
+          ))}
         </div>
-        {isLoading ? (
-          <Loader/>
-        ) : (
-          <div className={styles.list}>
-            {phones.map((phone: Phone) => (
-              <div className={styles.list__products} key={phone.id}>
-                <ProductCard model={phone} />
-              </div>
-            ))}
-          </div>
-        )}
-        {!isLoading && itemsPerPage !== 'all' && <Pagination phones={phonesLength} ITEMS={+itemsPerPage} />}
-      </section>
-    );
+      )}
+      {!isLoading && itemsPerPage !== 'all' && (
+        <Pagination phones={phonesLength} ITEMS={+itemsPerPage} />
+      )}
+    </section>
+  );
 };
