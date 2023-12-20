@@ -21,6 +21,7 @@
   border-radius: 16px;
   min-width: 200px;
   background-color: $white-color;
+  transition: box-shadow 0.4s;
   &:hover {
     box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
   }
@@ -90,6 +91,7 @@
   }
 
   &__image {
+    object-fit: contain;
     width: 66px;
     height: 66px;
     padding: 7px;

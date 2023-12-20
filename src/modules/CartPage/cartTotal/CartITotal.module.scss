@@ -18,6 +18,7 @@
   align-items: center;
   min-width: 200px;
   background-color: $white-color;
+  transition: box-shadow 0.4s;
   &:hover {
     box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
   }
