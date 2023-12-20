@@ -11,6 +11,7 @@ import { Pagination } from '../shared/components/Pagination';
 import { Phone } from '../../types/Phone';
 import { ItemsNum, SortBy } from '../../helpers/helper';
 import { PhonesContext } from '../../store/GlobalProvider';
+import { Loader } from '../shared/components/loader';
 
 export const PhonePage: React.FC = () => {
   const [phonesLength, setPhonesLength] = useState(0);
@@ -22,11 +23,12 @@ export const PhonePage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const sortByDropdown: SortBy[] = ['Alphabetically', 'Cheapest', 'Newest'];
   const amountPerPage: ItemsNum[] = ['4', '8', '16', 'all'];
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams();
     let currentSort = '';
-
+    setIsLoading(true);
     if (sortBy !== 'Newest') {
       switch (sortBy) {
         case 'Alphabetically':
@@ -49,41 +51,51 @@ export const PhonePage: React.FC = () => {
 
     navigate(`/phones?${params}`);
 
-    getPhones(currentSort, +page + 1, itemsPerPage).then((res) => {
-      setPhones(res.data.rows);
-      setPhonesLength(res.data.count);
-    });
+    getPhones(currentSort, +page + 1, itemsPerPage)
+      .then((res) => {
+        setPhones(res.data.rows);
+        setPhonesLength(res.data.count);
+      })
+      .catch(() => {
+        setIsLoading(false);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [itemsPerPage, page, sortBy, navigate]);
 
   return (
-    <section className={styles.main}>
-      <h1 className={styles.main__header}>Mobile phones</h1>
-      <p className={styles.main__models}>{phonesLength} models</p>
-      <div className={styles.main__dropdown}>
-        <Dropdown
-          title="Sort by"
-          list={sortByDropdown}
-          customClass="styles.dropdown__sortBy"
-          checker={setSortBy}
-          setParams={setSearchParams}
-        />
-        <Dropdown
-          title="Items on page"
-          list={amountPerPage}
-          customClass="styles.dropdown__sortByNums"
-          checker={setItemsPerPage}
-          setParams={setSearchParams}
-        />
-      </div>
-
-      <div className={styles.list}>
-        {phones.map((phone: Phone) => (
-          <div className={styles.list__products} key={phone.id}>
-            <ProductCard model={phone} />
+      <section className={styles.main}>
+        <h1 className={styles.main__header}>Mobile phones</h1>
+        <p className={styles.main__models}>{phonesLength} models</p>
+        <div className={styles.main__dropdown}>
+          <Dropdown
+            title="Sort by"
+            list={sortByDropdown}
+            customClass={styles.dropdown__sortBy}
+            checker={setSortBy}
+            setParams={setSearchParams}
+          />
+          <Dropdown
+            title="Items on page"
+            list={amountPerPage}
+            customClass={styles.dropdown__sortByNums}
+            checker={setItemsPerPage}
+            setParams={setSearchParams}
+          />
+        </div>
+        {isLoading ? (
+          <Loader/>
+        ) : (
+          <div className={styles.list}>
+            {phones.map((phone: Phone) => (
+              <div className={styles.list__products} key={phone.id}>
+                <ProductCard model={phone} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      {itemsPerPage !== 'all' && <Pagination phones={phonesLength} ITEMS={+itemsPerPage} />}
-    </section>
-  );
+        )}
+        {!isLoading && itemsPerPage !== 'all' && <Pagination phones={phonesLength} ITEMS={+itemsPerPage} />}
+      </section>
+    );
 };
