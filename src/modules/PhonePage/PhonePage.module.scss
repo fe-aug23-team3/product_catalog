@@ -1,3 +1,5 @@
+@import '../HomePage/MainSlider/Slider_mixins';
+
 @mixin pageGrid {
   grid-template-columns: repeat(1, 1fr);
   row-gap: 40px;
@@ -13,12 +15,40 @@
 }
 
 .main {
-  margin: 150px auto;
+  margin: 60px auto;
   max-width: 1200px;
   padding: 16px 0;
 
   &__header {
-    font-size: 32px;
+    @include onMobile {
+      grid-column: 1 / 4;
+      font-family: Mont;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 41px;
+      letter-spacing: -0.32px;
+    }
+  
+    @include onTablet {
+      grid-column: 1 / 6;
+      font-family: Mont;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 56px;
+      letter-spacing: -0.48px;
+    }
+  
+    @include onDesktop {
+      grid-column: 1 / 6;
+      font-family: Mont;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 56px;
+      letter-spacing: -0.48px;
+    }
     &_invisible {
       display: none;
     }
@@ -68,4 +98,16 @@
       grid-column: span 4;
     }
   }
+}
+
+.buttons__box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+  height: 30px;
+}
+
+.buttons__box_invisible {
+  display: none;
 }
