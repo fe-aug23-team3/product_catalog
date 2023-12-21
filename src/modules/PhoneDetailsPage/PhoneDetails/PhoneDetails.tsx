@@ -46,13 +46,15 @@ export const PhoneDetails: React.FC = () => {
       );
 
       setSelectedPhoneDetails(foundPhone);
+      setSelectedCapacity(foundPhone.capacity)
+      
     });
   }, [phoneItemId]);
 
+
   useEffect(() => {
     getAllProducts().then((res) => setAllphones(res.data));
-    setSelectedCapacity(selectedPhoneDetails?.capacity[0]);
-  }, [selectedPhoneDetails?.capacity, setSelectedCapacity]);
+  }, []);
 
   useEffect(() => {
     if (selectedColor || selectedCapacity) {
@@ -61,14 +63,14 @@ export const PhoneDetails: React.FC = () => {
           phone.color === selectedColor && phone.capacity === selectedCapacity,
       );
 
-      if (foundPhone) {
+      if (foundPhone && (selectedPhoneDetails?.id !== foundPhone.id)) {
         setSelectedPhoneDetails(foundPhone);
       }
     }
   }, [selectedColor, selectedCapacity, phoneDetailArray]);
 
   const updateUrl = (color: unknown, capacity: string) => {
-    const newUrl = `/phones/:${selectedPhoneDetails?.namespaceId}-${'256gb'}-${color}`;
+    const newUrl = `/phones/:${selectedPhoneDetails?.namespaceId}-${capacity}-${color}`;
 
     navigate(newUrl);
 
@@ -80,7 +82,6 @@ export const PhoneDetails: React.FC = () => {
       setPhotos(selectedPhoneDetails?.images);
     }
 
-    console.log(selectedPhoneDetails);
   }, [selectedPhoneDetails, setPhotos, selectedColor]);
 
   const handleColorClick = (color: string) => {
@@ -92,14 +93,13 @@ export const PhoneDetails: React.FC = () => {
   };
 
   const handleCapacityClick = (selectedCap: string) => {
-    setSelectedCapacity(selectedCap);
-
     const foundPhone = phoneDetailArray.find(
       (phone) => phone.capacity === selectedCap,
     );
 
-    updateUrl(selectedColor, selectedCap);
+    setSelectedCapacity(selectedCap);
     setSelectedPhoneDetails(foundPhone || null);
+    updateUrl(selectedColor, selectedCap);
   };
 
   let parentPhone: Phone | null | undefined = null;
@@ -150,7 +150,7 @@ export const PhoneDetails: React.FC = () => {
       ]
     : [];
   const availableCapacities = selectedPhoneDetails?.capacityAvailable || [];
-
+  
   return (
     <>
       <h3 className={styles.head}>{selectedPhoneDetails?.name}</h3>
@@ -176,6 +176,7 @@ export const PhoneDetails: React.FC = () => {
                     colorKey.charAt(0).toUpperCase() + colorKey.slice(1)
                   } color`}
                   onClick={() => handleColorClick(colorKey)}
+                  disabled={colorKey === selectedPhoneDetails.color}
                 >
                   <span className={styles.visuallyHidden}>
                     {`${
@@ -198,6 +199,7 @@ export const PhoneDetails: React.FC = () => {
               }`}
               key={cap}
               onClick={() => handleCapacityClick(cap)}
+              disabled={cap === selectedPhoneDetails?.capacity || false}
             >
               {cap}
             </button>
