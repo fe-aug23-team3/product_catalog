@@ -1,4 +1,4 @@
-@import "../../../../modules/HomePage/MainSlider/Slider_mixins.scss";
+@import '../../../../modules/HomePage/MainSlider/Slider_mixins.scss';
 .content {
   @include onMobile {
     max-width: 320px;

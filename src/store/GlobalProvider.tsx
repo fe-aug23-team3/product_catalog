@@ -47,19 +47,22 @@ export const PhonesProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useLocalState<Good[]>('Cart', []);
 
   const [page, setPage] = useState(0);
-  const [phoneItemId, setPhoneItemId]
-   = useLocalState<string>('SelectedPhoneItemId', '');
+  const [phoneItemId, setPhoneItemId] = useLocalState<string>(
+    'SelectedPhoneItemId',
+    '',
+  );
 
-  const [selectedCapacity, setSelectedCapacity]
-   = useLocalState<string>('SelectedCapacity', '');
+  const [selectedCapacity, setSelectedCapacity] = useLocalState<string>(
+    'SelectedCapacity',
+    '',
+  );
 
   const [phoneDetailArray, setPhoneDetailArray] = useState([]);
 
-  const [selectedColor, setSelectedColor]
-   = useLocalState<string>('selectedColor', '');
+  const [selectedColor, setSelectedColor] = useState<string>();
 
   const [selectedPhoneDetails, setSelectedPhoneDetails]
-   = useState<PhoneDetail | null>(null);
+  = useState<PhoneDetail | null>(null);
 
   const [photos, setPhotos] = useState<string[]>([]);
 

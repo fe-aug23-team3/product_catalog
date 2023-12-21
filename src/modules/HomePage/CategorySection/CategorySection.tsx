@@ -10,7 +10,7 @@ export const CategorySection: React.FC = () => {
   const [phonesLength, setPhonesLength] = useState(0);
 
   useEffect(() => {
-    getLength().then(res => setPhonesLength(res.data));
+    getLength().then((res) => setPhonesLength(res.data));
   }, []);
 
   return (

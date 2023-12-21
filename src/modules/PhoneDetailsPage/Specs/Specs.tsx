@@ -8,7 +8,8 @@ import { getOnePhone } from '../../../utils/fetchClient';
 import { Loader } from '../../shared/components/loader';
 
 export const Specs = () => {
-  const [selectedPhoneDetails, setSelectedPhoneDetails] = useState<PhoneDetail | null>(null);
+  const [selectedPhoneDetails, setSelectedPhoneDetails]
+  = useState<PhoneDetail | null>(null);
 
   const { phoneItemId } = useContext(PhonesContext);
   const { selectedCapacity } = useContext(PhonesContext);
@@ -47,7 +48,6 @@ export const Specs = () => {
   return (
     <div className={styles.specs_container}>
       <div className={styles.specs_about}>
-
         <div className={styles.specs_about_header}>
           <h2>About </h2>
         </div>
