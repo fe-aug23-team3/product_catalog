@@ -1,10 +1,10 @@
-@import "../../../../scssStyles/colors";
-@import "../../../../scssStyles/mixins";
-@import "../../../../scssStyles/_sizes";
+@import '../../../../scssStyles/colors';
+@import '../../../../scssStyles/mixins';
+@import '../../../../scssStyles/_sizes';
 
 .container {
   width: 100%;
-  border-top: 1px solid $elements-color ;
+  border-top: 1px solid $elements-color;
 }
 
 .footer {

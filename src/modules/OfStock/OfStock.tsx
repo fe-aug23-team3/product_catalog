@@ -19,7 +19,6 @@ export const OfStock: React.FC = () => {
       <div className={style.OfStock__wrap}>
         <Desert />
       </div>
-
     </div>
   );
 };

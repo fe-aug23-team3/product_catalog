@@ -1,6 +1,6 @@
-@import "../../../../scssStyles/colors";
-@import "../../../../scssStyles/_sizes";
-@import "../../../../scssStyles/mixins";
+@import '../../../../scssStyles/colors';
+@import '../../../../scssStyles/_sizes';
+@import '../../../../scssStyles/mixins';
 
 .header {
   position: fixed;
@@ -33,7 +33,7 @@
       top: 0;
       right: 0;
       display: block;
-      background-image: url("../../icons/union-img.svg");
+      background-image: url('../../icons/union-img.svg');
     }
   }
 
@@ -42,7 +42,7 @@
     display: block;
     position: relative;
     color: $primary-color;
-    background-image: url("../../icons/favorites.svg");
+    background-image: url('../../icons/favorites.svg');
     background-position: center;
     background-repeat: no-repeat;
     padding: 24px;
@@ -51,7 +51,7 @@
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       left: 0;
       height: 100%;
@@ -65,11 +65,11 @@
   }
 
   &__cart {
-    background-image: url("../../icons/cart.svg");
+    background-image: url('../../icons/cart.svg');
   }
 
   &__cross {
-    background-image: url("../../icons/close-img.svg");
+    background-image: url('../../icons/close-img.svg');
   }
 
   &__menu,
@@ -82,7 +82,7 @@
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       left: 0;
       height: 100%;
@@ -153,16 +153,18 @@
   font-size: 12px;
   line-height: 11px;
   letter-spacing: 0.04em;
-  font-family: "Mont";
+  font-family: 'Mont';
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   padding: 24px 0;
   color: $secondary-color;
-  transition: color 0.4s ease, left 0.4s ease;
+  transition:
+    color 0.4s ease,
+    left 0.4s ease;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -1px;
     left: -3000%;
@@ -201,14 +203,14 @@
     display: block;
     position: relative;
     color: $primary-color;
-    background-image: url("../../icons/favorites.svg");
+    background-image: url('../../icons/favorites.svg');
     background-position: center;
     background-repeat: no-repeat;
     height: 64px;
     border: 0.5px solid $icons-color;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       height: 2px;
       background-color: $primary-color;
@@ -226,7 +228,7 @@
   }
 
   &__cart {
-    background-image: url("../../icons/cart.svg");
+    background-image: url('../../icons/cart.svg');
   }
 }
 
@@ -235,14 +237,14 @@
   font-size: 12px;
   line-height: 11px;
   letter-spacing: 0.04em;
-  font-family: "Mont";
+  font-family: 'Mont';
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   padding: 24px 0;
   color: $primary-color;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -1px;
     width: 100%;
@@ -256,14 +258,14 @@
   display: block;
   position: relative;
   color: $primary-color;
-  background-image: url("../../icons/favorites.svg");
+  background-image: url('../../icons/favorites.svg');
   background-position: center;
   background-repeat: no-repeat;
   padding: 24px;
   width: $icon--width;
   height: $icon--height;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     height: 2px;
     background-color: $primary-color;
@@ -274,7 +276,7 @@
 
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     height: 100%;
@@ -284,14 +286,14 @@
 }
 
 .buttons__cart {
-  background-image: url("../../icons/cart.svg");
+  background-image: url('../../icons/cart.svg');
 }
 
 .good__counter {
   position: absolute;
-  content: "";
+  content: '';
   font-size: 14px;
-  font-family: "Mont";
+  font-family: 'Mont';
   font-weight: 600;
   line-height: 21px;
   letter-spacing: 0;
@@ -314,7 +316,7 @@
 .buttons__cart_active,
 .buttons__favorites_active {
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     height: 2px;
     background-color: $primary-color;

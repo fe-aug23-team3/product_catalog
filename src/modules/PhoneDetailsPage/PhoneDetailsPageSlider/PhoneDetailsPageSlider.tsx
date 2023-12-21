@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './PhoneDetailsPageSlider.scss';
 import { useContext } from 'react';
 import { PhonesContext } from '../../../store/GlobalProvider';
-import white from '../../../img/white-phone.jpg'
+import white from '../../../img/white-phone.jpg';
 
 export const baseUrl = process.env.PUBLIC_URL + '/images';
 
@@ -25,11 +25,16 @@ export function ItemPageSlider() {
       return (
         <div className="paging-container">
           <a>
-            <img src={changedPhotosUrl[i]} onError={(error) => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-             // @ts-ignore
-              error.target.src = white
-            }} className="image" alt='' />
+            <img
+              src={changedPhotosUrl[i]}
+              onError={(error) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                error.target.src = white;
+              }}
+              className="image"
+              alt=""
+            />
           </a>
         </div>
       );
@@ -48,15 +53,14 @@ export function ItemPageSlider() {
     <>
       <div className="slider-container">
         <Slider {...settings}>
-          {changedPhotosUrl.length > 0 && (
+          {changedPhotosUrl.length > 0 &&
             changedPhotosUrl.map((photo: string) => {
               return (
                 <div key={photo}>
                   <img src={photo} className="main-image" />
                 </div>
               );
-            })
-          )}
+            })}
         </Slider>
       </div>
     </>

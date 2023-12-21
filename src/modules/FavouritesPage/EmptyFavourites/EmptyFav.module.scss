@@ -1,5 +1,5 @@
-@import "../../../scssStyles/colors";
-.container{
+@import '../../../scssStyles/colors';
+.container {
   display: flex;
   flex-direction: column;
   padding: 40px 20px;
@@ -8,7 +8,7 @@
   gap: 10%;
   margin-top: 100px;
 
-  &__text{
+  &__text {
     font-family: Mont;
     font-size: 28px;
     font-style: normal;
@@ -39,7 +39,7 @@
     line-height: 48px;
     text-decoration: none;
     cursor: pointer;
-   
+
     &:hover {
       box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
       transition-duration: 0.3s;
@@ -51,16 +51,14 @@
       color: $accent-color;
       transition-duration: 0.3s;
     }
-    
   }
 }
 
-.heartPlus{
-  
-    max-width: 100px;
-    max-height: 100px;
-    margin-bottom: 50px;
-    path {
+.heartPlus {
+  max-width: 100px;
+  max-height: 100px;
+  margin-bottom: 50px;
+  path {
     fill: $elements-color;
   }
 }

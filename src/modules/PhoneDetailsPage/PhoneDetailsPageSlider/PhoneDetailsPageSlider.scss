@@ -48,7 +48,7 @@ $mobile-max-width: 480px;
     height: 442px;
   }
 
-  @media((min-width: 479px) and (max-width: 580px)) {
+  @media ((min-width: 479px) and (max-width: 580px)) {
     position: relative;
     height: 288px;
     max-width: 442px;
@@ -62,7 +62,6 @@ $mobile-max-width: 480px;
     height: 35px;
     width: 35px;
     margin-left: 10px;
-
   }
 
   @include onMobile {
@@ -77,7 +76,7 @@ $mobile-max-width: 480px;
     width: 80px;
     height: 80px;
   }
-  @media((min-width: 479px) and (max-width: 580px)) {
+  @media ((min-width: 479px) and (max-width: 580px)) {
     width: 50px;
     height: 50px;
     margin-left: -20px;
@@ -107,7 +106,7 @@ $mobile-max-width: 480px;
     margin-bottom: 10px;
   }
 
-  @media((min-width: 479px) and (max-width: 580px)) {
+  @media ((min-width: 479px) and (max-width: 580px)) {
     justify-content: center;
     line-height: 100%;
     margin-top: 5px;
@@ -116,9 +115,8 @@ $mobile-max-width: 480px;
   }
 }
 
-
 .slick-active {
-  .paging-container{
+  .paging-container {
     border: 1px solid black;
   }
 }
@@ -163,7 +161,7 @@ $mobile-max-width: 480px;
     transform: translateY(-800%);
   }
 
-  @media((min-width: 479px) and (max-width: 580px)) {
+  @media ((min-width: 479px) and (max-width: 580px)) {
     margin: 16px 8px 0 29px;
   }
 }
@@ -172,7 +170,6 @@ $mobile-max-width: 480px;
   margin: 0 auto;
   height: 288px;
   width: 190px;
-  
 
   @include onTablet {
     height: 273px;
@@ -187,7 +184,7 @@ $mobile-max-width: 480px;
     margin-bottom: 10px;
   }
 
-  @media((min-width: 479px) and (max-width: 580px)) {
+  @media ((min-width: 479px) and (max-width: 580px)) {
     margin: 0 auto;
     height: 288px;
     width: 190px;
