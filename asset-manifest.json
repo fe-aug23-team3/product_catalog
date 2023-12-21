@@ -1,9 +1,11 @@
 {
   "files": {
     "main.css": "/product_catalog/static/css/main.858039b4.css",
-    "main.js": "/product_catalog/static/js/main.a94b2b01.js",
+    "main.js": "/product_catalog/static/js/main.0332053c.js",
+    "static/media/Danilas.jpg": "/product_catalog/static/media/Danilas.e8cfe7949086f560c4d2.jpg",
     "static/media/IMG_1733.jpg": "/product_catalog/static/media/IMG_1733.e91662f9fae83dfe7298.jpg",
     "static/media/Bannerr.png": "/product_catalog/static/media/Bannerr.277f40f5cb294b77ef9b.png",
+    "static/media/image.png": "/product_catalog/static/media/image.24883f7a5436cf85119d.png",
     "static/media/banner_image_mobile_version.jpg": "/product_catalog/static/media/banner_image_mobile_version.b7890059ed2580b5808d.jpg",
     "static/media/main-logo.svg": "/product_catalog/static/media/main-logo.41f90dd2f918d31c63281c58f4204c51.svg",
     "static/media/Mont-Regular.ttf": "/product_catalog/static/media/Mont-Regular.e797167c18f9897bb607.ttf",
@@ -11,7 +13,10 @@
     "static/media/Mont-Bold.ttf": "/product_catalog/static/media/Mont-Bold.3675b597d3ffb2b75168.ttf",
     "static/media/accessories_photo.png": "/product_catalog/static/media/accessories_photo.2f002e65d5fe9aa07ad6.png",
     "static/media/tablet_photo.png": "/product_catalog/static/media/tablet_photo.996885d2d4c3d28879b4.png",
+    "static/media/DR.jpg": "/product_catalog/static/media/DR.4deb1e3978d7cf33aea7.jpg",
     "static/media/phone_photo.png": "/product_catalog/static/media/phone_photo.ff6fe6702959c5b2138b.png",
+    "static/media/Моє фото №2.jpg": "/product_catalog/static/media/Моє фото №2.2ac913768b3a791df815.jpg",
+    "static/media/photo_2023-05-19_19-52-26-modified.jpg": "/product_catalog/static/media/photo_2023-05-19_19-52-26-modified.ae538db60a536a4627d8.jpg",
     "static/media/pngwing1.png": "/product_catalog/static/media/pngwing1.8e24ae2b7a05fa8d3f9f.png",
     "static/media/white-phone.jpg": "/product_catalog/static/media/white-phone.8e928a2d1f2350780bcf.jpg",
     "static/media/slick.svg": "/product_catalog/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -41,10 +46,10 @@
     "static/media/ChevronUp.svg": "/product_catalog/static/media/ChevronUp.1ea6958a07717117d3d583ab6fe7dcbd.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.7dbf40c4da6acbd0d40bdc842464762e.svg",
     "main.858039b4.css.map": "/product_catalog/static/css/main.858039b4.css.map",
-    "main.a94b2b01.js.map": "/product_catalog/static/js/main.a94b2b01.js.map"
+    "main.0332053c.js.map": "/product_catalog/static/js/main.0332053c.js.map"
   },
   "entrypoints": [
     "static/css/main.858039b4.css",
-    "static/js/main.a94b2b01.js"
+    "static/js/main.0332053c.js"
   ]
 }
