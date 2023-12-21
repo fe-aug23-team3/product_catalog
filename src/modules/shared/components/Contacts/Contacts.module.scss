@@ -1,6 +1,25 @@
 @import "../../../../modules/HomePage/MainSlider/Slider_mixins.scss";
 
 .content {
+
+  @include onMobile {
+    max-width: 320px;
+    margin: auto;
+    margin-top: 176px;
+  }
+ 
+  @include onTablet {
+    max-width: 490px;
+    margin: auto;
+    margin-top: 176px;
+  }
+
+  @include onDesktop {
+    max-width: 1040px;
+    margin: auto;
+    margin-top: 168px;
+  }
+
   width: 1200px;
   border: 1px solid #000;
   margin-top: 168px;
@@ -14,6 +33,11 @@
   background-color: #fff;
   border-radius: 10px;
 
+
+  transition: transform 0.3s ease-in-out;
+}
+
+
   transition: transform 0.5s ease-in-out;
 }
 
@@ -23,14 +47,26 @@
 }
 
 .team_member img {
-  padding: 10px;
-  overflow: hidden;
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: auto;
-  transition: 0.5s ease-in-out;
+  @include onMobile {
+    width: 125px;
+    height: 125px;
+  }
+
+  @include onTablet {
+    width: 150px;
+    height: 150px;
+  }
+
+  @include onDesktop {
+    padding: 10px;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto;
+    transition: 0.3s ease-in-out;
+  }
 }
 
 .team_member h3 {
@@ -49,11 +85,13 @@
   transition: 0.5s;
 }
 
+
 .t {
   width: 30px;
   height: 30px;
   transition: 0.5s;
 }
+
 
 .s {
   width: 30px;
@@ -71,10 +109,6 @@
   fill: #0077b5;
 }
 
-.t:hover {
-  transform: scale(1.2);
-  fill: #229ed9;
-}
 
 .s:hover {
   transform: scale(1.2);
