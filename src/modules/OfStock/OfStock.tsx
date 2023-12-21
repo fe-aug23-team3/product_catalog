@@ -6,7 +6,7 @@ export const OfStock: React.FC = () => {
   return (
     <div className={style.OfStock}>
       <div className={style.OfStock__text}>
-        <h2>We are sorry</h2>
+        <h2 className={style.OfStock__sorry}>We are sorry</h2>
 
         <p>
           {

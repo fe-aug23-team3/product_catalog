@@ -7,21 +7,26 @@ import { Phone } from '../../types/Phone';
 import { ProductCard } from '../shared/components/ProductCard';
 import { Pagination } from '../shared/components/Pagination';
 import { PhonesContext } from '../../store/GlobalProvider';
+import Breadcrumps from '../shared/components/breadcrumbs/Breadcrumps';
+import { EmptyFavourites } from './EmptyFavourites/EmptyFav';
 
 export const Favourites: React.FC = () => {
   const { favorites } = useContext(PhonesContext);
   const { page } = useContext(PhonesContext);
   const [phones, setPhones] = useState<Phone[]>([]);
+  const [isEndLoad, setIsEndLoad] = useState(false); //
   const ITEMS = 4;
 
   useEffect(() => {
-    getAllProducts().then((res) => {
-      setPhones([
-        ...res.data.filter((tempPhone: Phone) =>
-          favorites.includes(tempPhone.id),
-        ),
-      ]);
-    });
+    getAllProducts()
+      .then((res) => {
+        setPhones([
+          ...res.data.filter((tempPhone: Phone) =>
+            favorites.includes(tempPhone.id),
+          ),
+        ]);
+      })
+      .finally(() => setIsEndLoad(true)); //
   }, [favorites]);
 
   const split = () => {
@@ -34,6 +39,9 @@ export const Favourites: React.FC = () => {
 
   return (
     <>
+      <div className={styles.buttons__box}>
+        <Breadcrumps />
+      </div>
       <div className={styles.favourite_Header}>
         <h1 className={styles.favourite_Header_content}>Favourites</h1>
         <p className={styles.favourite_Header_content_sub}>
@@ -41,18 +49,21 @@ export const Favourites: React.FC = () => {
         </p>
       </div>
 
-      <div className={styles.favourite_Content}>
-        {split().map((phone) => (
-          <div className={styles.favourite_Content_mobile} key={phone.id}>
-            <ProductCard model={phone} />
-          </div>
-        ))}
-      </div>
+      {phones.length !== 0 && (
+        <div className={styles.favourite_Content}>
+          {split().map((phone) => (
+            <div className={styles.favourite_Content_mobile} key={phone.id}>
+              <ProductCard model={phone} />
+            </div>
+          ))}
+        </div>
+      )}
 
-      {
-        phones.length > ITEMS
-        && <Pagination phones={phones.length} ITEMS={ITEMS} />
-      }
+      {phones.length === 0 && isEndLoad && <EmptyFavourites />}
+
+      {phones.length > ITEMS && (
+        <Pagination phones={phones.length} ITEMS={ITEMS} />
+      )}
     </>
   );
 };

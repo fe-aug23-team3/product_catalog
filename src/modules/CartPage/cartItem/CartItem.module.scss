@@ -21,8 +21,10 @@
   border-radius: 16px;
   min-width: 200px;
   background-color: $white-color;
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.0);
+    transition: box-shadow 0.5s ease;
   &:hover {
-    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.3);
   }
 
   @include onTablet {
@@ -47,6 +49,10 @@
     background-color: transparent;
     padding: 0;
     border: none;
+    transition: scale 0.4s;
+    &:hover{
+      scale: 1.1;
+    }
   }
 
   &__closeIcon {
@@ -86,6 +92,7 @@
   }
 
   &__image {
+    object-fit: contain;
     width: 66px;
     height: 66px;
     padding: 7px;
@@ -119,12 +126,26 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
+    transition: border-color 0.4s;
 
     &:hover {
       border-color: $primary-color;
     }
   }
+  //
+  &__quantityBtn:disabled {
+    border-color: $icons-color;
+    cursor: default;
 
+    &:hover {
+      border-color: $icons-color;
+    }
+  }
+
+  &__minusIcon:disabled path {
+  fill: $icons-color;
+}
+  //
   &__quantityValue {
     display: inline-block;
     text-align: center;
@@ -155,3 +176,4 @@
     fill: $icons-color;
   }
 }
+

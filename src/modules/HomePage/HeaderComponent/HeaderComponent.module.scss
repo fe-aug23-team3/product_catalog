@@ -1,0 +1,20 @@
+@import '../../../scssStyles/typography';
+@import '../../HomePage/MainSlider/Slider_mixins';
+.main__header {
+  padding-top: 100px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  padding-left: 10px;
+
+  @include onTablet {
+    padding-top: 100px;
+  }
+
+  @include onDesktop {
+    padding-top: 120px;
+    font-size: 48px;
+    line-height: 56px
+  }
+}

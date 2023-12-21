@@ -15,6 +15,7 @@ import { CartPage } from './modules/CartPage/CartPage';
 import { PhonesProvider } from './store/GlobalProvider';
 import { OfStock } from './modules/OfStock/OfStock';
 import { Favourites } from './modules/FavouritesPage';
+import { Contacts } from './modules/shared/components/Contacts';
 
 export const Root = () => (
   <PhonesProvider>
@@ -31,6 +32,7 @@ export const Root = () => (
           <Route path="accessories" element={<OfStock />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="favourites" element={<Favourites />} />
+          <Route path="contacts" element={<Contacts />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>

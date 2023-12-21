@@ -1,0 +1,41 @@
+// Utils
+@import "./scssStyles/reset";
+@import "./scssStyles/typography";
+
+// Blocks
+@import "./scssStyles/blocks/container";
+@import "./scssStyles/blocks/grid";
+@import "./scssStyles/blocks/page";
+
+// sliders
+//here will be imports for sliders
+
+:root {
+  font-family: "Mont", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #b4bdc3;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #8e2de2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #4a00e0,
+    #8e2de2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #4a00e0,
+    #8e2de2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 10px;
+}

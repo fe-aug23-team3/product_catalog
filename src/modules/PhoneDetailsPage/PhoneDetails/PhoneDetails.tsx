@@ -73,6 +73,8 @@ export const PhoneDetails: React.FC = () => {
     const newUrl = `/phones/:${selectedPhoneDetails?.namespaceId}-${capacity}-${color}`;
 
     navigate(newUrl);
+
+    capacity;
   };
 
   useEffect(() => {

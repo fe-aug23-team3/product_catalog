@@ -63,7 +63,15 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
 
   return (
     <article className={style.card}>
-      <img className={style.card__preview} src={image} alt={name} />
+      <img
+        className={style.card__preview}
+        src={image}
+        alt={name}
+        onClick={() => {
+          setPhoneItemId(phoneId);
+          navigate(`/phones/:${phoneId}`);
+        }}
+      />
 
       <p
         onClick={() => {
@@ -78,12 +86,12 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
       <h2 className={style.card__price}>
         {price < fullPrice ? (
           <>
-            <h2>{price}</h2>
+            <h2>{`${price}$`}</h2>
 
-            <h2 className={style.card__oldPrice}>{fullPrice}</h2>
+            <h2 className={style.card__oldPrice}>{`${fullPrice}$`}</h2>
           </>
         ) : (
-          <h2>{fullPrice}</h2>
+          <h2>{`${fullPrice}$`}</h2>
         )}
       </h2>
 

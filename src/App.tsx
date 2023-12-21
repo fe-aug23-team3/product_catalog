@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.scss';
 import { Outlet } from 'react-router-dom';
 import { Footer } from './modules/shared/components/FooterConponent';
 import { Header } from './modules/shared/components/HeaderComponent';

@@ -1,29 +1,35 @@
-@import '../../../scssStyles/reset';
-@import './Slider_mixins.scss';
+@import "../../../scssStyles/reset";
+@import "./Slider_mixins.scss";
 
 .Mcontainer {
   max-width: 100vw;
   margin: auto;
+  margin-top: 24px;
 }
 
 .container {
+  margin-top: 24px;
   @include onTablet {
     max-width: 490px;
     margin: auto;
+    margin-top: 32px;
   }
 
   @include onDesktop {
     max-width: 1040px;
     margin: auto;
+    margin-top: 56px;
   }
 }
 
 .mobileVersion {
   aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
 
 .mobContent {
   width: 100%;
+  object-fit: contain;
   height: 100%;
 }
 
@@ -82,7 +88,7 @@
       }
       line-height: unset;
       display: flex;
-      font-family: 'Mont';
+      font-family: "Mont";
       background: -webkit-linear-gradient(
         75deg,
         #891ce8 -22.43%,
@@ -214,7 +220,6 @@
     }
 
     @include onDesktop {
-      margin-top: 30px;
       font-size: 30px;
     }
 
@@ -273,25 +278,24 @@
   @include onMobile {
     display: none;
   }
-  background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg');
+  background-image: url("../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg");
   background-position: center;
   background-repeat: no-repeat;
   margin-left: -16px;
   transition: 200ms;
 
   &:focus {
-    background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg');
+    background-image: url("../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg");
     background-position: center;
     background-repeat: no-repeat;
   }
   &:hover {
     color: red;
     background-color: #b4bdc3;
-    background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg');
+    background-image: url("../../../modules/shared/icons/Chevron-black\ \(Arrow\ Left\).svg");
     background-position: center;
     background-repeat: no-repeat;
   }
-  
 }
 
 .next_arrow {
@@ -299,7 +303,7 @@
     display: none;
   }
 
-  background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg');
+  background-image: url("../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg");
   background-position: center;
   background-repeat: no-repeat;
   margin-right: -16px;
@@ -308,20 +312,19 @@
   &:hover {
     color: red;
     background-color: #b4bdc3;
-    background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg');
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  &:focus {
-    background-image: url('../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg');
+    background-image: url("../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg");
     background-position: center;
     background-repeat: no-repeat;
   }
 
+  &:focus {
+    background-image: url("../../../modules/shared/icons/Chevron-black\ \(Arrow\ Right\).svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
-.next_arrow, 
+.next_arrow,
 .prev_arrow {
   &:hover {
     cursor: pointer;
