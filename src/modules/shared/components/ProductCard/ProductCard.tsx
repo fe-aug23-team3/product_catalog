@@ -69,7 +69,7 @@ export const ProductCard: React.FC<Props> = ({ model }) => {
         alt={name}
         onClick={() => {
           setPhoneItemId(phoneId);
-          navigate(`/phones:${phoneId}`);
+          navigate(`/phones/:${phoneId}`);
         }}
       />
 
