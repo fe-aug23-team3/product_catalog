@@ -20,11 +20,16 @@
   transition: color 0.4s;
   &:hover {
     color: $primary-color;
+    cursor: pointer;
   }
 }
 
 .ChevronLeft {
   path {
     fill: $primary-color;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
