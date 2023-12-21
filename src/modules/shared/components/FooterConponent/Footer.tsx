@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
@@ -35,7 +36,7 @@ export const Footer: React.FC = () => {
           </Link>
           <a
             className={styles.footer_link}
-            href="/c"
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
             target="_blank"
             rel="noreferrer"
           >

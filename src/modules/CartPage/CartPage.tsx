@@ -28,8 +28,7 @@ export const CartPage: React.FC = () => {
   const changeQuantity = (id: number, newQuantity: number) => {
     const newCartData = cartData
       .map((item) => (+item.id === id
-        ? { ...item, quantity: newQuantity }
-        : item));
+        ? { ...item, quantity: newQuantity } : item));
 
     setCartData(newCartData);
     phonesContext.setCart(newCartData);

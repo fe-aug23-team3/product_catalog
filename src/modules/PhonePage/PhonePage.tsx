@@ -69,9 +69,11 @@ export const PhonePage: React.FC = () => {
     <section className={styles.main}>
       {phones.length !== 0 && (
         <>
-          <div className={
+          <div
+            className={
               isLoading ? styles.buttons__box_invisible : styles.buttons__box
-            }>
+            }
+          >
             <Breadcrumps />
           </div>
 

@@ -14,8 +14,7 @@ export const PhoneDetailsPage: React.FC = () => {
   const [recomendedPhones, setRecomendedPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
-    getTheNewestPhones()
-      .then((res) => setRecomendedPhones(res.data));
+    getTheNewestPhones().then((res) => setRecomendedPhones(res.data));
   }, []);
 
   return (

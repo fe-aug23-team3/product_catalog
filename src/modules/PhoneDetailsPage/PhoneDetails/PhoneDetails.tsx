@@ -46,11 +46,9 @@ export const PhoneDetails: React.FC = () => {
       );
 
       setSelectedPhoneDetails(foundPhone);
-      setSelectedCapacity(foundPhone.capacity)
-      
+      setSelectedCapacity(foundPhone.capacity);
     });
   }, [phoneItemId]);
-
 
   useEffect(() => {
     getAllProducts().then((res) => setAllphones(res.data));
@@ -63,7 +61,7 @@ export const PhoneDetails: React.FC = () => {
           phone.color === selectedColor && phone.capacity === selectedCapacity,
       );
 
-      if (foundPhone && (selectedPhoneDetails?.id !== foundPhone.id)) {
+      if (foundPhone && selectedPhoneDetails?.id !== foundPhone.id) {
         setSelectedPhoneDetails(foundPhone);
       }
     }
@@ -81,7 +79,6 @@ export const PhoneDetails: React.FC = () => {
     if (selectedPhoneDetails) {
       setPhotos(selectedPhoneDetails?.images);
     }
-
   }, [selectedPhoneDetails, setPhotos, selectedColor]);
 
   const handleColorClick = (color: string) => {
@@ -150,7 +147,7 @@ export const PhoneDetails: React.FC = () => {
       ]
     : [];
   const availableCapacities = selectedPhoneDetails?.capacityAvailable || [];
-  
+
   return (
     <>
       <h3 className={styles.head}>{selectedPhoneDetails?.name}</h3>

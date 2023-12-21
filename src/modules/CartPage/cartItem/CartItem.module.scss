@@ -1,4 +1,4 @@
-@import "../../../scssStyles/colors";
+@import '../../../scssStyles/colors';
 
 @mixin onTablet {
   @media (min-width: 640px) {
@@ -21,8 +21,8 @@
   border-radius: 16px;
   min-width: 200px;
   background-color: $white-color;
-    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.0);
-    transition: box-shadow 0.5s ease;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.5s ease;
   &:hover {
     box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.3);
   }
@@ -50,7 +50,7 @@
     padding: 0;
     border: none;
     transition: scale 0.4s;
-    &:hover{
+    &:hover {
       scale: 1.1;
     }
   }
@@ -143,8 +143,8 @@
   }
 
   &__minusIcon:disabled path {
-  fill: $icons-color;
-}
+    fill: $icons-color;
+  }
   //
   &__quantityValue {
     display: inline-block;
@@ -176,4 +176,3 @@
     fill: $icons-color;
   }
 }
-

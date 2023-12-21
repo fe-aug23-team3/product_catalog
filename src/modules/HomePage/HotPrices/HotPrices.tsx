@@ -20,11 +20,9 @@ export const HotPrices: React.FC = () => {
       });
   }, []);
 
-  return (
-    isLoading ? (
-      <Loader />
-    ) : (
-      <SliderComponent data={hotModels} header="Hot prices" />
-    )
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <SliderComponent data={hotModels} header="Hot prices" />
   );
 };

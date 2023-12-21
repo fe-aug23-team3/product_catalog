@@ -88,9 +88,11 @@ export const MainSlider: React.FC = () => {
                   in our store!
                 </p>
                 <p className={styles.card_box_Sub_text}>Be the first!</p>
-                <button type="button" className={styles.card_button_text}>
-                  <Link to="/phones">ORDER NOW</Link>
-                </button>
+                <Link to="/phones">
+                  <button type="button" className={styles.card_button_text}>
+                    ORDER NOW
+                  </button>
+                </Link>
               </div>
             </div>
             <div className={styles.card_item}>
@@ -118,9 +120,11 @@ export const MainSlider: React.FC = () => {
                   in our store!
                 </p>
                 <p className={styles.card_box_Sub_text}>Be the first!</p>
-                <button type="button" className={styles.card_button_text}>
-                  <Link to="/phones">ORDER NOW</Link>
-                </button>
+                <Link to="/phones">
+                  <button type="button" className={styles.card_button_text}>
+                    ORDER NOW
+                  </button>
+                </Link>
               </div>
             </div>
             <div className={styles.card_item}>

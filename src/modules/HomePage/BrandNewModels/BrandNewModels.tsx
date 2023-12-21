@@ -22,13 +22,11 @@ export const BrandNewModels: React.FC = () => {
       });
   }, []);
 
-  return (
-    isLoading ? (
-      <Loader />
-    ) : (
-      <div className={styles.first}>
-        <SliderComponent data={newModels} header="Brand new models" />
-      </div>
-    )
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <div className={styles.first}>
+      <SliderComponent data={newModels} header="Brand new models" />
+    </div>
   );
 };
