@@ -6,14 +6,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   align-items: center;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid $icons-color;
-  background-color: $white-color;  
+  background-color: $white-color;
 }
 
 .logo {
@@ -33,7 +33,7 @@
       top: 0;
       right: 0;
       display: block;
-      background-image: url('../../icons/union-img.svg');
+      background-image: url("../../icons/union-img.svg");
     }
   }
 
@@ -69,7 +69,7 @@
   }
 
   &__cross {
-    background-image: url('../../icons/close-img.svg');
+    background-image: url("../../icons/close-img.svg");
   }
 
   &__menu,
@@ -124,6 +124,7 @@
   // BURGER MENU(ACTIVE)
   &__active {
     padding-top: 60px;
+
     // padding-inline: 25px;
     display: flex;
     gap: 64px;
@@ -230,25 +231,25 @@
 }
 
 .link__active {
-    position: relative;
-    font-size: 12px;
-    line-height: 11px;
-    letter-spacing: 0.04em;
-    font-family: "Mont";
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 24px 0;
-    color: $primary-color;
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 1px;
-      width: 100%;
-      left: 0;
-      height: 3px;
-      background-color: $primary-color;
-    }
+  position: relative;
+  font-size: 12px;
+  line-height: 11px;
+  letter-spacing: 0.04em;
+  font-family: "Mont";
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 24px 0;
+  color: $primary-color;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    left: 0;
+    height: 3px;
+    background-color: $primary-color;
+  }
 }
 
 .buttons__active {
@@ -287,25 +288,25 @@
 }
 
 .good__counter {
-      position: absolute;
-      content: "";
-      font-size: 14px;
-      font-family: "Mont";
-      font-weight: 600;
-      line-height: 21px;
-      letter-spacing: 0;
-      color: $white-color;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: $icon--width;
-      padding: 2px;
-      height: $icon--height;
-      background-color: $accent-color;
-      border-radius: 50%;
-      border: 2px solid $white-color;
-      top: 12px;
-      left: 50%;
+  position: absolute;
+  content: "";
+  font-size: 14px;
+  font-family: "Mont";
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0;
+  color: $white-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $icon--width;
+  padding: 2px;
+  height: $icon--height;
+  background-color: $accent-color;
+  border-radius: 50%;
+  border: 2px solid $white-color;
+  top: 12px;
+  left: 50%;
 }
 
 .control__favorites_active,
