@@ -3,26 +3,26 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import styles from './Contacts.module.scss';
 import image2 from './c_images/IMG_1733.jpg';
+
 import Yarik from './c_images/Моє фото №2.jpg';
 import Nazariy from './c_images/image.png';
 import Yevhen from './c_images/photo_2023-05-19_19-52-26-modified.jpg';
 import Denis from './c_images/DR.jpg';
 import Danyok from './c_images/Danilas.jpg';
+
 import { ReactComponent as Linkedin } from '../../icons/linkedin.svg';
 import { ReactComponent as Telegram } from '../../icons/telegram.svg';
 import { ReactComponent as GitHub } from '../../icons/github.svg';
 /* eslint-disable */
 interface Reducer {
-  id: number,
-  name: string,
-  role: string,
-  image: string,
-  telegram: string,
-  linkedin: string,
-  github: string,
-
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  telegram: string;
+  linkedin: string;
+  github: string;
 }
-
 export const Contacts: React.FC = () => {
   const settings = {
     infinite: false,
@@ -39,8 +39,8 @@ export const Contacts: React.FC = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: false,
-          dots: false
-        }
+          dots: false,
+        },
       },
       {
         breakpoint: 600,
@@ -56,12 +56,10 @@ export const Contacts: React.FC = () => {
         settings: {
           arrows: false,
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-
-
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const reducers: Reducer[] = [
@@ -99,14 +97,14 @@ export const Contacts: React.FC = () => {
 
     {
       id: 4,
-      name: 'Leonid Pijavskiy',
+      name: 'Leonid',
       role: 'Front-end Developer',
       image: image2,
       telegram: 'https://t.me/nattynik',
       linkedin: 'https://www.linkedin.com/in/leoit/',
       github: 'https://github.com/HardCodWorker',
     },
-
+    
     {
       id: 5,
       name: 'Denys Rosokhach',
@@ -127,10 +125,11 @@ export const Contacts: React.FC = () => {
       github: 'https://github.com/Ayogoharo',
     }];
 
-  return (
 
+  return (
     <div className={styles.content}>
       <Slider {...settings}>
+
         {
           reducers.map((red: Reducer) => (
             <div key={red.id} className={styles.team_member}>
@@ -149,6 +148,7 @@ export const Contacts: React.FC = () => {
             </div>
           ))
         }
+
       </Slider>
     </div>
   );

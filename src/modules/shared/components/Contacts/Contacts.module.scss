@@ -1,64 +1,44 @@
-@import '../../../../modules/HomePage/MainSlider/Slider_mixins.scss';
-
-
-
-
+@import "../../../../modules/HomePage/MainSlider/Slider_mixins.scss";
 .content {
-
   @include onMobile {
     max-width: 320px;
     margin: auto;
     margin-top: 176px;
   }
- 
   @include onTablet {
     max-width: 490px;
     margin: auto;
     margin-top: 176px;
   }
-
   @include onDesktop {
     max-width: 1040px;
     margin: auto;
     margin-top: 168px;
   }
-
   width: 1200px;
   margin-top: 168px;
 }
-
-
-
 .team_member {
   margin-right: 5px;
   overflow: hidden;
   text-align: center;
-
   background-color: #fff;
   border-radius: 10px;
-
   transition: transform 0.3s ease-in-out;
 }
-
-
-
 .team_member:hover img {
   border-radius: 0px;
   overflow: hidden;
-
 }
-
 .team_member img {
   @include onMobile {
     width: 125px;
     height: 125px;
   }
-
   @include onTablet {
     width: 150px;
     height: 150px;
   }
-
   @include onDesktop {
     padding: 10px;
     overflow: hidden;
@@ -69,54 +49,42 @@
     margin: auto;
     transition: 0.3s ease-in-out;
   }
-
-
   padding: 10px;
   overflow: hidden;
   width: 300px;
   height: 300px;
   border-radius: 50%;
   object-fit: cover;
-  margin:auto;
+  margin: auto;
   transition: 0.3s ease-in-out;
 }
-
 .team_member h3 {
   font-weight: 700;
   margin: 0;
 }
-
 .team_member .role {
   color: #888;
   margin-bottom: 10px;
 }
-
-
-
 .i {
   width: 30px;
   height: 30px;
   transition: 0.5s;
 }
-
 .s {
   width: 30px;
   height: 30px;
   transition: 0.5s;
 }
-
 .l {
   margin-right: 5px;
   transition: 0.5s;
 }
-
-
 .i:hover {
   transform: scale(1.2);
-  fill: #007AFF;
+  fill: #007aff;
 }
-
 .s:hover {
   transform: scale(1.2);
-  fill: #808080;
+  fill: #6e5494;
 }

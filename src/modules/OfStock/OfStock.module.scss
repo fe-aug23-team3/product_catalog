@@ -1,7 +1,7 @@
-@import '../../scssStyles/colors';
-@import '../../scssStyles/reset';
-@import '../../scssStyles/typography';
-@import '../../scssStyles/mixins';
+@import "../../scssStyles/colors";
+@import "../../scssStyles/reset";
+@import "../../scssStyles/typography";
+@import "../../scssStyles/mixins";
 
 $primary-text-color: #2d3748;
 
@@ -18,6 +18,7 @@ $primary-text-color: #2d3748;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    padding: 0 10px;
 
     gap: 12px;
 
@@ -39,7 +40,7 @@ $primary-text-color: #2d3748;
     bottom: 96px;
 
     @media (max-width: 640px) {
-      bottom: 198px;
+      bottom: 230px;
     }
   }
 }

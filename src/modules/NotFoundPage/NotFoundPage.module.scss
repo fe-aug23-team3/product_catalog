@@ -1,6 +1,6 @@
-@import '../../scssStyles/colors';
+@import "../../scssStyles/colors";
 
-$font-family-main: 'Mont';
+$font-family-main: "Mont";
 $font-weight-semibold: 600;
 $max-width-large: 512px;
 $max-width-xl: 1280px;
@@ -43,7 +43,7 @@ $button-text-color: #fff;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 30px;
 }
 
 @keyframes blink {
@@ -72,6 +72,7 @@ $button-text-color: #fff;
 
 .text-4xl {
   font-size: $font-size-large;
+  line-height: 100%;
 
   @media (min-width: $media-breakpoint-sm) {
     font-size: $font-size-xl;
@@ -88,17 +89,18 @@ $button-text-color: #fff;
   font-weight: $font-weight-semibold;
   font-family: $font-family-main;
   border-radius: $border-radius;
-  transition:
-    background-color $transition-duration $transition-style,
+  transition: background-color $transition-duration $transition-style,
     border-color $transition-duration $transition-style;
   cursor: pointer;
 
   &--primary {
     color: $button-text-color;
-    height: $primary-button-height;
-    width: $primary-button-width;
+    // height: $primary-button-height;
+    padding: 10px 14px;
+    width: 40%;
     border: 1px solid $button-border-color;
     background-color: $accent-color;
+
     &:hover {
       background-color: $button-hover-bg-color;
     }

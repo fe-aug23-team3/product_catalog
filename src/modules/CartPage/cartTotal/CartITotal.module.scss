@@ -18,8 +18,11 @@
   align-items: center;
   min-width: 200px;
   background-color: $white-color;
+      box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.0);
+      transition: box-shadow 0.5s ease;
   &:hover {
-    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.3);
+
   }
 
   &__sum {
