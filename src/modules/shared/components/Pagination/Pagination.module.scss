@@ -71,6 +71,10 @@
   border: 1px solid #b4bdc3;
   object-fit: contain;
   transition: 300ms;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .left:hover,
