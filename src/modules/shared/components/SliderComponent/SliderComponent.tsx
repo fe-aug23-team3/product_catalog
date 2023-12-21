@@ -44,7 +44,9 @@ export const SliderComponent: React.FC<SliderProps> = ({ data, header }) => {
       <h2 className={style.slider__header}>{header}</h2>
       <Slider {...settings}>
         {data.map((phone) => (
-          <ProductCard key={phone.id} model={phone} />
+          <div key={phone.id} className={style.slider__container}>
+            <ProductCard key={phone.id} model={phone} />
+          </div>
         ))}
       </Slider>
     </section>
