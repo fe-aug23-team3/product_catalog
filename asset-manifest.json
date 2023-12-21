@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.8643471d.css",
-    "main.js": "/product_catalog/static/js/main.32fec804.js",
+    "main.css": "/product_catalog/static/css/main.9ba6e39e.css",
+    "main.js": "/product_catalog/static/js/main.fc4cecbe.js",
+    "static/media/IMG_1733.jpg": "/product_catalog/static/media/IMG_1733.e91662f9fae83dfe7298.jpg",
     "static/media/Bannerr.png": "/product_catalog/static/media/Bannerr.277f40f5cb294b77ef9b.png",
     "static/media/banner_image_mobile_version.jpg": "/product_catalog/static/media/banner_image_mobile_version.b7890059ed2580b5808d.jpg",
     "static/media/main-logo.svg": "/product_catalog/static/media/main-logo.41f90dd2f918d31c63281c58f4204c51.svg",
@@ -18,11 +19,14 @@
     "static/media/slick.ttf": "/product_catalog/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/cart.svg": "/product_catalog/static/media/cart.df23e4fbb25ff3701b16.svg",
     "static/media/favorites.svg": "/product_catalog/static/media/favorites.cc696932b63c19f48776.svg",
+    "static/media/github.svg": "/product_catalog/static/media/github.d0da9d9b0f823086f509c192530d5a15.svg",
     "static/media/slick.woff": "/product_catalog/static/media/slick.295183786cd8a1389865.woff",
     "static/media/Home.svg": "/product_catalog/static/media/Home.9a24a70540404ccecd05fd9f900ddeeb.svg",
     "static/media/Heart.svg": "/product_catalog/static/media/Heart.2e99d52c31e9b800d1ec9d40e2490dc0.svg",
+    "static/media/telegram.svg": "/product_catalog/static/media/telegram.4f4432142778dce820a214b715b632e6.svg",
     "index.html": "/product_catalog/index.html",
     "static/media/close-img.svg": "/product_catalog/static/media/close-img.cdfb6ae506fe360c9ad495bfc61f521d.svg",
+    "static/media/linkedin.svg": "/product_catalog/static/media/linkedin.a886bca81e502ea58850ca5b7514903d.svg",
     "static/media/Plus.svg": "/product_catalog/static/media/Plus.eb0a620344493c8446b93fac3dd53591.svg",
     "static/media/union-img.svg": "/product_catalog/static/media/union-img.3f3c3f2fcc2d0b60dfa7.svg",
     "static/media/Chevron-black (Arrow Right).svg": "/product_catalog/static/media/Chevron-black (Arrow Right).00ace8bdf60b154363ecc006436af99d.svg",
@@ -35,11 +39,11 @@
     "static/media/chevronArrowLeftActive.svg": "/product_catalog/static/media/chevronArrowLeftActive.e5d8a4fb0323d57696b8.svg",
     "static/media/ChevronUp.svg": "/product_catalog/static/media/ChevronUp.1ea6958a07717117d3d583ab6fe7dcbd.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.7dbf40c4da6acbd0d40bdc842464762e.svg",
-    "main.8643471d.css.map": "/product_catalog/static/css/main.8643471d.css.map",
-    "main.32fec804.js.map": "/product_catalog/static/js/main.32fec804.js.map"
+    "main.9ba6e39e.css.map": "/product_catalog/static/css/main.9ba6e39e.css.map",
+    "main.fc4cecbe.js.map": "/product_catalog/static/js/main.fc4cecbe.js.map"
   },
   "entrypoints": [
-    "static/css/main.8643471d.css",
-    "static/js/main.32fec804.js"
+    "static/css/main.9ba6e39e.css",
+    "static/js/main.fc4cecbe.js"
   ]
 }
