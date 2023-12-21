@@ -20,7 +20,7 @@ interface Reducer {
 
 export const Contacts: React.FC = () => {
   const settings = {
-
+infinite:false,
     dots: false,
     speed: 500,
     slidesToShow: 3,
@@ -31,9 +31,9 @@ export const Contacts: React.FC = () => {
         breakpoint: 1024,
         settings: {
           arrows: false,
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 3,
-          infinite: true,
+          infinite: false,
           dots: false
         }
       },
