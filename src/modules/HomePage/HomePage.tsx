@@ -9,6 +9,7 @@ import style from './HomePage.module.scss';
 export const HomePage: React.FC = () => {
   return (
     <>
+
       <HeaderComponent />
       <MainSlider />
       <div className={style.home__page}>
