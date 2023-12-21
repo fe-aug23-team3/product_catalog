@@ -20,10 +20,10 @@ export const CheckoutModal: React.FC<CartItemProps> = ({
           >
             THANK YOU FOR SPENDING SOME SHEKELS!
           </h2>
-          <p className={styles.order}>Your order id: 0000</p>
+          <p className={styles.order}>Your order id: Pupupu</p>
           <button className={styles.home} type="button">
-            <a href="/" className={styles.link}>
-              go back home
+            <a href="/product_catalog" className={styles.link}>
+              Continue shopping
             </a>
           </button>
 
