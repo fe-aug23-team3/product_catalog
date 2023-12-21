@@ -12,6 +12,7 @@ import { Phone } from '../../types/Phone';
 import { ItemsNum, SortBy } from '../../helpers/helper';
 import { PhonesContext } from '../../store/GlobalProvider';
 import { Loader } from '../shared/components/loader';
+import Breadcrumps from '../shared/components/breadcrumbs/Breadcrumps';
 
 export const PhonePage: React.FC = () => {
   const [phonesLength, setPhonesLength] = useState(0);
@@ -68,6 +69,12 @@ export const PhonePage: React.FC = () => {
     <section className={styles.main}>
       {phones.length !== 0 && (
         <>
+          <div className={
+              isLoading ? styles.buttons__box_invisible : styles.buttons__box
+            }>
+            <Breadcrumps />
+          </div>
+
           <h1
             className={
               isLoading ? styles.main__header_invisible : styles.main__header
