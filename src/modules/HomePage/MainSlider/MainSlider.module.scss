@@ -23,10 +23,12 @@
 
 .mobileVersion {
   aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
 
 .mobContent {
   width: 100%;
+  object-fit: contain;
   height: 100%;
 }
 
