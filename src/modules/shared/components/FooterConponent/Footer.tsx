@@ -30,17 +30,12 @@ export const Footer: React.FC = () => {
           >
             Github
           </a>
-          <a
-            className={styles.footer_link}
-            href="mailto:placeholder@example.com"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <Link className={styles.footer_link} to="/contacts">
             Contacts
-          </a>
+          </Link>
           <a
             className={styles.footer_link}
-            href="/placeholder"
+            href="/c"
             target="_blank"
             rel="noreferrer"
           >
