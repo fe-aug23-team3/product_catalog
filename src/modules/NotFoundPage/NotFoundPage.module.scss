@@ -1,6 +1,6 @@
-@import '../../scssStyles/colors';
+@import "../../scssStyles/colors";
 
-$font-family-main: 'Mont';
+$font-family-main: "Mont";
 $font-weight-semibold: 600;
 $max-width-large: 512px;
 $max-width-xl: 1280px;
@@ -88,8 +88,7 @@ $button-text-color: #fff;
   font-weight: $font-weight-semibold;
   font-family: $font-family-main;
   border-radius: $border-radius;
-  transition:
-    background-color $transition-duration $transition-style,
+  transition: background-color $transition-duration $transition-style,
     border-color $transition-duration $transition-style;
   cursor: pointer;
 
