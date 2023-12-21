@@ -47,6 +47,13 @@ $mobile-max-width: 480px;
     width: 442px;
     height: 442px;
   }
+
+  @media((min-width: 479px) and (max-width: 580px)) {
+    position: relative;
+    height: 288px;
+    max-width: 442px;
+    margin: 0 auto;
+  }
 }
 
 .paging-container {
@@ -69,6 +76,11 @@ $mobile-max-width: 480px;
     @include onDesktopGrid;
     width: 80px;
     height: 80px;
+  }
+  @media((min-width: 479px) and (max-width: 580px)) {
+    width: 50px;
+    height: 50px;
+    margin-left: -20px;
   }
 }
 
@@ -93,6 +105,14 @@ $mobile-max-width: 480px;
     margin-top: 7px;
     width: 40px;
     margin-bottom: 10px;
+  }
+
+  @media((min-width: 479px) and (max-width: 580px)) {
+    justify-content: center;
+    line-height: 100%;
+    margin-top: 5px;
+    height: 40px;
+    width: 25px;
   }
 }
 
@@ -142,12 +162,16 @@ $mobile-max-width: 480px;
 
     transform: translateY(-800%);
   }
+
+  @media((min-width: 479px) and (max-width: 580px)) {
+    margin: 16px 8px 0 29px;
+  }
 }
 
 .main-image {
   margin: 0 auto;
   height: 288px;
-  width: 210px;
+  width: 190px;
   
 
   @include onTablet {
@@ -159,7 +183,13 @@ $mobile-max-width: 480px;
   @include onDesktop {
     height: 420px;
     margin-top: 7px;
-    width: 300px;
+    width: 250px;
     margin-bottom: 10px;
+  }
+
+  @media((min-width: 479px) and (max-width: 580px)) {
+    margin: 0 auto;
+    height: 288px;
+    width: 190px;
   }
 }
