@@ -1,13 +1,12 @@
 @import "../../../../modules/HomePage/MainSlider/Slider_mixins.scss";
 
 .content {
-
   @include onMobile {
     max-width: 320px;
     margin: auto;
     margin-top: 176px;
   }
- 
+
   @include onTablet {
     max-width: 490px;
     margin: auto;
@@ -33,12 +32,7 @@
   background-color: #fff;
   border-radius: 10px;
 
-
   transition: transform 0.3s ease-in-out;
-}
-
-
-  transition: transform 0.5s ease-in-out;
 }
 
 .team_member:hover img {
@@ -85,13 +79,11 @@
   transition: 0.5s;
 }
 
-
 .t {
   width: 30px;
   height: 30px;
   transition: 0.5s;
 }
-
 
 .s {
   width: 30px;
@@ -108,7 +100,6 @@
   transform: scale(1.2);
   fill: #0077b5;
 }
-
 
 .s:hover {
   transform: scale(1.2);
