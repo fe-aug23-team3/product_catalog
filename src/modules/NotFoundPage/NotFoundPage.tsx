@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './NotFoundPage.module.scss';
 
 export const NotFoundPage: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <main>
       <div className={styles['max-w-screen-xl']}>
@@ -31,10 +34,10 @@ export const NotFoundPage: React.FC = () => {
           >
             <button
               type="button"
-              onClick={() => window.history.back()}
+              onClick={() => navigate('/home')}
               className={`${styles.button} ${styles['button--primary']}`}
             >
-              Go back
+              Return to home page
             </button>
           </div>
         </div>

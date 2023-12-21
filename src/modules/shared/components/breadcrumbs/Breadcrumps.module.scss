@@ -1,12 +1,12 @@
 @import '../../../../scssStyles/colors';
 
 .breadcrumps {
+  font-family: 'Mont';
   display: flex;
   align-items: center;
   color: $secondary-color;
   margin-top: 100px;
   margin-bottom: 72px;
-  margin-left: 32px;
 }
 
 .homeIcon {

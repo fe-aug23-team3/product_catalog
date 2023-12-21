@@ -1,4 +1,4 @@
- @import "../../../scssStyles/colors";
+@import "../../../scssStyles/colors";
 
 .modal {
   display: flex;
@@ -37,24 +37,25 @@
   margin-bottom: 30px;
 }
 .loader:after {
-  content: '$';
+  content: "$";
   display: block;
   width: 48px;
   height: 48px;
   border-radius: 50%;
   text-align: center;
-  line-height:40px;
+  line-height: 40px;
   font-size: 32px;
   font-weight: bold;
-  background: #FFD700;
-  color: #DAA520;
-  border: 4px double ;
+  background: #ffd700;
+  color: #daa520;
+  border: 4px double;
   box-sizing: border-box;
-  box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, .1);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
   animation: coin-flip 4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 @keyframes coin-flip {
-  0%, 100% {
+  0%,
+  100% {
     animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
   }
   0% {
@@ -69,7 +70,6 @@
   }
 }
 
-
 .text {
   margin-bottom: 90px;
   display: flex;
@@ -82,10 +82,6 @@
   text-align: center;
   color: #b4bdc3;
 }
-
-
-
-
 
 .home {
   text-align: center;
@@ -106,7 +102,6 @@
 }
 
 .home:hover {
-
   box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
   transition-duration: 0.5s;
   background-color: #222;
@@ -115,4 +110,26 @@
 
 .home:hover .link {
   color: white;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+.closeIcon {
+  flex-shrink: 0;
+  cursor: pointer;
+  path {
+    fill: $icons-color;
+  }
+  &:hover {
+    path {
+      transition-duration: 0.3s;
+      fill: $primary-color;
+    }
+  }
 }

@@ -16,7 +16,7 @@ export const EmptyCart: React.FC = () => {
       <button
         className={styles.emptyCart__button}
         type="button"
-        onClick={() => navigate('/')}
+        onClick={() => navigate('/phones')}
       >
         Explore Catalog
       </button>

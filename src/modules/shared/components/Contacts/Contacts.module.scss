@@ -1,7 +1,4 @@
-@import '../../../../modules/HomePage/MainSlider/Slider_mixins.scss';
-
-
-
+@import "../../../../modules/HomePage/MainSlider/Slider_mixins.scss";
 
 .content {
 
@@ -24,10 +21,9 @@
   }
 
   width: 1200px;
+  border: 1px solid #000;
   margin-top: 168px;
 }
-
-
 
 .team_member {
   margin-right: 5px;
@@ -37,15 +33,17 @@
   background-color: #fff;
   border-radius: 10px;
 
+
   transition: transform 0.3s ease-in-out;
 }
 
 
+  transition: transform 0.5s ease-in-out;
+}
 
 .team_member:hover img {
-  border-radius: 0px;
+  border-radius: 20%;
   overflow: hidden;
-
 }
 
 .team_member img {
@@ -69,16 +67,6 @@
     margin: auto;
     transition: 0.3s ease-in-out;
   }
-
-
-  padding: 10px;
-  overflow: hidden;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin:auto;
-  transition: 0.3s ease-in-out;
 }
 
 .team_member h3 {
@@ -91,13 +79,19 @@
   margin-bottom: 10px;
 }
 
-
-
 .i {
   width: 30px;
   height: 30px;
   transition: 0.5s;
 }
+
+
+.t {
+  width: 30px;
+  height: 30px;
+  transition: 0.5s;
+}
+
 
 .s {
   width: 30px;
@@ -110,13 +104,13 @@
   transition: 0.5s;
 }
 
-
 .i:hover {
   transform: scale(1.2);
-  fill: #007AFF;
+  fill: #0077b5;
 }
+
 
 .s:hover {
   transform: scale(1.2);
-  fill: #808080;
+  fill: #6e5494;
 }

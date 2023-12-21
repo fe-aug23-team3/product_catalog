@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { CSSProperties, useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 import styles from './MainSlider.module.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -15,11 +16,7 @@ interface ArrowProps {
   onClick?: () => void;
 }
 
-const NextArrow: React.FC<ArrowProps> = ({
-  className,
-  style,
-  onClick,
-}) => (
+const NextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => (
   <div
     className={`${styles.arrow} ${styles.next_arrow}`}
     style={{
@@ -32,11 +29,7 @@ const NextArrow: React.FC<ArrowProps> = ({
   />
 );
 
-const PrevArrow: React.FC<ArrowProps> = ({
-  className,
-  style,
-  onClick,
-}) => (
+const PrevArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => (
   <div
     className={`${styles.arrow} ${styles.prev_arrow}`}
     style={{
@@ -60,7 +53,7 @@ export const MainSlider: React.FC = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
 
   const settings = {
-    dots: screenSize.width > 639,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -96,7 +89,7 @@ export const MainSlider: React.FC = () => {
                 </p>
                 <p className={styles.card_box_Sub_text}>Be the first!</p>
                 <button type="button" className={styles.card_button_text}>
-                  ORDER NOW
+                  <Link to="/phones">ORDER NOW</Link>
                 </button>
               </div>
             </div>
@@ -126,13 +119,13 @@ export const MainSlider: React.FC = () => {
                 </p>
                 <p className={styles.card_box_Sub_text}>Be the first!</p>
                 <button type="button" className={styles.card_button_text}>
-                  ORDER NOW
+                  <Link to="/phones">ORDER NOW</Link>
                 </button>
               </div>
             </div>
             <div className={styles.card_item}>
               <div className={styles.card_promo}>
-                <p className={styles.card_promo}> iPhone 14 Pro</p>
+                <p className={styles.card_promo}> iPhone 13 Pro</p>
                 <p className={styles.card_sub_promo}>Pro. Beyond.</p>
               </div>
               <div className={styles.card_img}>
