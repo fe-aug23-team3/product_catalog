@@ -89,6 +89,7 @@
     color: $primary-color;
     font-weight: 600;
     line-height: 21px;
+    cursor: pointer;
   }
 
   &__image {
@@ -97,6 +98,7 @@
     height: 66px;
     padding: 7px;
     flex-shrink: 0;
+    cursor: pointer;
   }
 
   &__quantity {
@@ -164,6 +166,11 @@
     align-items: center;
     width: 80px;
     justify-content: end;
+
+    font-family: Mont;
+    font-size: 22px;
+    font-style: normal;
+    line-height: 140%
   }
 }
 

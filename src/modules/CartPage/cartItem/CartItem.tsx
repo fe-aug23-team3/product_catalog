@@ -1,4 +1,9 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useContext } from 'react'; //
+import { useNavigate } from 'react-router-dom'; //
+import { PhonesContext } from '../../../store/GlobalProvider'; //
 import styles from './CartItem.module.scss';
 import { ReactComponent as Close } from '../../shared/icons/close-img.svg';
 import { ReactComponent as Minus } from '../../shared/icons/Minus.svg';
@@ -17,6 +22,10 @@ export const CartItem: React.FC<CartItemProps> = ({
   changeQuantity,
 }) => {
   const isDisabled = dataItem.quantity === 1;
+
+  const { setPhoneItemId } = useContext(PhonesContext);
+
+  const navigate = useNavigate();
 
   const handleDecrease = () => {
     if (!isDisabled) {
@@ -43,8 +52,20 @@ export const CartItem: React.FC<CartItemProps> = ({
           className={styles.cartItem__image}
           src={dataItem.image}
           alt={dataItem.name}
+          onClick={() => {
+            setPhoneItemId(dataItem.phoneId);
+            navigate(`/phones/:${dataItem.phoneId}`);
+          }}
         />
-        <p className={styles.cartItem__title}>{dataItem.name}</p>
+        <p
+          className={styles.cartItem__title}
+          onClick={() => {
+            setPhoneItemId(dataItem.phoneId);
+            navigate(`/phones/:${dataItem.phoneId}`);
+          }}
+        >
+          {dataItem.name}
+        </p>
       </div>
 
       <div className={styles.cartItem__quantity}>
@@ -52,9 +73,6 @@ export const CartItem: React.FC<CartItemProps> = ({
           <button
             type="button"
             aria-label="decrease"
-            // className={`${styles.cartItem__quantityBtn} ${
-            //   isDisabled ? styles.disabled : ''
-            // }`}
             className={styles.cartItem__quantityBtn}
             onClick={handleDecrease}
             disabled={isDisabled}
